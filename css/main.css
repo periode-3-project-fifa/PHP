@@ -104,7 +104,7 @@ textarea {
     align-items: center;
     justify-content: space-between;
     background: #ADFF2F;
-    padding: 0 100px 0 50px;
+    padding: 0 100px 15px 50px
 }
 .navigation h1{
     font-size: 40px;
@@ -139,7 +139,6 @@ textarea {
 /*main top*/
 
 .main_top{
-    margin-top: 10px;
     display: flex;
     height: 500px;
 }
