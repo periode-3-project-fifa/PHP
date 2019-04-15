@@ -35,7 +35,7 @@ if ( $_POST['type'] == 'register' ) {
 
     if ($_POST['password'] == $_POST['passwordconfirm']) {
 
-        $sql = "INSERT INTO register (email, password) VALUES (:email, :password)";
+        $sql = "INSERT INTO users (email, password) VALUES (:email, :password)";
         $prepare = $db->prepare($sql);
         $prepare->execute([
             ':email' => $email,
