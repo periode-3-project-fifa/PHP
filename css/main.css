@@ -94,9 +94,11 @@ textarea {
 }
 
 /* ==========================================================================
-   Author's custom styles
+   index
    ========================================================================== */
+
 /*navigation*/
+
 .navigation{
     display: flex;
     align-items: center;
@@ -107,6 +109,8 @@ textarea {
 .navigation h1{
     font-size: 40px;
     color: #006400;
+    margin-left: 2px;
+    margin-right: 5px;
 }
 .login_register{
     display: flex;
@@ -123,19 +127,41 @@ textarea {
     color: #008000;
     text-decoration: underline;
 }
+.navigation .head {
+    display: flex;
+    font-size: 20px;
+    align-items: center;
+}
+.navigation .head i{
+    color: black
+}
 
-/*main*/
+/*main top*/
+
 .main_top{
+    margin-top: 10px;
     display: flex;
     height: 500px;
 }
 .main_top div{
-    width: 100%;
-    border: 1px solid;
+    width: 98.5%;
+    justify-content: center;
+}
+.main_top div .heading{
+    background: #0aad6f;
+    border-style: double;
 }
 .main_top div h3{
     margin-left: 20px;
 }
+
+/*box*/
+.box{
+    border:double;
+    background: #b9ffb4;
+    height: 100%;
+}
+
 /*uitslagen*/
 
 /* ==========================================================================
@@ -193,13 +219,17 @@ textarea {
 
     .register-header{
         background-color: white;
-        display: flex;
     }
 
-    .register-header h1{
-        margin: 0;
-        padding-top: 0.5em;
-        padding-bottom: 0.5em;
+    .register-navigation{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 100px 0 50px;
+    }
+
+    .register-controler {
+        font-size: 25px;
     }
 
     

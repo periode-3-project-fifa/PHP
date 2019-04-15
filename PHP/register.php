@@ -13,13 +13,15 @@ require 'header.php';
 require 'config.php'
 ?>
 
-<header>
-    <div class="register-header">
+<header class = "register-header">
         <div class="container">
-            <h1>FIFA Voetbal Toernooi</h1>
-            <a href="index.php">Home</a>
+            <div class="register-navigation">
+                <h1>FIFA Voetbal Toernooi Register</h1>
+                <div class="register-controler">
+                    <a href="index.php">Home</a>
+                </div>
+            </div>
         </div>
-    </div>
 </header>
     
 <main class = "register">
@@ -39,8 +41,6 @@ require 'config.php'
                 <input type="password" placeholder="Enter Password again" name="passwordconfirm" >
 
                 <button class= "registerbutton" type="submit" value="Create new contact">Register</button>
-
-                <button class="back" type="back"><a href="index.php">Back to home page</a></button>
             </div>
 
         </form>
