@@ -12,7 +12,11 @@ require 'header.php';
 ?>
 <div class="container">
     <div class="navigation">
-        <h1>VoetbalPoules</h1>
+        <div class="head">
+            <i class="far fa-futbol"></i>
+            <h1>VoetbalPoules</h1>
+            <i class="far fa-futbol"></i>
+        </div>
         <div class="login_register">
             <a href="login.php">Login</a>
             <a href="register.php">Register</a>
@@ -24,7 +28,7 @@ require 'header.php';
             <div class="heading">
             <h3>Uitslagen</h3>
             </div>
-            <div class="uitslag">
+            <div class="box uitslag">
 
             </div>
         </div>
@@ -32,7 +36,7 @@ require 'header.php';
             <div class="heading">
                 <h3>Teams</h3>
             </div>
-            <div class="teams">
+            <div class="box teams">
 
             </div>
         </div>
@@ -40,7 +44,7 @@ require 'header.php';
             <div class="heading">
                 <h3>Spelers</h3>
             </div>
-            <div class="spelers">
+            <div class="box spelers">
 
             </div>
         </div>
