@@ -127,11 +127,11 @@ textarea {
 /*main*/
 .main_top{
     display: flex;
-    justify-content: space-between;
+    height: 500px;
 }
 .main_top div{
-    border: solid 1px;
     width: 100%;
+    border: 1px solid;
 }
 .main_top div h3{
     margin-left: 20px;
