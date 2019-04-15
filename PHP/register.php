@@ -12,6 +12,15 @@ require 'header.php';
 
 require 'config.php'
 ?>
+
+<header>
+    <div class="register-header">
+        <div class="container">
+            <h1>FIFA Voetbal Toernooi</h1>
+            <a href="index.php">Home</a>
+        </div>
+    </div>
+</header>
     
 <main class = "register">
     <div class="container">

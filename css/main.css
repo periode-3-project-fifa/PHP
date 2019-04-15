@@ -131,13 +131,7 @@ textarea {
 }
 .main_top div{
     width: 100%;
-}
-.main_top div .heading{
-    background: #0aad6f;
-    height: 40px;
-}
-.main_top div div{
-
+    border: 1px solid;
 }
 .main_top div h3{
     margin-left: 20px;
@@ -153,7 +147,7 @@ textarea {
 
     .register{
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #91ff89;
+        background-color: #4cc132;
     }
 
     .register .container input[type=email], input[type=password] {
@@ -189,7 +183,7 @@ textarea {
         margin: 0 auto;
     }
 
-    .register .back{
+    .back{
         margin-top: 1.5em;
     }
 
@@ -197,7 +191,21 @@ textarea {
         margin-top: 1em;
     }
 
+    .register-header{
+        background-color: white;
+        display: flex;
+    }
 
+    .register-header h1{
+        margin: 0;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+    }
+
+    
+/* ==========================================================================
+   login-Form
+   ========================================================================== */
 
 
 
