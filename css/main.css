@@ -131,7 +131,13 @@ textarea {
 }
 .main_top div{
     width: 100%;
-    border: 1px solid;
+}
+.main_top div .heading{
+    background: #0aad6f;
+    height: 40px;
+}
+.main_top div div{
+
 }
 .main_top div h3{
     margin-left: 20px;
@@ -183,7 +189,7 @@ textarea {
         margin: 0 auto;
     }
 
-    .back{
+    .register .back{
         margin-top: 1.5em;
     }
 

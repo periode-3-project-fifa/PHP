@@ -21,16 +21,28 @@ require 'header.php';
 </div>
     <div class="main_top">
         <div class="uitslagen">
+            <div class="heading">
             <h3>Uitslagen</h3>
+            </div>
             <div class="uitslag">
 
             </div>
         </div>
         <div class="teams">
-            <h3>Teams</h3>
+            <div class="heading">
+                <h3>Teams</h3>
+            </div>
+            <div class="teams">
+
+            </div>
         </div>
         <div class="spelers">
-            <h3>Spelers</h3>
+            <div class="heading">
+                <h3>Spelers</h3>
+            </div>
+            <div class="spelers">
+
+            </div>
         </div>
     </div>
     <div class="main_bottom">
