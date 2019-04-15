@@ -141,7 +141,7 @@ textarea {
 /* ==========================================================================
    Register-Form
    ========================================================================== */
-    h2{
+   .register .container h2{
         text-align: center;
     }
 
@@ -150,7 +150,7 @@ textarea {
         background-color: #91ff89;
     }
 
-    input[type=email], input[type=password] {
+    .register .container input[type=email], input[type=password] {
         width: 100%;
         padding: 12px 20px;
         margin: 8px 0;
@@ -159,7 +159,7 @@ textarea {
         box-sizing: border-box;
     }
       
-    button {
+    .register .container button {
         background-color: lightgray;
         color: black;
         padding: 14px 20px;
@@ -169,11 +169,11 @@ textarea {
         width: 100%;
     }
       
-    button:hover {
+    .register .container button:hover {
         opacity: 0.8;
     }
       
-    a{
+    .register .container a{
         text-decoration: none;
         color: black;
     }
