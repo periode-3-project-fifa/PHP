@@ -29,7 +29,7 @@ require 'header.php';?>
 
                 <button class= "registerbutton" type="submit" value="Create new contact">Register</button>
 
-                <button class="back" type ="back"><a href="index.php">Back to home page</a></button>
+                <button class="back" type="back"><a href="index.php">Back to home page</a></button>
             </div>
 
         </form>
