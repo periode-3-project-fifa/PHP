@@ -96,7 +96,6 @@ textarea {
 /* ==========================================================================
    index
    ========================================================================== */
-
 /*navigation*/
 
 .navigation{
@@ -140,7 +139,6 @@ textarea {
 
 .main_top{
     display: flex;
-    height: 500px;
 }
 .main_top div{
     width: 98.5%;
@@ -158,7 +156,7 @@ textarea {
 .box{
     border:double;
     background: #b9ffb4;
-    height: 100%;
+    height: 400px;
 }
 
 /*uitslagen*/
@@ -168,18 +166,32 @@ textarea {
 
 .main_bottom {
     display: flex;
+    margin-top: 10px;
 }
-.main_bottom div {
+.main_bottom div{
+    width: 98.5%;
+}
+.main_bottom .heading{
     border: solid 1px;
-    width:100%;
-    height: 400px;
-    margin-top: 80px;
     background: repeating-linear-gradient(#8fffe6, #6bff40);
 }
-.main_bottom h3{
-    text-align: center;
-    background: radial-gradient(#a7a800, #14b700);
-    border-bottom: solid 1px;
+.main_bottom .heading h3 {
+    margin-left: 20px;
+}
+.main_bottom .boxx{
+    border: solid 1px;
+    height: 100%;
+    background: repeating-linear-gradient(#8fffe6, #6bff40);
+}
+.main_bottom .de_poules .poule_A{
+    border: double;
+}
+.main_bottom .de_poules .poule_B{
+    border: double;
+}
+.main_bottom .de_poules .pouleteam{
+    border: solid 1px;
+    display: inline-block;
 }
 
 /* ==========================================================================
@@ -187,13 +199,11 @@ textarea {
    ========================================================================== */
    .register .container h2{
         text-align: center;
-        padding-top: 1em;
-        margin-right: 1.5em;
     }
 
     .register{
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        
+        background-color: #91ff89;
     }
 
     .background-register{
@@ -282,7 +292,13 @@ textarea {
         width: 960px;
         margin: 0 auto;
     }
-
+    .login .container-2 {
+        width: 960px;
+        margin: 0 auto;
+    }
+    .login_field {
+        margin-left: 13.3%;
+    }
     .login .container h2 {
         text-align: center;
         margin-right: 1.5em;
@@ -300,15 +316,14 @@ textarea {
         padding-left: 1em;
     }
 
-    .login .container input[type=email], input[type=password] {
+    .login .container input[type=email], .login .container input[type=password] {
         width: 70%;
         padding: 10px 20px;
-        margin: 8px 0;
         display: flex;
         border: 1px solid #ccc;
         box-sizing: border-box;
         text-align: center;
-        margin-left: 8em;   
+        align-items: center;
       }
 
     .login .container .login-a {
