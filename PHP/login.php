@@ -36,8 +36,6 @@ require 'header.php';?>
                 <div class="container-2">
                     <label for="email"><b class="login-email">Email</b></label>
                     <input class="login_field" type="email" placeholder="Enter Email" name="email" required>
-
-<<<<<<< HEAD
                         <label for="psw"><b class="login-password">Password</b></label>
                         <input type="password" placeholder="Enter Password" name="password" required>
                         
@@ -46,15 +44,6 @@ require 'header.php';?>
                     </div>    
         </form>   
 </div>
-=======
-                    <label for="psw"><b class="login-password">Password</b></label>
-                    <input class="login_field" type="password" placeholder="Enter Password" name="password" required>
-
-                    <input class="login-a" type="submit"><a href="index.php">Login</a>
-                 </div>
-            </form>
-        </div>
->>>>>>> master
     </div>
 </main>
 
