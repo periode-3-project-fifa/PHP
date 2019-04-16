@@ -9,7 +9,13 @@
 $pagetitle = 'Home';
 $pagename = 'index';
 require 'header.php';
+
+require 'config.php';
+$sql = "SELECT * FROM teams";
+$query =$db->query($sql);
+$teams = $query->fetchAll(PDO::FETCH_ASSOC);
 ?>
+
     <META HTTP-EQUIV="refresh" CONTENT="15">
     </head>
 <body class="<?=$pagename?>">
@@ -17,7 +23,7 @@ require 'header.php';
     <div class="navigation">
         <div class="head">
             <i class="far fa-futbol"></i>
-            <h1>VoetbalPoules</h1>
+            <h1>Voetbal Poules</h1>
             <i class="far fa-futbol"></i>
         </div>
         <div class="login_register">
@@ -89,7 +95,7 @@ require 'header.php';
         </div>
         <div class="quaterfinals">
             <div class="heading">
-                <h3>Kwartfinales</h3>
+                <h3>Kwart Finales</h3>
             </div>
             <div class="boxx kwartfinale">
 
@@ -97,7 +103,7 @@ require 'header.php';
         </div>
         <div class="halffinals">
             <div class="heading">
-                <h3>Halvefinales</h3>
+                <h3>Halve Finales</h3>
             </div>
             <div class="boxx halvefinale">
 
