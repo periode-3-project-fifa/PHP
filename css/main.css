@@ -163,6 +163,24 @@ textarea {
 
 /*uitslagen*/
 
+
+/*main_bottom*/
+
+.main_bottom {
+    display: flex;
+}
+.main_bottom div {
+    border: solid 1px;
+    width:100%;
+    height: 400px;
+    margin-top: 80px;
+}
+.main_bottom h3{
+    text-align: center;
+    background: #2a911d;
+    border-bottom: solid 1px;
+}
+
 /* ==========================================================================
    Register-Form
    ========================================================================== */
