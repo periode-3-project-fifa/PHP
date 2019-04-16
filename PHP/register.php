@@ -14,6 +14,7 @@ require 'config.php'
 ?>
     </head>
 <body class="<?=$pagename?>">
+
 <header class = "register-header">
         <div class="container">
             <div class="register-navigation">

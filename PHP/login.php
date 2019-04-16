@@ -42,8 +42,8 @@ require 'header.php';?>
                         <input type="submit" value="Login" class="login-a">
                 
                     </div>    
-        </form>   
-</div>
+            </form>   
+        </div>
     </div>
 </main>
 
