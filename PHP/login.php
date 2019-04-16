@@ -26,7 +26,7 @@ require 'header.php';?>
 
 <main class = "login">  
     <div class="container">
-        <div class="background-register">
+        <div class="">
             <h2>Login FIFA</h2>
             <form action=""  method="post">
                 <input type="hidden" name="type" value="login">
@@ -36,10 +36,9 @@ require 'header.php';?>
                 <div class="container-2">
                     <label for="email"><b class="login-email">Email</b></label>
                     <input class="login_field" type="email" placeholder="Enter Email" name="email" required>
-                        <label for="psw"><b class="login-password">Password</b></label>
-                        <input type="password" placeholder="Enter Password" name="password" required>
-                        
-                        <input type="submit" value="Login" class="login-a">
+                    <label for="psw"><b class="login-password">Password</b></label>
+                    <input class="login_field" type="password" placeholder="Enter Password" name="password" required>
+                    <input type="submit" value="Login" class="login-a">
                 
                     </div>    
             </form>   
