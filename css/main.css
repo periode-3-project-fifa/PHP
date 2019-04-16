@@ -96,14 +96,13 @@ textarea {
 /* ==========================================================================
    index
    ========================================================================== */
-
 /*navigation*/
 
 .navigation{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #ADFF2F;
+    background: radial-gradient(#8aff78, #659400);
     padding: 0 100px 15px 50px
 }
 .navigation h1{
@@ -140,7 +139,6 @@ textarea {
 
 .main_top{
     display: flex;
-    height: 500px;
 }
 .main_top div{
     width: 98.5%;
@@ -158,10 +156,43 @@ textarea {
 .box{
     border:double;
     background: #b9ffb4;
-    height: 100%;
+    height: 400px;
 }
 
 /*uitslagen*/
+
+
+/*main_bottom*/
+
+.main_bottom {
+    display: flex;
+    margin-top: 10px;
+}
+.main_bottom div{
+    width: 98.5%;
+}
+.main_bottom .heading{
+    border: solid 1px;
+    background: repeating-linear-gradient(#8fffe6, #6bff40);
+}
+.main_bottom .heading h3 {
+    margin-left: 20px;
+}
+.main_bottom .boxx{
+    border: solid 1px;
+    height: 100%;
+    background: repeating-linear-gradient(#8fffe6, #6bff40);
+}
+.main_bottom .de_poules .poule_A{
+    border: double;
+}
+.main_bottom .de_poules .poule_B{
+    border: double;
+}
+.main_bottom .de_poules .pouleteam{
+    border: solid 1px;
+    display: inline-block;
+}
 
 /* ==========================================================================
    Register-Form
@@ -172,16 +203,28 @@ textarea {
 
     .register{
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .background-register{
         background-color: #4cc132;
     }
 
-    .register .container input[type=email], input[type=password] {
-        width: 100%;
-        padding: 12px 20px;
+    .background-register h2 {
+        padding-top: 1em;
+        padding-right: 1.6em;
+        padding-bottom: 0.5em;
+    }
+    
+
+    .register .container input[type=email], .register .container input[type=password] {
+        width: 70%;
+        padding: 10px 20px;
         margin: 8px 0;
-        display: inline-block;
+        display: flex;
         border: 1px solid #ccc;
         box-sizing: border-box;
+        text-align: center;
+        margin-left: 8em;   
     }
       
     .register .container button {
@@ -191,7 +234,10 @@ textarea {
         margin: 8px 0;
         border: none;
         cursor: pointer;
-        width: 100%;
+        width: 70%;
+        margin-left: 8em;
+        margin-top: 1em;
+        margin-bottom: 3em;
     }
       
     .register .container button:hover {
@@ -207,7 +253,7 @@ textarea {
         width: 960px;
         margin: 0 auto;
     }
-
+    
     .back{
         margin-top: 1.5em;
     }
@@ -218,6 +264,11 @@ textarea {
 
     .register-header{
         background-color: white;
+    }
+
+    .register-header .container{
+        width: 960px;
+        margin: 0 auto;
     }
 
     .register-navigation{
@@ -231,18 +282,96 @@ textarea {
         font-size: 25px;
     }
 
+    .register-email {
+        margin-left: 27.5em;
+    }
+
+    .register-password {
+        margin-left: 26.5em;
+    }
+
+    .register-password-reapeat{
+        margin-left: 23em;
+    }
+    
+    .border-login{
+        border-right: 1px solid black;
+        padding-right: 1em;
+    }
+
+
     
 /* ==========================================================================
    login-Form
    ========================================================================== */
+    .login{
+        text-align: center;
+        background-size: 80% 100%;
+        background-image: url("https://static6.depositphotos.com/1137361/637/i/450/depositphotos_6379691-stockafbeelding-voetbal-voetbal-op-grasveld.jpg");
+    }
+    .login .container {
+        width: 960px;
+        margin: 0 auto;
+        align-items: center;
+    }
+    .login .container-2 {
+        width: 960px;
+        display: reverse flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .login .container h2 {
+        text-align: center;
+        padding-top: 1em;
+        color: #da6968;
+    }
+    .login label {
+        color: #b2b2b2;
+    }
 
+    .login .container .container .login-a a{
+        text-decoration: none;
+        color: black;
+    }
+    
+    .register-header .container .register-navigation .register-controler a{
+        text-decoration: none;
+        color: black;
+        padding-left: 1em;
+    }
 
+    .login .container input[type=email], .login .container input[type=password] {
+        width: 65%;
+        padding: 10px 20px;
+        margin: auto;
+        display: flex;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        text-align: center;
+    }
 
+    .login .container .login-a {
+        background-color: lightgray;
+        color: black;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 65%;
+    }
 
+    .imgcontainer {
+        text-align: center;
+        margin: 10px 0 12px 0;
+      }
+      
+    img.avatar {
+        width:  620px;
+      }
 
-
-
-
+    .login .container input:hover {
+        opacity: 0.8;
+    }
 
 
 /* ==========================================================================
