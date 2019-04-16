@@ -9,7 +9,8 @@
 $pagename = 'login';
 $pagetitle = 'login';
 require 'header.php';?>
-
+    </head>
+<body class="<?=$pagename?>">
 <main class = "login">  
     <div class="container">
         <h2>Login FIFA</h2>
