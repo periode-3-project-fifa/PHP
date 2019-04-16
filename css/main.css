@@ -306,7 +306,7 @@ textarea {
    ========================================================================== */
     .login {
         text-align: center;
-        background: #f89ac1;
+        background: radial-gradient(pink,hotpink, deeppink);
     }
     .login .container {
         width: 960px;
