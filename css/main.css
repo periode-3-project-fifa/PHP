@@ -169,11 +169,14 @@ textarea {
     margin-top: 10px;
 }
 .main_bottom div{
-    width: 100%;
+    width: 98.5%;
 }
 .main_bottom .heading{
     border: solid 1px;
     background: repeating-linear-gradient(#8fffe6, #6bff40);
+}
+.main_bottom .heading h3 {
+    margin-left: 20px;
 }
 .main_bottom .boxx{
     border: solid 1px;
