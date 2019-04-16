@@ -39,8 +39,8 @@ require 'header.php';?>
 
                         <label for="psw"><b class="login-password">Password</b></label>
                         <input type="password" placeholder="Enter Password" name="password" required>
-
-                        <button class="login-a type="submit"><a href="index.php">Login</a></button>
+                        
+                        <input type="submit" value="Login" class="login-a">
                 
                     </div>    
         </form>   
