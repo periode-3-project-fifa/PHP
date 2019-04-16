@@ -60,18 +60,15 @@ require 'header.php';
             <div class="boxx de_poules">
                 <div class="poule_A">
                     <h3>Poule A</h3>
-                    <div class="pouleteam">
-                        <h4>T1</h4>
-                    </div>
-                    <div class="pouleteam">
-                        <h4>T2</h4>
-                    </div>
-                    <div class="pouleteam">
-                        <h4>T3</h4>
-                    </div>
-                    <div class="pouleteam">
-                        <h4>T4</h4>
-                    </div>
+                    <?php
+                        echo '<ol>';
+                            foreach ($teams as $team) {
+                            $name = htmlentities($team['name']);
+
+                            echo "<li><a href='detail.php?id={$team['id']}'> {$team['name']}</a></li>";
+                            }
+                            echo '</ol>'
+                     ?>
                 </div>
                 <div class="poule_B">
                     <h3>Poule B</h3>
