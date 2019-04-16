@@ -216,7 +216,7 @@ textarea {
     }
     
 
-    .register .container input[type=email], input[type=password] {
+    .register .container input[type=email], .register .container input[type=password] {
         width: 70%;
         padding: 10px 20px;
         margin: 8px 0;
@@ -304,23 +304,29 @@ textarea {
 /* ==========================================================================
    login-Form
    ========================================================================== */
-
+    .login{
+        text-align: center;
+        background-size: 80% 100%;
+        background-image: url("https://static6.depositphotos.com/1137361/637/i/450/depositphotos_6379691-stockafbeelding-voetbal-voetbal-op-grasveld.jpg");
+    }
     .login .container {
         width: 960px;
         margin: 0 auto;
+        align-items: center;
     }
     .login .container-2 {
         width: 960px;
-        margin: 0 auto;
-    }
-    .login_field {
-        margin-left: 13.3%;
+        display: reverse flex;
+        flex-wrap: wrap;
+        align-items: center;
     }
     .login .container h2 {
         text-align: center;
-        margin-right: 1em;
         padding-top: 1em;
-        padding-left: 3em;
+        color: #da6968;
+    }
+    .login label {
+        color: #b2b2b2;
     }
 
     .login .container .container .login-a a{
@@ -335,14 +341,14 @@ textarea {
     }
 
     .login .container input[type=email], .login .container input[type=password] {
-        width: 70%;
+        width: 65%;
         padding: 10px 20px;
+        margin: auto;
         display: flex;
         border: 1px solid #ccc;
         box-sizing: border-box;
         text-align: center;
-        align-items: center;
-      }
+    }
 
     .login .container .login-a {
         background-color: lightgray;
@@ -351,8 +357,7 @@ textarea {
         margin: 8px 0;
         border: none;
         cursor: pointer;
-        width: 70%;
-        margin-left: 8em;
+        width: 65%;
     }
 
     .imgcontainer {
@@ -363,22 +368,9 @@ textarea {
     img.avatar {
         width:  620px;
       }
-      
+
     .login .container input:hover {
         opacity: 0.8;
-    }
-
-    .login-email {
-        margin-left: 27.5em;
-    }
-
-    .login-password {
-        margin-left: 26.5em;
-    }
-
-    .border-login{
-        border-right: 1px solid black;
-        padding-right: 1em;
     }
 
 
