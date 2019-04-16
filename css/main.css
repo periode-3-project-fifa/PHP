@@ -292,7 +292,13 @@ textarea {
         width: 960px;
         margin: 0 auto;
     }
-
+    .login .container-2 {
+        width: 960px;
+        margin: 0 auto;
+    }
+    .login_field {
+        margin-left: 13.3%;
+    }
     .login .container h2 {
         text-align: center;
         margin-right: 1.5em;
@@ -310,18 +316,17 @@ textarea {
         padding-left: 1em;
     }
 
-    .login .container input[type=email], input[type=password] {
+    .login .container input[type=email], .login .container input[type=password] {
         width: 70%;
         padding: 10px 20px;
-        margin: 8px 0;
         display: flex;
         border: 1px solid #ccc;
         box-sizing: border-box;
         text-align: center;
-        margin-left: 8em;   
+        align-items: center;
       }
 
-    .login .container button {
+    .login .container .login-a {
         background-color: lightgray;
         color: black;
         padding: 14px 20px;

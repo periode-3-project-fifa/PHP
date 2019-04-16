@@ -26,25 +26,24 @@ require 'header.php';?>
 
 <main class = "login">  
     <div class="container">
-    <div class="background-register">
-        <h2>Login FIFA</h2>
-        <form action=""  method="post">
-            <input type="hidden" name="type" value="login">
+        <div class="background-register">
+            <h2>Login FIFA</h2>
+            <form action=""  method="post">
+                <input type="hidden" name="type" value="login">
                 <div class="imgcontainer">
                     <img src="../img/banner.jpg" alt="Avatar" class="avatar">
                 </div>
-                    <div class="container">
-                        <label for="email"><b class="login-email">Email</b></label>
-                        <input type="email" placeholder="Enter Email" name="email" required>
+                <div class="container-2">
+                    <label for="email"><b class="login-email">Email</b></label>
+                    <input class="login_field" type="email" placeholder="Enter Email" name="email" required>
 
-                        <label for="psw"><b class="login-password">Password</b></label>
-                        <input type="password" placeholder="Enter Password" name="password" required>
+                    <label for="psw"><b class="login-password">Password</b></label>
+                    <input class="login_field" type="password" placeholder="Enter Password" name="password" required>
 
-                        <button class="login-a type="submit"><a href="index.php">Login</a></button>
-                
-                    </div>    
-        </form>   
-</div>
+                    <input class="login-a" type="submit"><a href="index.php">Login</a>
+                 </div>
+            </form>
+        </div>
     </div>
 </main>
 
