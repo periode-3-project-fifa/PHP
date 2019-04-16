@@ -9,6 +9,7 @@
 $pagetitle = 'Home';
 $pagename = 'index';
 require 'header.php';
+require 'config.php'
 ?>
     <META HTTP-EQUIV="refresh" CONTENT="15">
     </head>
