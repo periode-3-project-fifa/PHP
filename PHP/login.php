@@ -11,6 +11,18 @@ $pagetitle = 'login';
 require 'header.php';?>
     </head>
 <body class="<?=$pagename?>">
+<<<<<<< HEAD
+<main class = "login">  
+    <div class="container">
+        <h2>Login FIFA</h2>
+
+        <form action="loginController.php"  method="post">
+            <input type="hidden" name="type" value="login">
+                <div class="container">
+                    <label for="email"><b>Email</b></label>
+                    <input type="email" placeholder="Enter Email" name="email" required>
+=======
+>>>>>>> master
 
 <header class = "register-header">
         <div class="container">
