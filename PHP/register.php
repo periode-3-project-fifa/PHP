@@ -20,7 +20,8 @@ require 'config.php'
             <div class="register-navigation">
                 <h1>FIFA Voetbal Toernooi Register</h1>
                 <div class="register-controler">
-                    <a href="index.php">Home</a>
+                    <a href="index.php" class="border-login">Home</a>
+                    <a href="login.php">Login</a>
                 </div>
             </div>
         </div>

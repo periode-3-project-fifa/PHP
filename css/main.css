@@ -293,6 +293,12 @@ textarea {
     .register-password-reapeat{
         margin-left: 23em;
     }
+    
+    .border-login{
+        border-right: 1px solid black;
+        padding-right: 1em;
+    }
+
 
     
 /* ==========================================================================
