@@ -10,7 +10,7 @@ $pagetitle = 'Home';
 $pagename = 'index';
 require 'header.php';
 ?>
-    <META HTTP-EQUIV="refresh" CONTENT="15">
+    <!--<META HTTP-EQUIV="refresh" CONTENT="15">-->
     </head>
 <body class="<?=$pagename?>">
 <div class="container">
@@ -54,20 +54,65 @@ require 'header.php';
     </div>
     <div class="main_bottom">
         <div class="poules">
-            <h3>Poules</h3>
-
+            <div class="heading">
+                <h3>Poules</h3>
+            </div>
+            <div class="boxx de_poules">
+                <div class="poule_A">
+                    <h3>Poule A</h3>
+                    <div class="pouleteam">
+                        <h4>T1</h4>
+                    </div>
+                    <div class="pouleteam">
+                        <h4>T2</h4>
+                    </div>
+                    <div class="pouleteam">
+                        <h4>T3</h4>
+                    </div>
+                    <div class="pouleteam">
+                        <h4>T4</h4>
+                    </div>
+                </div>
+                <div class="poule_B">
+                    <h3>Poule B</h3>
+                    <div class="pouleteam">
+                        <h4>T5</h4>
+                    </div>
+                    <div class="pouleteam">
+                        <h4>T6</h4>
+                    </div>
+                    <div class="pouleteam">
+                        <h4>T7</h4>
+                    </div>
+                    <div class="pouleteam">
+                        <h4>T8</h4>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="quaterfinals">
-            <h3>Kwartfinales</h3>
+            <div class="heading">
+                <h3>Kwartfinales</h3>
+            </div>
+            <div class="boxx kwartfinale">
 
+            </div>
         </div>
         <div class="halffinals">
-            <h3>Halvefinales</h3>
+            <div class="heading">
+                <h3>Halvefinales</h3>
+            </div>
+            <div class="boxx halvefinale">
 
+            </div>
         </div>
         <div class="finals">
-            <h3>Finale</h3>
+            <div class="heading">
+                <h3>Finale</h3>
+            </div>
+            <div class="boxx finale">
 
+            </div>
         </div>
     </div>
 <?php require 'footer.php'; ?>
