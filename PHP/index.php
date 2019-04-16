@@ -10,8 +10,6 @@ $pagetitle = 'Home';
 $pagename = 'index';
 require 'header.php';
 require 'config.php';
-
-require 'config.php';
 $sql = "SELECT * FROM teams";
 $query =$db->query($sql);
 $teams = $query->fetchAll(PDO::FETCH_ASSOC);
