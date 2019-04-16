@@ -11,25 +11,40 @@ $pagetitle = 'login';
 require 'header.php';?>
     </head>
 <body class="<?=$pagename?>">
+
+<header class = "register-header">
+        <div class="container">
+            <div class="register-navigation">
+                <h1>FIFA Voetbal Toernooi Login</h1>
+                <div class="register-controler">
+                    <a href="index.php" class="border-login">Home</a>
+                    <a href="register.php">Register</a>
+                </div>
+            </div>
+        </div>
+</header>
+
 <main class = "login">  
     <div class="container">
+    <div class="background-register">
         <h2>Login FIFA</h2>
-
         <form action=""  method="post">
             <input type="hidden" name="type" value="login">
-                <div class="container">
-                    <label for="email"><b>Email</b></label>
-                    <input type="email" placeholder="Enter Email" name="email" required>
+                <div class="imgcontainer">
+                    <img src="../img/banner.jpg" alt="Avatar" class="avatar">
+                </div>
+                    <div class="container">
+                        <label for="email"><b class="login-email">Email</b></label>
+                        <input type="email" placeholder="Enter Email" name="email" required>
 
-                    <label for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="password" required>
+                        <label for="psw"><b class="login-password">Password</b></label>
+                        <input type="password" placeholder="Enter Password" name="password" required>
 
-                    <button type="submit"><a href="index.php">Login</a></button>
+                        <button class="login-a type="submit"><a href="index.php">Login</a></button>
                 
-                    <button type="button" class="cancelbtn" onclick="window.location.href='register.php'">register</button>
-                </div>    
-        </form>
-                
+                    </div>    
+        </form>   
+</div>
     </div>
 </main>
 

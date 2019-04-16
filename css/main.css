@@ -288,13 +288,75 @@ textarea {
    login-Form
    ========================================================================== */
 
+    .login .container {
+        width: 960px;
+        margin: 0 auto;
+    }
 
+    .login .container h2 {
+        text-align: center;
+        margin-right: 1.5em;
+        padding-top: 1em;
+    }
 
+    .login .container .container .login-a a{
+        text-decoration: none;
+        color: black;
+    }
+    
+    .register-header .container .register-navigation .register-controler a{
+        text-decoration: none;
+        color: black;
+        padding-left: 1em;
+    }
 
+    .login .container input[type=email], input[type=password] {
+        width: 70%;
+        padding: 10px 20px;
+        margin: 8px 0;
+        display: flex;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        text-align: center;
+        margin-left: 8em;   
+      }
 
+    .login .container button {
+        background-color: lightgray;
+        color: black;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 70%;
+        margin-left: 8em;
+    }
 
+    .imgcontainer {
+        text-align: center;
+        margin: 10px 0 12px 0;
+      }
+      
+    img.avatar {
+        width:  620px;
+      }
+      
+    .login .container button:hover {
+        opacity: 0.8;
+    }
 
+    .login-email {
+        margin-left: 27.5em;
+    }
 
+    .login-password {
+        margin-left: 26.5em;
+    }
+
+    .border-login{
+        border-right: 1px solid black;
+        padding-right: 1em;
+    }
 
 
 /* ==========================================================================
