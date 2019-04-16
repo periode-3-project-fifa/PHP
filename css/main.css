@@ -168,20 +168,28 @@ textarea {
    ========================================================================== */
    .register .container h2{
         text-align: center;
+        padding-top: 1em;
+        margin-right: 1.5em;
     }
 
     .register{
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        
+    }
+
+    .background-register{
         background-color: #4cc132;
     }
 
     .register .container input[type=email], input[type=password] {
-        width: 100%;
-        padding: 12px 20px;
+        width: 70%;
+        padding: 10px 20px;
         margin: 8px 0;
-        display: inline-block;
+        display: flex;
         border: 1px solid #ccc;
         box-sizing: border-box;
+        text-align: center;
+        margin-left: 8em;   
     }
       
     .register .container button {
@@ -191,7 +199,10 @@ textarea {
         margin: 8px 0;
         border: none;
         cursor: pointer;
-        width: 100%;
+        width: 70%;
+        margin-left: 8em;
+        margin-top: 1em;
+        margin-bottom: 3em;
     }
       
     .register .container button:hover {
@@ -207,7 +218,7 @@ textarea {
         width: 960px;
         margin: 0 auto;
     }
-
+    
     .back{
         margin-top: 1.5em;
     }
@@ -229,6 +240,18 @@ textarea {
 
     .register-controler {
         font-size: 25px;
+    }
+
+    .register-email {
+        margin-left: 27.5em;
+    }
+
+    .register-password {
+        margin-left: 26.5em;
+    }
+
+    .register-password-reapeat{
+        margin-left: 23em;
     }
 
     
