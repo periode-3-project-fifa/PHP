@@ -10,7 +10,7 @@ $pagetitle = 'Home';
 $pagename = 'index';
 require 'header.php';
 ?>
-    <!--<META HTTP-EQUIV="refresh" CONTENT="15">-->
+    <META HTTP-EQUIV="refresh" CONTENT="15">
     </head>
 <body class="<?=$pagename?>">
 <div class="container">
