@@ -15,7 +15,7 @@ require 'header.php';?>
     <div class="container">
         <h2>Login FIFA</h2>
 
-        <form action=""  method="post">
+        <form action="loginController.php"  method="post">
             <input type="hidden" name="type" value="login">
                 <div class="container">
                     <label for="email"><b>Email</b></label>

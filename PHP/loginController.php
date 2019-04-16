@@ -11,18 +11,64 @@ if ( $_SERVER['REQUEST_METHOD'] != 'POST'){
     exit;
 }
 
+//variabelen met email, password
+$email = $_POST['email'];
+$password = $_POST['password'];
+
+
+//password hashen
+$passwordhashed = password_hash($password, PASSWORD_DEFAULT);
 
 require 'config.php';
 
+//login
+
+
+if ( $_POST['type'] === 'login' ) {
+
+
+    $errMsg = '';
+
+    // Get data from FORM
+
+    $password = password_verify($_POST['password'], $passwordhashed);
+
+    if ($email == '')
+        $errMsg = 'Enter email';
+    if ($password == '')
+        $errMsg = 'Enter password';
+
+    if ($errMsg == '') {
+        try {
+            $stmt = $db->prepare('SELECT email, password FROM users WHERE email = :email');
+            $stmt->execute(array(
+                ':email' => $email
+            ));
+            $data = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($data == false) {
+                $errMsg = "User $email not found.";
+            } else {
+                if (password_verify($password, $data['password'])) {
+                    $_SESSION['email'] = $data['email'];
+                    $_SESSION['password'] = $data['password'];
+
+                    header('Location: register.php');
+                    exit;
+                } else
+                    $errMsg = 'Password not match.';
+            }
+        } catch (PDOException $e) {
+            $errMsg = $e->getMessage();
+        }
+    }
+    exit;
+}
+
 //register
 if ( $_POST['type'] == 'register' ) {
-    //variabelen met email, password
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $passwordconfirm = $_POST['passwordconfirm'];
 
-    //password hashen
-    $passwordhashed = password_hash($password, PASSWORD_DEFAULT);
+
 
 
     //checken of het een echt email is.
