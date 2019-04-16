@@ -103,7 +103,7 @@ textarea {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #ADFF2F;
+    background: radial-gradient(#8aff78, #659400);
     padding: 0 100px 15px 50px
 }
 .navigation h1{
@@ -174,10 +174,11 @@ textarea {
     width:100%;
     height: 400px;
     margin-top: 80px;
+    background: repeating-linear-gradient(#8fffe6, #6bff40);
 }
 .main_bottom h3{
     text-align: center;
-    background: #2a911d;
+    background: radial-gradient(#a7a800, #14b700);
     border-bottom: solid 1px;
 }
 
