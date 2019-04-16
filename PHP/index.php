@@ -28,7 +28,7 @@ $teams = $query->fetchAll(PDO::FETCH_ASSOC);
         <div class="login_register">
             <?php
             if ( isset($_SESSION['id']) ) {
-                echo "<p class='login_check'>You are currently logged in. Want to</p> <a href='logout.php'>logout?</a>";
+                echo "<p class='login_check'>Je bent momenteel ingelogd.<br>Om uit te loggen klik op log out <i class='fas fa-arrow-right'></i></p> <a href='logout.php'>logout?</a>";
             } else {
                 echo "<a href='login.php'>Login</a> &nbsp;  &nbsp; <a href='register.php'> Register </a>";
             }
