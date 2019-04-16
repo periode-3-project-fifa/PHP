@@ -54,15 +54,19 @@ require 'header.php';
     </div>
     <div class="main_bottom">
         <div class="poules">
+            <h3>Poules</h3>
 
         </div>
         <div class="quaterfinals">
+            <h3>Kwartfinales</h3>
 
         </div>
         <div class="halffinals">
+            <h3>Halvefinales</h3>
 
         </div>
         <div class="finals">
+            <h3>Finale</h3>
 
         </div>
     </div>
