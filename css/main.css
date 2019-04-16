@@ -96,7 +96,6 @@ textarea {
 /* ==========================================================================
    index
    ========================================================================== */
-
 /*navigation*/
 
 .navigation{
@@ -197,13 +196,11 @@ textarea {
    ========================================================================== */
    .register .container h2{
         text-align: center;
-        padding-top: 1em;
-        margin-right: 1.5em;
     }
 
     .register{
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        
+        background-color: #91ff89;
     }
 
     .background-register{

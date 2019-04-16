@@ -6,7 +6,7 @@
  * Time: 10:15 AM
  */
 
-$pagename = 'register';
+$pagename = 'registerbody';
 $pagetitle = 'Register';
 require 'header.php';
 
@@ -47,7 +47,4 @@ require 'config.php'
         </div>
     </div>
 </main>
-
-
-<?php require 'footer.php';
-?>
+<?php require 'footer.php'; ?>
