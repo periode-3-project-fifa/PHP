@@ -26,44 +26,54 @@ require 'config.php';
 
 if ( $_POST['type'] === 'login' ) {
 
-
     $errMsg = '';
 
     // Get data from FORM
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
-    $password = password_verify($_POST['password'], $passwordhashed);
 
-    if ($email == '')
+    if($email == '')
         $errMsg = 'Enter email';
-    if ($password == '')
+    if($password == '')
         $errMsg = 'Enter password';
 
-    if ($errMsg == '') {
+    if($errMsg == '') {
         try {
-            $stmt = $db->prepare('SELECT email, password FROM users WHERE email = :email');
+
+            $stmt = $db->prepare('SELECT id, email, password FROM users WHERE email = :email');
             $stmt->execute(array(
                 ':email' => $email
             ));
             $data = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            if ($data == false) {
+            if($data == false){
                 $errMsg = "User $email not found.";
-            } else {
-                if (password_verify($password, $data['password'])) {
-                    $_SESSION['email'] = $data['email'];
-                    $_SESSION['password'] = $data['password'];
+            }
+            else {
+                if(password_verify($password, $data['password'])) {
 
-                    header('Location: register.php');
+
+                    $_SESSION['email'] = $data['email'];
+
+
+                    $_SESSION['id'] = $data['id'];
+
+                    header("Location: index.php");
                     exit;
-                } else
+                }
+                else
                     $errMsg = 'Password not match.';
             }
-        } catch (PDOException $e) {
+        }
+        catch(PDOException $e) {
             $errMsg = $e->getMessage();
         }
     }
+
     exit;
 }
+
 
 //register
 if ( $_POST['type'] == 'register' ) {

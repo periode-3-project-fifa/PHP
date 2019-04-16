@@ -26,8 +26,13 @@ $teams = $query->fetchAll(PDO::FETCH_ASSOC);
             <i class="far fa-futbol"></i>
         </div>
         <div class="login_register">
-            <a href="login.php">Login</a>
-            <a href="register.php">Register</a>
+            <?php
+            if ( isset($_SESSION['id']) ) {
+                echo "You are currently logged in. Want to <a href='logout.php'>logout?</a>";
+            } else {
+                echo "<a href='login.php'>Login</a> &nbsp;  &nbsp; <a href='register.php'> Register </a>";
+            }
+            ?>
         </div>
     </div>
 </div>
