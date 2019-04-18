@@ -10,7 +10,17 @@ $sql = "SELECT * FROM teams";
 $query =$db->query($sql);
 $teams = $query->fetchAll(PDO::FETCH_ASSOC);
 
-('Content-Type: application/json');
-$arr = array('$id' => '$name', '$id' => '$name');
+
+header('Content-Type: application/json');
+$json = json_encode('$api');
+
+// $arr = array('$id' => '$name', '$id' => '$name');
+
+$arr = [
+    [
+        '$id' => '$name'
+    ]
+
+];
 
 echo json_encode($arr);
