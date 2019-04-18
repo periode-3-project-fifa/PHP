@@ -11,14 +11,6 @@ if ( $_SERVER['REQUEST_METHOD'] != 'POST'){
     exit;
 }
 
-//variabelen met email, password
-$email = $_POST['email'];
-$password = $_POST['password'];
-
-
-//password hashen
-$passwordhashed = password_hash($password, PASSWORD_DEFAULT);
-
 require 'config.php';
 
 //login
@@ -79,6 +71,14 @@ if ( $_POST['type'] === 'login' ) {
 if ( $_POST['type'] == 'register' ) {
 
 
+    //variabelen met email, password
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+
+//password hashen
+    $passwordhashed = password_hash($password, PASSWORD_DEFAULT);
+
 
 
     //checken of het een echt email is.
@@ -133,4 +133,21 @@ if ( $_POST['type'] == 'register' ) {
     }
 }
 
+if ( $_POST['type'] == 'registerteamplayer' ) {
+
+    $teamname = $_POST['teamname'];
+    $players = $_POST['players'];
+
+
+    $sql = "INSERT INTO teams (name, players_count) VALUES (:name, :players_count)";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        ':name' => $teamname,
+        ':players_count' => $players
+    ]);
+
+    $msg = "Team is succesvol aangemaakt!";
+    header("location: index.php?msg=$msg");
+    exit;
+}
 
