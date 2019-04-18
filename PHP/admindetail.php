@@ -42,7 +42,7 @@ $team = $prepare->fetch(PDO::FETCH_ASSOC);
         <label for="player"><b class="register-player">Speler 6</b></label>
         <input type="text" placeholder="Enter player name">
 
-        <button class= "editBtn" type="submit" value="Create new contact">Edit</button>
+        <button class= "editBtn" type="submit" value="Edit">Edit</button>
     </div>
 </form>
 
