@@ -50,15 +50,16 @@ $teams = $query->fetchAll(PDO::FETCH_ASSOC);
                 <h3>Teams</h3>
             </div>
             <div class="box teams">
-                <?php
-                echo '<ol>';
-                foreach ($teams as $team) {
-                    $name = htmlentities($team['name']);
+                <select size="<?=count($teams)?>" name="" id="">
+                    <?php
+                    foreach ($teams as $team) {
+                        $name = htmlentities($team['name']);
 
-                    echo "<li><a href='detail.php?id={$team['id']}'> {$team['name']}</a></li>";
-                }
-                echo '</ol>'
-                ?>
+                        echo "<option> {$team['name']}</option>";
+                    }
+                    ?>
+                </select>
+
             </div>
         </div>
         <div class="spelers">
