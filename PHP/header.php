@@ -6,7 +6,7 @@
  * Time: 10:15 AM
  */
 
-require '../includes/config.php';
+require 'config.php';
 ?>
 <!doctype html>
 <html lang="en">
