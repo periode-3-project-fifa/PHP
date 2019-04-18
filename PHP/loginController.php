@@ -147,7 +147,7 @@ if ($_POST['type'] == 'edit'){
     ]);
 
 
-    $msg = 'recipe succesvol veranderd';
-    header("location: ../index.php?msg=$msg");
+    $msg = 'succesvol veranderd';
+    header("location: admin.php?msg=$msg");
     exit;
 }

@@ -5,7 +5,9 @@
  * Date: 4/18/2019
  * Time: 9:05 AM
  */
-
+$pagename = "edit_page";
+$pagetitle = "Edit This";
+require 'header.php';
 $id = $_GET['id'];
 $sql = "SELECT * FROM teams WHERE id = :id";
 $prepare = $db->prepare($sql);
@@ -40,7 +42,7 @@ $team = $prepare->fetch(PDO::FETCH_ASSOC);
         <label for="player"><b class="register-player">Speler 6</b></label>
         <input type="text" placeholder="Enter player name">
 
-        <button class= "playerbutton" type="submit" value="Create new contact">Aanmaken</button>
+        <button class= "editBtn" type="submit" value="Create new contact">Edit</button>
     </div>
 </form>
 
