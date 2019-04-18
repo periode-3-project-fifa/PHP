@@ -153,7 +153,7 @@ if ( $_POST['type'] == 'registerteamplayer' ) {
 //adminpage edit team
 if ($_POST['type'] == 'edit'){
     $id = $_GET['id'];
-    $name = $_POST['name'];
+    $name = $_POST['teamname'];
 
     $sql = "UPDATE teams SET name = :name WHERE id = :id";
 
@@ -170,14 +170,17 @@ if ($_POST['type'] == 'edit'){
 }
 //adminpage delete team
 if ($_POST['type'] == 'delete'){
+
     $id = $_GET['id'];
+
     $sql = "DELETE FROM teams WHERE id = :id";
+
     $prepare = $db->prepare($sql);
     $prepare->execute([
         ':id' => $id
     ]);
 
-    $msg = 'verwijderd';
+    $msg = 'succesvol verwijderd';
     header("location: ./admin.php?msg=$msg");
     exit;
 }

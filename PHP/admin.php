@@ -19,7 +19,9 @@ $teams = $query->fetchAll(PDO::FETCH_ASSOC);
 <ul>
 <?php
 foreach ($teams as $team){
-    echo "<li><a href='admindetail.php?id={$team['id']}'> {$team['name']}</a> met ID is {$team['id']}</li>";
+    $teamname = $team['name'];
+    $teamid = $team['id'];
+    echo "<li><a href='admindetail.php?id=$teamid'>$teamname met ID is $teamid</a></li>";
 }
 ?>
 </ul>

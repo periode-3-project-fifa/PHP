@@ -14,9 +14,6 @@ $query =$db->query($sql);
 $teams = $query->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-    <META HTTP-EQUIV="refresh" CONTENT="15">
-    </head>
-<body class="<?=$pagename?>">
 <div class="container">
     <div class="navigation">
         <div class="head">
