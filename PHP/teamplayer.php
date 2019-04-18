@@ -15,7 +15,7 @@ require 'header.php';?>
 <header class = "register-header">
         <div class="container">
             <div class="register-navigation">
-                <h1>Team aanmaken en Player</h1>
+                <h1>Team aanmaken</h1>
                 <div class="register-controler">
                     <a href="index.php" class="border-team">Home</a>   
                 </div>
@@ -32,7 +32,6 @@ require 'header.php';?>
                     <div class="container-2">
                         <label for="team"><b class="register-team">Team naam</b></label>
                         <input type="text" placeholder="Enter Team Name">
-                        <h2>Player name aantal spelers</h2>
                         <label for="player"><b class="register-player">Voer aantal spelers in</b></label>
                         <input type="number" placeholder="Voer aantal spelers in" min="6" max="15">
 
