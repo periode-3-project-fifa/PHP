@@ -50,7 +50,7 @@ $teams = $query->fetchAll(PDO::FETCH_ASSOC);
                 <h3>Teams</h3>
             </div>
             <div class="box teams">
-                <select size="<?=count($teams)?>" name="" id="">
+                <select size="<?=count($teams)?>" style="width:100%;" name="" id="">
                     <?php
                     foreach ($teams as $team) {
                         $name = htmlentities($team['name']);
