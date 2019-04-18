@@ -27,8 +27,8 @@ $teams = $query->fetchAll(PDO::FETCH_ASSOC);
         <div class="login_register">
             <?php
             if ( isset($_SESSION['id']) ) {
+                echo "<p class='teamaanmakenenspeler'>Klik hier om teams aan te maken </p> <a href='teamplayer.php'>Team en Speler aanmaken</a>";
                 echo "<p class='login_check'>Je bent momenteel ingelogd.<br>Om uit te loggen klik op log out <i class='fas fa-arrow-right'></i></p> <a href='logout.php'>logout?</a>";
-                echo "<p class='teamaanmakenenspeler'>Klik hier om teams aan te makena </p> <a href='teamplayer.php'>Team en Speler aanmkaen</a>";
             } else {
                 echo "<a href='login.php'>Login</a> &nbsp;  &nbsp; <a href='register.php'> Register </a>";
             }

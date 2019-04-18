@@ -229,7 +229,7 @@ input:valid {
        margin: 0;
     }
 
-    .teamplayermake .container input[type=text], .teamplayermake .container input[type=text] {
+    .teamplayermake .container input[type=number], .teamplayermake .container input[type=text] {
         width: 70%;
         padding: 10px 20px;
         margin: 8px 0;

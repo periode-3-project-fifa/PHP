@@ -32,24 +32,9 @@ require 'header.php';?>
                     <div class="container-2">
                         <label for="team"><b class="register-team">Team naam</b></label>
                         <input type="text" placeholder="Enter Team Name">
-                        <h2>Player name</h2>
-                        <label for="player"><b class="register-player">Speler 1</b></label>
-                        <input type="text" placeholder="Enter player name">
-
-                        <label for="player"><b class="register-player">Speler 2</b></label>
-                        <input type="text" placeholder="Enter player name">
-
-                        <label for="player"><b class="register-player">Speler 3</b></label>
-                        <input type="text" placeholder="Enter player name">
-
-                        <label for="player"><b class="register-player">Speler 4</b></label>
-                        <input type="text" placeholder="Enter player name">
-
-                        <label for="player"><b class="register-player">Speler 5</b></label>
-                        <input type="text" placeholder="Enter player name">
-
-                        <label for="player"><b class="register-player">Speler 6</b></label>
-                        <input type="text" placeholder="Enter player name">
+                        <h2>Player name aantal spelers</h2>
+                        <label for="player"><b class="register-player">Voer aantal spelers in</b></label>
+                        <input type="number" placeholder="Voer aantal spelers in" min="6" max="15">
 
                         <button class= "playerbutton" type="submit" value="Create new contact">Aanmaken</button>
                     </div>
