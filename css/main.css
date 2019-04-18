@@ -92,6 +92,9 @@ textarea {
     color: #000;
     padding: 0.2em 0;
 }
+input:valid {
+    background: #beff98;
+}
 
 /* ==========================================================================
    index
