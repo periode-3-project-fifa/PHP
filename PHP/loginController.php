@@ -134,3 +134,20 @@ if ( $_POST['type'] == 'register' ) {
 }
 
 
+if ($_POST['type'] == 'edit'){
+    $id = $_GET['id'];
+    $name = $_POST['name'];
+
+    $sql = "UPDATE teams SET name = :name WHERE id = :id";
+
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        ':id' => $id,
+        ':name' => $name
+    ]);
+
+
+    $msg = 'recipe succesvol veranderd';
+    header("location: ../index.php?msg=$msg");
+    exit;
+}
