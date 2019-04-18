@@ -11,6 +11,6 @@ $query =$db->query($sql);
 $teams = $query->fetchAll(PDO::FETCH_ASSOC);
 
 ('Content-Type: application/json');
-$arr = array('a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5);
+$arr = array('$id' => '$name', '$id' => '$name');
 
 echo json_encode($arr);
