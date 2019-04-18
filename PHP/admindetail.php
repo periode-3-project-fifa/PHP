@@ -18,8 +18,7 @@ $prepare-> execute([
 $team = $prepare->fetch(PDO::FETCH_ASSOC);
 
 ?>
-<form action="" method="post">
-    <input type="hidden" name="type" value="edit">
+<form action="loginController.php?id=<?=$id?>" method="post">
     <div class="container-2">
         <label for="team"><b class="register-team">Team naam</b></label>
         <input type="text" value="<?=$team['name']?>">
@@ -42,8 +41,14 @@ $team = $prepare->fetch(PDO::FETCH_ASSOC);
         <label for="player"><b class="register-player">Speler 6</b></label>
         <input type="text" placeholder="Enter player name">
 
-        <button class= "editBtn" type="submit" value="Edit">Edit</button>
+        <input type="hidden" name="type" value="remove">
+        <input class="editBtn" type="submit" value="Edit">
+
     </div>
 </form>
+    <form action="loginController.php?id=>?<?=$id?>">
+        <input type="hidden" name="type" value="delete">
+        <input type="submit" class="removeBtn" value="Remove">
+    </form>
 
 <?= require 'footer.php';
