@@ -33,7 +33,7 @@ require 'header.php';?>
                         <label for="team"><b class="register-team">Team naam</b></label>
                         <input type="text" name="teamname" placeholder="Enter Team Name">
                         <label for="player"><b class="register-player">Voer aantal spelers in</b></label>
-                        <input type="number" name="players" placeholder="Voer aantal spelers in" min="6" max="15">
+                        <input type="number" name="players" placeholder="Voer aantal spelers in" min="6" max="15" required>
 
                         <button class= "playerbutton" type="submit" value="Create new team">Aanmaken</button>
                     </div>
