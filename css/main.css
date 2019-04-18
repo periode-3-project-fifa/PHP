@@ -204,6 +204,68 @@ input:valid {
 }
 
 /* ==========================================================================
+   Register-Team/Player
+   ========================================================================== */
+
+   .teamplayermake{
+        text-align: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .teamplayermake .container{
+       width: 960px;
+       margin: 0 auto;
+    }
+
+    .teamplayermake .container h2 {
+       text-align: center;
+       margin: 0;
+       padding-top: 1em;
+       padding-bottom: 1em;
+    }
+
+    .teamplayermake .container .background-teamplayer .container-2 h2{
+       text-align: center;
+       margin: 0;
+    }
+
+    .teamplayermake .container input[type=text], .teamplayermake .container input[type=text] {
+        width: 70%;
+        padding: 10px 20px;
+        margin: 8px 0;
+        display: flex;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        text-align: center;
+        margin-left: 8em;   
+    }
+
+    .background-teamplayer{
+        background-color: #4cc132;
+    }
+
+    .teamplayermake .container button {
+        background-color: lightgray;
+        color: black;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 70%;
+        margin-left: -2em;
+        margin-top: 1em;
+        margin-bottom: 3em;
+    }
+
+    .teamplayermake .container button:hover {
+        opacity: 0.8;
+    }
+
+    .teamplayermake .player {
+        text-align: center;
+    }
+
+/* ==========================================================================
    Register-Form
    ========================================================================== */
    .register .container h2{
@@ -387,9 +449,7 @@ input:valid {
 /* ==========================================================================
    Helper classes
    ========================================================================== */
-.the_final_words{
-    margin: 0 200px 0 10px;
-}
+
 /*
  * Hide visually and from screen readers
  */
