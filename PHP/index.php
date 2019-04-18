@@ -83,7 +83,7 @@ $teams = $query->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($teams as $team) {
                         $name = htmlentities($team['name']);
 
-                        echo "<li><a href='detail.php?id={$team['id']}'> {$team['name']}</a></li>";
+                        echo "<li><?id={$team['id']}'> {$team['name']}</li>";
                     }
                     echo '</ol>'
                     ?>
