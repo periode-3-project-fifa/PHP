@@ -32,7 +32,6 @@ require 'header.php';?>
                     <div class="container-2">
                         <label for="team"><b class="register-team">Team naam</b></label>
                         <input type="text" placeholder="Enter Team Name">
-                        <h2>Voer aantal spelers in</h2>
                         <label for="player"><b class="register-player">Voer aantal spelers in</b></label>
                         <input type="number" placeholder="Voer aantal spelers in" min="6" max="15">
 
