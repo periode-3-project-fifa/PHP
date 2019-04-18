@@ -28,7 +28,7 @@ require 'header.php';?>
         <div class="background-teamplayer">
             <h2>Team aanmaken</h2>
             <form action="" method="post">
-                <input type="hidden" name="type" value="register">
+                <input type="hidden" name="type" value="registerteamplayer">
                     <div class="container-2">
                         <label for="team"><b class="register-team">Team naam</b></label>
                         <input type="text" placeholder="Enter Team Name">
