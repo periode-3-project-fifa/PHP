@@ -22,5 +22,7 @@ $db->setAttribute(
     PDO::ERRMODE_EXCEPTION
 );
 
-
-session_start();
+if(session_id() == '' || !isset($_SESSION)) {
+    // session isn't started
+    session_start();
+}
