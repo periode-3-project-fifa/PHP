@@ -15,7 +15,7 @@ require 'header.php';?>
 <header class = "register-header">
         <div class="container">
             <div class="register-navigation">
-                <h1>Team aanmaken en Player</h1>
+                <h1>Team aanmaken</h1>
                 <div class="register-controler">
                     <a href="index.php" class="border-team">Home</a>   
                 </div>
