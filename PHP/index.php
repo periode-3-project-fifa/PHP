@@ -27,8 +27,8 @@ $teams = $query->fetchAll(PDO::FETCH_ASSOC);
         <div class="login_register">
             <?php
             if ( isset($_SESSION['id']) ) {
-                echo "<p class='teamaanmakenenspeler'>Klik hier om teams aan te maken </p> <a href='teamplayer.php'>Team en Speler aanmaken</a>";
-                echo "<p class='login_check'>Je bent momenteel ingelogd.<br>Om uit te loggen klik op log out <i class='fas fa-arrow-right'></i></p> <a href='logout.php'>logout?</a>";
+                echo "<a href='teamplayer.php'>Team aanmaken</a>";
+                echo "<a href='logout.php'>logout</a>";
             } else {
                 echo "<a href='login.php'>Login</a> &nbsp;  &nbsp; <a href='register.php'> Register </a>";
             }
@@ -50,7 +50,15 @@ $teams = $query->fetchAll(PDO::FETCH_ASSOC);
                 <h3>Teams</h3>
             </div>
             <div class="box teams">
+                <?php
+                echo '<ol>';
+                foreach ($teams as $team) {
+                    $name = htmlentities($team['name']);
 
+                    echo "<li><a href='detail.php?id={$team['id']}'> {$team['name']}</a></li>";
+                }
+                echo '</ol>'
+                ?>
             </div>
         </div>
         <div class="spelers">
@@ -71,14 +79,14 @@ $teams = $query->fetchAll(PDO::FETCH_ASSOC);
                 <div class="poule_A">
                     <h3>Poule A</h3>
                     <?php
-                        echo '<ol>';
-                            foreach ($teams as $team) {
-                            $name = htmlentities($team['name']);
+                    echo '<ol>';
+                    foreach ($teams as $team) {
+                        $name = htmlentities($team['name']);
 
-                            echo "<li><a href='detail.php?id={$team['id']}'> {$team['name']}</a></li>";
-                            }
-                            echo '</ol>'
-                     ?>
+                        echo "<li><a href='detail.php?id={$team['id']}'> {$team['name']}</a></li>";
+                    }
+                    echo '</ol>'
+                    ?>
                 </div>
                 <div class="poule_B">
                     <h3>Poule B</h3>

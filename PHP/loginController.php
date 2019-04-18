@@ -151,3 +151,20 @@ if ( $_POST['type'] == 'registerteamplayer' ) {
     exit;
 }
 
+if ($_POST['type'] == 'edit'){
+    $id = $_GET['id'];
+    $name = $_POST['name'];
+
+    $sql = "UPDATE teams SET name = :name WHERE id = :id";
+
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        ':id' => $id,
+        ':name' => $name
+    ]);
+
+
+    $msg = 'succesvol veranderd';
+    header("location: admin.php?msg=$msg");
+    exit;
+}
