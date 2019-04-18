@@ -150,7 +150,7 @@ if ( $_POST['type'] == 'registerteamplayer' ) {
     header("location: index.php?msg=$msg");
     exit;
 }
-
+//adminpage edit team
 if ($_POST['type'] == 'edit'){
     $id = $_GET['id'];
     $name = $_POST['name'];
@@ -165,6 +165,19 @@ if ($_POST['type'] == 'edit'){
 
 
     $msg = 'succesvol veranderd';
-    header("location: admin.php?msg=$msg");
+    header("location: ./admin.php?msg=$msg");
+    exit;
+}
+//adminpage delete team
+if ($_POST['type'] == 'delete'){
+    $id = $_GET['id'];
+    $sql = "DELETE FROM teams WHERE id = :id";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        ':id' => $id
+    ]);
+
+    $msg = 'verwijderd';
+    header("location: ./admin.php?msg=$msg");
     exit;
 }
