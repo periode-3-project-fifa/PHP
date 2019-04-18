@@ -8,5 +8,6 @@
 
 ?>
 
+<p class="the_final_words">&copy; Developer Team 13</p>
 </body>
 </html>
