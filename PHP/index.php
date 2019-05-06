@@ -47,7 +47,7 @@ $teams = $query->fetchAll(PDO::FETCH_ASSOC);
                 <h3>Teams</h3>
             </div>
             <div class="box teams">
-                <select size="<?=count($teams)?>" style="width:100%; border: none;background: #B9FFB4; overflow-y: auto;" name="" id="selectionbox">
+                <select size="<?=count($teams)?>" style="width:100%;height:100%; border: none;background: #B9FFB4; overflow-y: visable;" name="" id="selectionbox">
                     <?php
                     foreach ($teams as $team) {
                         $name = htmlentities($team['name']);
