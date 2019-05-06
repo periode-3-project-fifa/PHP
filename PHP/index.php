@@ -9,7 +9,7 @@
 $pagetitle = 'Home';
 $pagename = 'index';
 require 'header.php';
-$sql = "SELECT * FROM teams";
+$sql = "SELECT * FROM teams ";
 $query =$db->query($sql);
 $teams = $query->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -77,29 +77,30 @@ $teams = $query->fetchAll(PDO::FETCH_ASSOC);
                 <div class="poule_A">
                     <h3>Poule A</h3>
                     <?php
-                    echo '<ol>';
-                    foreach ($teams as $team) {
-                        $name = htmlentities($team['name']);
-
-                        echo "<li><?id={$team['id']}'> {$team['name']}</li>";
-                    }
-                    echo '</ol>'
+                    echo '<ul>';
+                            shuffle($teams);
+                            for ($x = 0; $x <= 4; $x++) {
+                            $team = $teams[$x];
+                            $name = htmlentities($team['name']);
+                            echo "<li><?id={$team['id']}'> {$team['name']}</li>";
+                        }
+                    echo '</ul>'
                     ?>
                 </div>
                 <div class="poule_B">
                     <h3>Poule B</h3>
-                    <div class="pouleteam">
-                        <h4>T5</h4>
-                    </div>
-                    <div class="pouleteam">
-                        <h4>T6</h4>
-                    </div>
-                    <div class="pouleteam">
-                        <h4>T7</h4>
-                    </div>
-                    <div class="pouleteam">
-                        <h4>T8</h4>
-                    </div>
+
+                    <?php
+                    echo '<ul>';
+                        for ($x = 0; $x <= 4; $x++) {
+                            $team = $teams[$x];
+                            $name = htmlentities($team['name']);
+
+                            echo "<li><?id={$team['id']}'> {$team['name']}</li>";
+                        }
+                    echo '</ul>';
+                    ?>
+
                 </div>
             </div>
         </div>
