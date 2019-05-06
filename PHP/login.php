@@ -8,7 +8,13 @@
 
 $pagename = 'login';
 $pagetitle = 'login';
-require 'header.php';?>
+
+
+require 'header.php';
+if( isset($_GET['msg'])){
+    echo $_GET['msg'];
+}
+?>
     </head>
 <body class="<?=$pagename?>">
 

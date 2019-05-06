@@ -10,8 +10,13 @@ $pagetitle = 'Home';
 $pagename = 'index';
 require 'header.php';
 $sql = "SELECT * FROM teams";
+
 $query =$db->query($sql);
 $teams = $query->fetchAll(PDO::FETCH_ASSOC);
+
+if( isset($_GET['msg'])){
+    echo $_GET['msg'];
+}
 ?>
 
 <div class="container">
@@ -26,7 +31,12 @@ $teams = $query->fetchAll(PDO::FETCH_ASSOC);
             if ( isset($_SESSION['id']) ) {
                 echo "<a href='teamplayer.php'>Team aanmaken</a>";
                 echo "<a href='logout.php'>logout</a>";
-            } else {
+               // if($admin == true){
+                 //   echo "<a href='admin.php'>Admin</a>";
+                //}
+            }
+
+            else {
                 echo "<a href='login.php'>Login</a> &nbsp;  &nbsp; <a href='register.php'> Register </a>";
             }
             ?>
