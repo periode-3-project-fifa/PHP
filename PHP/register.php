@@ -10,7 +10,11 @@ $pagename = 'registerbody';
 $pagetitle = 'Register';
 require 'header.php';
 
-require 'config.php'
+require 'config.php';
+
+if( isset($_GET['msg'])){
+    echo $_GET['msg'];
+}
 ?>
     </head>
 <body class="<?=$pagename?>">

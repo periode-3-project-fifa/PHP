@@ -15,7 +15,6 @@ require 'config.php';
 
 //login
 
-
 if ( $_POST['type'] === 'login' ) {
 
     $errMsg = '';
@@ -32,19 +31,23 @@ if ( $_POST['type'] === 'login' ) {
 
     if($errMsg == '') {
         try {
-
+            echo '1';
             $stmt = $db->prepare('SELECT id, email, password FROM users WHERE email = :email');
             $stmt->execute(array(
                 ':email' => $email
             ));
             $data = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            if($data == false){
+            if($email == false){
                 $errMsg = "User $email not found.";
+                echo '2';
             }
+
             else {
+                echo '3';
                 if(password_verify($password, $data['password'])) {
 
+                    echo '4';
 
                     $_SESSION['email'] = $data['email'];
 
@@ -54,14 +57,19 @@ if ( $_POST['type'] === 'login' ) {
                     header("Location: index.php");
                     exit;
                 }
-                else
-                    $errMsg = 'Password not match.';
+                else {
+                    $errMsg = 'Account bestaat niet.';
+                    header("Location: login.php?msg=$errMsg");
+                    echo '5';
+                }
             }
         }
         catch(PDOException $e) {
             $errMsg = $e->getMessage();
         }
     }
+
+    echo '6';
 
     exit;
 }

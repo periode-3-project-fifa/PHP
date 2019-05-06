@@ -12,6 +12,10 @@ require 'header.php';
 $sql = "SELECT * FROM teams ";
 $query =$db->query($sql);
 $teams = $query->fetchAll(PDO::FETCH_ASSOC);
+
+if( isset($_GET['msg'])){
+    echo $_GET['msg'];
+}
 ?>
 
 <div class="container">
@@ -26,7 +30,12 @@ $teams = $query->fetchAll(PDO::FETCH_ASSOC);
             if ( isset($_SESSION['id']) ) {
                 echo "<a href='teamplayer.php'>Team aanmaken</a>";
                 echo "<a href='logout.php'>logout</a>";
-            } else {
+               // if($admin == true){
+                 //   echo "<a href='admin.php'>Admin</a>";
+                //}
+            }
+
+            else {
                 echo "<a href='login.php'>Login</a> &nbsp;  &nbsp; <a href='register.php'> Register </a>";
             }
             ?>
@@ -47,7 +56,7 @@ $teams = $query->fetchAll(PDO::FETCH_ASSOC);
                 <h3>Teams</h3>
             </div>
             <div class="box teams">
-                <select size="<?=count($teams)?>" style="width:100%; border: none;background: #B9FFB4; overflow-y: auto;" name="" id="selectionbox">
+                <select size="<?=count($teams)?>" style="width:100%;height:100%; border: none;background: #B9FFB4; overflow-y: visable;" name="" id="selectionbox">
                     <?php
                     foreach ($teams as $team) {
                         $name = htmlentities($team['name']);
