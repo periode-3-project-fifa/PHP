@@ -51,7 +51,8 @@ if ( $_POST['type'] === 'login' ) {
                     $_SESSION['id'] = $data['id'];
 
                     if ($data['admin'] == 1){
-                        header("Location: admin.php");
+                        $mesage = "Admin is logged in";
+                        header("Location: admin.php?msg=$mesage");
                         exit;
                     }
                     else{

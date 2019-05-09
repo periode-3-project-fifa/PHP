@@ -12,7 +12,11 @@ require 'header.php';
 $sql = "SELECT * FROM teams";
 $query = $db->query($sql);
 $teams = $query->fetchAll(PDO::FETCH_ASSOC);
-
+if ( $_SERVER['REQUEST_METHOD'] != 'POST'){
+    $mesage = "Member is logged in";
+    header("location: index.php?msg=$mesage");
+    exit;
+}
 ?>
 </head>
 <body>

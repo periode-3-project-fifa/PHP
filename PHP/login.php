@@ -46,7 +46,7 @@ if( isset($_GET['msg'])){
                     <input class="login_field" type="password" placeholder="Enter Password" name="password" required>
                     <input type="submit" value="Login" class="login-a">
                 
-                    </div>    
+                </div>
             </form>   
         </div>
     </div>
