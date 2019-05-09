@@ -133,7 +133,7 @@ if ( $_POST['type'] == 'register' ) {
         ]);
 
         $msg = "Account is succesvol aangemaakt!";
-        header("location: index.php?msg=$msg");
+        header("location: login.php?msg=$msg");
         exit;
     }
     else{
