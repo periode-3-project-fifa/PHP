@@ -21,4 +21,3 @@ require 'config.php';
     <link rel="stylesheet" href="../css/normalize.css">
 </head>
 <body class="<?=$pagename?>">
-
