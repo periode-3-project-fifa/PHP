@@ -26,5 +26,8 @@ foreach ($teams as $team){
     echo "<li><a href='admindetail.php?id=$teamid'>$teamname met ID is $teamid</a></li>";
 }
 ?>
+    <form action="loginController.php" method="post">
+        <input type="button" value="shuffle">
+    </form>
 </ul>
 <?= require 'footer.php';?>
