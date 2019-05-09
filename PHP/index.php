@@ -87,8 +87,7 @@ if( isset($_GET['msg'])){
                     <h3>Poule A</h3>
                     <?php
                     echo '<ul>';
-                            shuffle($teams);
-                            for ($x = 0; $x <= 4; $x++) {
+                            for ($x = 0; $x <= 3; $x++) {
                             $team = $teams[$x];
                             $name = htmlentities($team['name']);
                             echo "<li><?id={$team['id']}'> {$team['name']}</li>";
@@ -101,7 +100,7 @@ if( isset($_GET['msg'])){
 
                     <?php
                     echo '<ul>';
-                        for ($x = 0; $x <= 4; $x++) {
+                        for ($x = 0; $x <= 3; $x++) {
                             $team = $teams[$x];
                             $name = htmlentities($team['name']);
 
