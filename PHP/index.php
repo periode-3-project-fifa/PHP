@@ -103,7 +103,6 @@ if( isset($_GET['msg'])){
                         for ($x = 0; $x <= 3; $x++) {
                             $team = $teams[$x];
                             $name = htmlentities($team['name']);
-
                             echo "<li><?id={$team['id']}'> {$team['name']}</li>";
                         }
                     echo '</ul>';
