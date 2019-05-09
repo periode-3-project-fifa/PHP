@@ -31,8 +31,7 @@ if ( $_POST['type'] === 'login' ) {
 
     if($errMsg == '') {
         try {
-            echo '1';
-            $stmt = $db->prepare('SELECT id, email, password FROM users WHERE email = :email');
+            $stmt = $db->prepare('SELECT id, email, password, admin FROM users WHERE email = :email');
             $stmt->execute(array(
                 ':email' => $email
             ));
@@ -40,27 +39,29 @@ if ( $_POST['type'] === 'login' ) {
 
             if($email == false){
                 $errMsg = "User $email not found.";
-                echo '2';
             }
 
             else {
-                echo '3';
                 if(password_verify($password, $data['password'])) {
 
-                    echo '4';
 
                     $_SESSION['email'] = $data['email'];
 
 
                     $_SESSION['id'] = $data['id'];
 
-                    header("Location: index.php");
-                    exit;
+                    if ($data['admin'] == 1){
+                        header("Location: admin.php");
+                        exit;
+                    }
+                    else{
+                        header("Location: index.php");
+                        exit;
+                    }
                 }
                 else {
                     $errMsg = 'Account bestaat niet.';
                     header("Location: login.php?msg=$errMsg");
-                    echo '5';
                 }
             }
         }
@@ -69,7 +70,6 @@ if ( $_POST['type'] === 'login' ) {
         }
     }
 
-    echo '6';
 
     exit;
 }
