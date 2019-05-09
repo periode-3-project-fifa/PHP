@@ -47,12 +47,12 @@ if ( $_POST['type'] === 'login' ) {
 
                     $_SESSION['email'] = $data['email'];
 
-
                     $_SESSION['id'] = $data['id'];
 
+                    $_SESSION['admin'] = $data['admin'];
+
                     if ($data['admin'] == 1){
-                        $mesage = "Admin is logged in";
-                        header("Location: admin.php?msg=$mesage");
+                        header("Location: admin.php?");
                         exit;
                     }
                     else{
