@@ -8,6 +8,6 @@
 
 
 
-for ($i = 0; $i<=$players; $i++){
-
+for ($i = 0; $i<=$team['players_count']; $i++){
+    echo "<input type='text'>";
 }
