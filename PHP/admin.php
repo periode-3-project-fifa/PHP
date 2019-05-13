@@ -46,8 +46,10 @@ if($_SESSION['admin'] != 1){
                 $round[$i][$j]["Home"]=$home[$j];
                 $round[$i][$j]["Away"]=$away[$j];
             }
+            $splicedArray = array_splice($home,1,1);
+            $shiftedArray = array_shift($splicedArray);
             if(count($home)+count($away)-1 > 2){
-                array_unshift($away,array_shift(array_splice($home,1,1)));
+                array_unshift($away, $shiftedArray);
                 array_push($home,array_pop($away));
             }
         }
