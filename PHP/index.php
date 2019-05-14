@@ -30,9 +30,6 @@ if( isset($_GET['msg'])){
             if ( isset($_SESSION['id']) ) {
                 echo "<a href='teamplayer.php'>Team aanmaken</a>";
                 echo "<a href='logout.php'>logout</a>";
-               // if($admin == true){
-                 //   echo "<a href='admin.php'>Admin</a>";
-                //}
             }
 
             else {
