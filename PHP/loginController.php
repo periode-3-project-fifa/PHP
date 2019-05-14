@@ -156,7 +156,7 @@ if ( $_POST['type'] == 'registerteamplayer' ) {
     ]);
 
     $msg = "Team is succesvol aangemaakt!";
-    header("location: addMembers.php?msg=$msg");
+    header("location: index.php?msg=$msg");
     exit;
 }
 //addMembers

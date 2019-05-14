@@ -165,9 +165,27 @@ input:valid {
 .box{
     border:double;
     background: #b9ffb4;
-    height: 400px;
+    height: auto;
+    text-align: center;
 }
 
+/*schedule page*/
+.playschedule{
+    border:double;
+    background: #b9ffb4;
+    height: auto;
+}
+.rounds{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+}
+.singleround{
+    display: flex;
+    justify-content: space-around;
+}
 /*uitslagen*/
 
 
@@ -192,13 +210,14 @@ input:valid {
     height: 100%;
     background: repeating-linear-gradient(#8fffe6, #6bff40);
 }
-.main_bottom .de_poules .poule_A{
+.main_bottom .poules .poule_A{
+    border: double;
+    heigth: 100%;
+}
+.main_bottom .poules .poule_B{
     border: double;
 }
-.main_bottom .de_poules .poule_B{
-    border: double;
-}
-.main_bottom .de_poules .pouleteam{
+.main_bottom .poules .pouleteam{
     border: solid 1px;
     display: inline-block;
 }
@@ -441,6 +460,11 @@ input:valid {
     .login .container input:hover {
         opacity: 0.8;
     }
+
+/* ==========================================================================
+   Admin page
+   ========================================================================== */
+
 
 
 /* ==========================================================================
