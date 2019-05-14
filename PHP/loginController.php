@@ -160,16 +160,6 @@ if ( $_POST['type'] == 'registerteamplayer' ) {
     exit;
 }
 //addMembers
-if ( $_POST['type'] === 'memberAdd' ) {
-
-    $id = $_POST['id'];
-    $PlayerAmount = $_POST['players'];
-    $teamName = $_POST['teamname'];
-
-    $sql = "SELECT * FROM teams WHERE id = :id";
-    $querty = $db->query($sql);
-    $team = $querty->fetchAll(PDO::FETCH_ASSOC);
-}
 
 //adminpage edit team
 if ($_POST['type'] == 'edit'){
