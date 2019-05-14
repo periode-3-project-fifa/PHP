@@ -205,3 +205,24 @@ if ($_POST['type'] == 'delete'){
     header("location: ./admin.php?msg=$msg");
     exit;
 }
+
+//save schedule
+if ( $_POST['type'] == 'teamSchedule' ) {
+
+    $round = $_POST['round'];
+    $games = $_POST['match_vs'];
+    $result = $_POST['result'];
+
+
+    $sql = "INSERT INTO poules (round, match_vs, result) VALUES (:round, :match_vs, :result)";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        ':round' => $round,
+        ':match_vs' => $games,
+        ':result' => $result
+    ]);
+
+    $msg = "schema is met succesvol opgeslagen!";
+    header("location: admin.php?msg=$msg");
+    exit;
+}

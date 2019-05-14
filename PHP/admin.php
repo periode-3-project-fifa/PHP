@@ -15,6 +15,7 @@ $teams = $query->fetchAll(PDO::FETCH_ASSOC);
 if($_SESSION['admin'] != 1){
     header("Location: index.php");
 }
+
 ?>
 </head>
 <body>
@@ -27,6 +28,13 @@ if($_SESSION['admin'] != 1){
     }
     ?>
 </ol>
+<form action="loginController.php" method="post">
+    <input class="" type="submit" value="save scheme" name="saveScheme" required>
+    <input type="hidden" name="type" value="teamSchedule">
+<button>Save schedule</button>
+
+</form>
+
 
 <?php
     foreach ($teams as $team) {
