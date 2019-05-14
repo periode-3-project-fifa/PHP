@@ -55,7 +55,7 @@ $teams = $query->fetchAll(PDO::FETCH_ASSOC);
                     foreach($schedule AS $round => $games){
                         echo "<div class='rounds'><h3>Ronde: ".($round+1)."</h3>";
                         foreach($games AS $play){
-                            echo "<div class='singleround'><p>".$play["Home"]."</p>"."<p style='color:orangered'><strong>-VS-</strong></p>"."<p>".$play["Away"]."</p></div>";
+                            echo "<div class='singleround'><p>".$play["Home"]."</p>"."<p style='color:orangered   '><strong>-VS-</strong></p>"."<p>".$play["Away"]."</p></div>";
                         }
                         echo "</div>";
                     }
