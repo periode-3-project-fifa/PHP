@@ -165,8 +165,7 @@ input:valid {
 .box{
     border:double;
     background: #b9ffb4;
-    height: auto;
-    text-align: center;
+    height: 400px;
 }
 
 /*schedule page*/
