@@ -6,6 +6,9 @@
  * Time: 8:50 AM
  */
 
+$pagename = 'Playschedule';
+$pagetitle = 'Play Schedule';
+
 require 'header.php';
 
 $sql = "SELECT * FROM teams";
@@ -14,7 +17,7 @@ $teams = $query->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
     </head>
-        <body>
+    <body class="<?=$pagename?>">
         <div class="main_top">
             <div class="Poules">
                 <div class="heading">
