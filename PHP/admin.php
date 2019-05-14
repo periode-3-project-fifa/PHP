@@ -37,7 +37,7 @@ if($_SESSION['admin'] != 1){
 
     function scheduler($members){
         if (count($members) != 10){
-            array_push($members,"not enough teams");
+            array_push($members,"10 teams are needed");
         }
         $away = array_splice($members,(count($members)/2));
         $home = $members;

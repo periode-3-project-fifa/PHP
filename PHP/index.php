@@ -9,6 +9,7 @@
 $pagetitle = 'Home';
 $pagename = 'index';
 require 'header.php';
+
 $sql = "SELECT * FROM teams";
 $query =$db->query($sql);
 $teams = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -81,10 +82,10 @@ if( isset($_GET['msg'])){
             </div>
             <div class="boxx de_poules">
                 <div class="poule_A">
-                    <h3>Poule A</h3>
+                    <h3><a href="playSchedule.php"> Poule A</h3></a>
                     <?php
                     echo '<ul>';
-                            for ($x = 0; $x <= 3; $x++) {
+                            for ($x = 0; $x <= 9; $x++) {
                             $team = $teams[$x];
                             $name = htmlentities($team['name']);
                             echo "<li><?id={$team['id']}'> {$team['name']}</li>";
@@ -97,7 +98,7 @@ if( isset($_GET['msg'])){
 
                     <?php
                     echo '<ul>';
-                        for ($x = 0; $x <= 3; $x++) {
+                        for ($x = 0; $x <= 9; $x++) {
                             $team = $teams[$x];
                             $name = htmlentities($team['name']);
                             echo "<li><?id={$team['id']}'> {$team['name']}</li>";
