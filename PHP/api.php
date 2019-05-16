@@ -6,6 +6,7 @@
  * Time: 09:51
  */
 require 'config.php';
+if ()
 $sql = "SELECT * FROM teams";
 $query =$db->query($sql);
 $teams = $query->fetchAll(PDO::FETCH_ASSOC);
