@@ -29,13 +29,7 @@ if($_SESSION['admin'] != 1){
     ?>
 </ol>
 <form action="loginController.php" method="post">
-    <input class="" type="submit" value="save scheme" name="saveScheme" required>
-    <input type="hidden" name="type" value="teamSchedule">
-<button>Save schedule</button>
-
-</form>
-
-
+    <input type="submit" name="type" id="teamSchedule" value="teamSchedule">
 <?php
     foreach ($teams as $team) {
         $teamNameList[] = $team['name'];
@@ -43,37 +37,46 @@ if($_SESSION['admin'] != 1){
         $schedule = scheduler($members);
     }
 
-    function scheduler($members){
-        if (count($members) != 10){
-            array_push($members,"10 teams are needed");
+    function scheduler($members)
+    {
+        if (count($members) != 10) {
+            array_push($members, "10 teams are needed");
         }
-        $away = array_splice($members,(count($members)/2));
+        $away = array_splice($members, (count($members) / 2));
         $home = $members;
-        for ($i=0; $i < count($home)+count($away)-1; $i++){
-            for ($j=0; $j<count($home); $j++){
-                $round[$i][$j]["Home"]=$home[$j];
-                $round[$i][$j]["Away"]=$away[$j];
+        for ($i = 0; $i < count($home) + count($away) - 1; $i++) {
+            for ($j = 0; $j < count($home); $j++) {
+                $round[$i][$j]["Home"] = $home[$j];
+                $round[$i][$j]["Away"] = $away[$j];
             }
-            $splicedArray = array_splice($home,1,1);
+            $splicedArray = array_splice($home, 1, 1);
             $shiftedArray = array_shift($splicedArray);
-            if(count($home)+count($away)-1 > 2){
+            if (count($home) + count($away) - 1 > 2) {
                 array_unshift($away, $shiftedArray);
-                array_push($home,array_pop($away));
+                array_push($home, array_pop($away));
             }
         }
         return $round;
 
-    }
 
 
-    foreach($schedule AS $round => $games){
-    echo "Round: ".($round+1)."<BR>";
-    foreach($games AS $play){
-        echo $play["Home"]." - ".$play["Away"]."<BR>";
+
+
     }
-    echo "<BR>";
-    }
+
 
 ?>
+</form>
 
+    <?php
+    foreach ($schedule AS $round => $games) {
+        echo "Round: " . ($round + 1) . "<BR>";
+        foreach ($games AS $play) {
+            echo $play["Home"] . " - " . $play["Away"] . "<BR>";
+        }
+        echo "<BR>";
+
+    }
+    ?>
+?>
 <?= require 'footer.php';?>

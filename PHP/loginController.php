@@ -197,22 +197,79 @@ if ($_POST['type'] == 'delete'){
 }
 
 //save schedule
-if ( $_POST['type'] == 'teamSchedule' ) {
+if ($_POST['type'] == 'teamSchedule')
+{
 
-    $round = $_POST['round'];
-    $games = $_POST['match_vs'];
-    $result = $_POST['result'];
+    $sql = "SELECT * FROM teams";
+    $query = $db->query($sql);
+    $teams = $query->fetchAll(PDO::FETCH_ASSOC);
+
+    function scheduler($members)
+    {
+        if (count($members) != 10) {
+            array_push($members, "10 teams are needed");
+        }
+        $away = array_splice($members, (count($members) / 2));
+        $home = $members;
+        for ($i = 0; $i < count($home) + count($away) - 1; $i++) {
+            for ($j = 0; $j < count($home); $j++) {
+                $round[$i][$j]["Home"] = $home[$j];
+                $round[$i][$j]["Away"] = $away[$j];
+            }
+            $splicedArray = array_splice($home, 1, 1);
+            $shiftedArray = array_shift($splicedArray);
+            if (count($home) + count($away) - 1 > 2) {
+                array_unshift($away, $shiftedArray);
+                array_push($home, array_pop($away));
+            }
+        }
+        return $round;
+    }
+
+    foreach ($teams as $team) {
+        $teamNameList[] = $team['id'];
+        $members = $teamNameList;
+        $schedule = scheduler($members);
+    }
+    $ronde = 1;
+
+    foreach($schedule as $round) {
+
+        foreach($round as $game) {
 
 
-    $sql = "INSERT INTO poules (round, match_vs, result) VALUES (:round, :match_vs, :result)";
-    $prepare = $db->prepare($sql);
-    $prepare->execute([
-        ':round' => $round,
-        ':match_vs' => $games,
-        ':result' => $result
-    ]);
+            $home = $game['Home'];
+            $away = $game['Away'];
+            $sql = "INSERT INTO poules(round, home, away) VALUES (:round, :home, :away)";
+            $prepare = $db->prepare($sql);
+            $prepare->execute([
+                ':round' => $ronde,
+                ':home' => $home,
+                ':away' => $away
+            ]);
 
-    $msg = "schema is met succesvol opgeslagen!";
-    header("location: admin.php?msg=$msg");
-    exit;
+        }
+        $ronde++;
+    }
+
+
+
+
+//    var_dump($_POST); die;
+//    $round = $_POST['round'];
+//    $home = $_POST['home'];
+//    $away = $_POST ['away'];
+//    $result = $_POST['result'];
+//
+//
+//
+//    $sql = "INSERT INTO poules (round, home, away, result) VALUES (:round, :home, away, :result)";
+//    $prepare = $db->prepare($sql);
+//    $prepare->execute([
+//        ':round' => $round,
+//        ':away' => $away,
+//        ':home' => $home,
+//        ':result' => $result
+//    ]);
+
 }
