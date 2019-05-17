@@ -6,11 +6,15 @@
  * Time: 09:51
  */
 require 'config.php';
-if ()
-$sql = "SELECT * FROM teams";
+
+$sql = "SELECT teams_a.name AS home, teams_b.name AS away  FROM `poules`
+INNER JOIN teams as teams_a 
+ON teams_a.id = poules.home
+INNER JOIN teams as teams_b
+ON teams_b.id = poules.away";
 $query =$db->query($sql);
-$teams = $query->fetchAll(PDO::FETCH_ASSOC);
+$poules = $query->fetchAll(PDO::FETCH_ASSOC);
 
 header('Content-Type: application/json');
 
-echo json_encode($teams);
+echo json_encode($poules);
