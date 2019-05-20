@@ -10,7 +10,7 @@ require 'config.php';
 $key = '19141945';
 
 
-if ($_SERVER["QUERY_STRING"] == $key)
+if($_GET['key'] == $key)
 {
     $sql = "SELECT poules.id AS id, teams_a.name AS home, teams_b.name AS away FROM `poules`
 INNER JOIN teams as teams_a 
