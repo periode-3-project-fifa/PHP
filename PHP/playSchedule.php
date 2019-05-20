@@ -18,7 +18,7 @@ ON teams_a.id = poules.home
 INNER JOIN teams as teams_b
 ON teams_b.id = poules.away";
 $query = $db->query($sql);
-$teams = $query->fetchAll(PDO::FETCH_ASSOC);
+$poules = $query->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
     </head>
@@ -30,10 +30,13 @@ $teams = $query->fetchAll(PDO::FETCH_ASSOC);
                 </div>
                 <div class="playschedule">
                     <?php
-                        foreach ($teams as $team){
-                            echo implode($team);
-                        }
+
+                    foreach ($poules AS $game) {
+                            echo  $game['home'] . " - " . $game['away'] . "<BR>";
+                    }
+                    return $round;
                     ?>
+
                 </div>
 
             <div class="Poules">
