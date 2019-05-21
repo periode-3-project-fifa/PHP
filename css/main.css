@@ -144,6 +144,24 @@ input:valid {
     font-size: 15px;
 }
 
+/* Information */
+.info_top{
+    background: #b9ffb4;
+}
+
+.information h3{
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin: 0px;
+}
+
+.information_text{
+    text-align: center;
+    padding-bottom: 15px;
+    margin: 0px;
+}
+
 /*main top*/
 
 .main_top{
@@ -173,6 +191,7 @@ input:valid {
     border:double;
     background: #b9ffb4;
     height: auto;
+
 }
 .rounds{
     margin-top: 20px;

@@ -6,10 +6,22 @@
  * Time: 09:51
  */
 require 'config.php';
-$sql = "SELECT * FROM teams";
-$query =$db->query($sql);
-$teams = $query->fetchAll(PDO::FETCH_ASSOC);
 
-header('Content-Type: application/json');
+$key = '19141945';
 
-echo json_encode($teams);
+
+if($_GET['key'] == $key)
+{
+    $sql = "SELECT poules.id AS id, teams_a.name AS home, teams_b.name AS away FROM `poules`
+INNER JOIN teams as teams_a 
+ON teams_a.id = poules.home
+INNER JOIN teams as teams_b
+ON teams_b.id = poules.away";
+
+        $query = $db->query($sql);
+        $poules = $query->fetchAll(PDO::FETCH_ASSOC);
+
+        header('Content-Type: application/json');
+
+        echo json_encode($poules);
+}
