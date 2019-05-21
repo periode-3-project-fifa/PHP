@@ -11,20 +11,6 @@ $pagename = 'addMembersPage';
 
 require 'header.php';
 
-/*$id = $_GET['id'];
-
-$sql = "SELECT * FROM teams WHERE id = :id";
-
-$prepare = $db->prepare($sql);
-
-$prepare->execute([
-    ':id' => $id
-]);
-$team = $query->fetchAll(PDO::FETCH_ASSOC);*/
-
-/*for ($i = 0; $i<=$team['player_count']; $i++){
-    echo $i;
-}*/
 $id = $_GET['id'];
 $sql = "SELECT * FROM teams WHERE id = :id";
 $query = $db->query($sql);
