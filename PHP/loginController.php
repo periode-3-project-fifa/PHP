@@ -204,7 +204,7 @@ if ($_POST['type'] == 'teamSchedule')
     $query = $db->query($sql);
     $teams = $query->fetchAll(PDO::FETCH_ASSOC);
 
-    function scheduler($members)
+     function scheduler($members)
     {
         if (count($members) != 10) {
             array_push($members, "10 teams are needed");
