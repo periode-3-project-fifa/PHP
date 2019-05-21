@@ -34,7 +34,7 @@ $rounds = $query->fetchAll(PDO::FETCH_ASSOC);
                 <div class="playschedule">
                     <?php
                         foreach ($poules AS $game) {
-                            echo "Round:     " . $game['round'] . "<BR>";
+                           echo "<h2>Round:  " . $game ['round'] . "</h2><BR>";
                             echo $game['home'] . " - " . $game['away'] . "<BR>";
 
                         }

@@ -30,6 +30,11 @@ if($_SESSION['admin'] != 1){
 </ol>
 <form action="loginController.php" method="post">
     <input type="submit" name="type" id="teamSchedule" value="teamSchedule">
+    <input type="hidden" name="scores" >
+        <input type="submit" name="type" id="Save" value="Save">
+        <input type="text" name="type" id="homescore">
+        <input type="text" name="type" id="awayscore">
+</form>
 <?php
     foreach ($teams as $team) {
         $teamNameList[] = $team['name'];
@@ -45,16 +50,23 @@ if($_SESSION['admin'] != 1){
         $away = array_splice($members, (count($members) / 2));
         $home = $members;
         for ($i = 0; $i < count($home) + count($away) - 1; $i++) {
+
             for ($j = 0; $j < count($home); $j++) {
                 $round[$i][$j]["Home"] = $home[$j];
                 $round[$i][$j]["Away"] = $away[$j];
+
+
+
             }
+
             $splicedArray = array_splice($home, 1, 1);
             $shiftedArray = array_shift($splicedArray);
             if (count($home) + count($away) - 1 > 2) {
                 array_unshift($away, $shiftedArray);
                 array_push($home, array_pop($away));
             }
+
+
         }
         return $round;
 
@@ -66,13 +78,19 @@ if($_SESSION['admin'] != 1){
 
 
 ?>
-</form>
+
 
     <?php
     foreach ($schedule AS $round => $games) {
         echo "Round: " . ($round + 1) . "<BR>";
         foreach ($games AS $play) {
-            echo $play["Home"] . " - " . $play["Away"] . "<BR>";
+            echo $play["Home"] . " - " . $play["Away"] . "<BR>"; echo "<form action='loginController.php' method='post'>";
+            echo    "<input type='hidden' name='scores' >";
+            echo   "<input type='text' name='type' id='homescore' maxlength='2'>";
+            echo  "<input type='text' name='type' id='awayscore' maxlength='2'>";
+            echo   "<input type='submit' name='type' id='Save' value='Save'>";
+            echo "</form>";
+
         }
         echo "<BR>";
 
