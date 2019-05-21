@@ -252,24 +252,47 @@ if ($_POST['type'] == 'teamSchedule')
         $ronde++;
     }
 
-
-
-
-//    var_dump($_POST); die;
-//    $round = $_POST['round'];
-//    $home = $_POST['home'];
-//    $away = $_POST ['away'];
-//    $result = $_POST['result'];
-//
-//
-//
-//    $sql = "INSERT INTO poules (round, home, away, result) VALUES (:round, :home, away, :result)";
-//    $prepare = $db->prepare($sql);
-//    $prepare->execute([
-//        ':round' => $round,
-//        ':away' => $away,
-//        ':home' => $home,
-//        ':result' => $result
-//    ]);
-
 }
+
+/*if ($_POST['type'] == 'edit'){
+    $id = $_GET['id'];
+    $name = $_POST['teamname'];
+
+    $sql = "UPDATE teams SET name = :name WHERE id = :id";
+
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        ':id' => $id,
+        ':name' => $name
+    ]);
+
+
+    $msg = 'succesvol veranderd';
+    header("location: ./admin.php?msg=$msg");
+    exit;
+}
+*/
+
+
+if ($_POST['type'] == 'score') {
+
+    //$idpoule = $_GET['id'];
+    $homescore = $_POST['homescore'];
+    $awayscore = $_POST['awayscore'];
+}
+exit;
+
+    $sql = "INSERT INTO poules (homescore, awayscore) VALUES (:homescore, :awayscore)WHERE id = :id";
+
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        ':id' => $id,
+        ':homescore' => $homescore,
+        ':awayscore' => $awayscore
+    ]);
+
+
+    $msg = 'succesvol toegevoegd';
+    header("location: ./admin.php?msg=$msg");
+    exit;
+

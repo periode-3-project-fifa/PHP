@@ -15,6 +15,9 @@ $teams = $query->fetchAll(PDO::FETCH_ASSOC);
 if($_SESSION['admin'] != 1){
     header("Location: index.php");
 }
+$sqlid = "SELECT * FROM `poules`";
+$queryid = $db->query($sqlid);
+$id = $queryid->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 </head>
@@ -30,10 +33,10 @@ if($_SESSION['admin'] != 1){
 </ol>
 <form action="loginController.php" method="post">
     <input type="submit" name="type" id="teamSchedule" value="teamSchedule">
-    <input type="hidden" name="scores" >
-        <input type="submit" name="type" id="Save" value="Save">
-        <input type="text" name="type" id="homescore">
-        <input type="text" name="type" id="awayscore">
+<!--    <input type="hidden" name="scores" >-->
+<!--        <input type="submit" name="type" id="Save" value="Save">-->
+<!--        <input type="text" name="type" id="homescore">-->
+<!--        <input type="text" name="type" id="awayscore">-->
 </form>
 <?php
     foreach ($teams as $team) {
@@ -84,11 +87,13 @@ if($_SESSION['admin'] != 1){
     foreach ($schedule AS $round => $games) {
         echo "Round: " . ($round + 1) . "<BR>";
         foreach ($games AS $play) {
-            echo $play["Home"] . " - " . $play["Away"] . "<BR>"; echo "<form action='loginController.php' method='post'>";
-            echo    "<input type='hidden' name='scores' >";
-            echo   "<input type='text' name='type' id='homescore' maxlength='2'>";
-            echo  "<input type='text' name='type' id='awayscore' maxlength='2'>";
-            echo   "<input type='submit' name='type' id='Save' value='Save'>";
+            echo $play["Home"] . " - " . $play["Away"] . "<BR>";
+            ?> <form action="loginController.php?id=<?=$id?>" method='POST'>';
+            <?php
+            echo   "<input type='hidden' name='type' value='score'>";
+            echo   "<input type='text' name='homescore'  maxlength='2'>";
+            echo  "<input type='text' name='awayscore'  maxlength='2'>";
+            echo   "<input type='submit' value='Save'>";
             echo "</form>";
 
         }

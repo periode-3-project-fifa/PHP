@@ -11,8 +11,7 @@ $pagetitle = 'Play Schedule';
 
 require 'header.php';
 
-$sql = //"SELECT * FROM poules";
-"SELECT round as round, teams_a.name AS home, teams_b.name AS away FROM `poules`
+$sql = "SELECT round, teams_a.name AS home, teams_b.name AS away FROM `poules`
 INNER JOIN teams as teams_a 
 ON teams_a.id = poules.home
 INNER JOIN teams as teams_b
