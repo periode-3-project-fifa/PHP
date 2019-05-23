@@ -11,6 +11,7 @@ $pagetitle = 'Play Schedule';
 
 require 'header.php';
 
+//Select de items die ik nodig heb, maar dat zijn id's. Met een Inner Join kan ik toch de namen showen.
 $sql = "SELECT round, teams_a.name AS home, teams_b.name AS away, poules.homescore, poules.awayscore FROM `poules`
 INNER JOIN teams as teams_a 
 ON teams_a.id = poules.home
@@ -19,9 +20,7 @@ ON teams_b.id = poules.away";
 $query = $db->query($sql);
 $poules = $query->fetchAll(PDO::FETCH_ASSOC);
 
-$sqlround = "SELECT round FROM `poules`";
-$query = $db->query($sqlround);
-$rounds = $query->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
     </head>
     <body class="<?=$pagename?>">
@@ -31,6 +30,7 @@ $rounds = $query->fetchAll(PDO::FETCH_ASSOC);
                     <h3>Poule A</h3>
                 </div>
                 <div class="playschedule">
+                    //foreach om alles te laten zien op de site.
                     <?php
                         foreach ($poules AS $game) {
                            echo "<h2>Round:  " . $game ['round'] . "</h2><BR>";

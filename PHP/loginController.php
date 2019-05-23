@@ -255,24 +255,6 @@ if ($_POST['type'] == 'teamSchedule')
 
 }
 
-/*if ($_POST['type'] == 'edit'){
-    $id = $_GET['id'];
-    $name = $_POST['teamname'];
-
-    $sql = "UPDATE teams SET name = :name WHERE id = :id";
-
-    $prepare = $db->prepare($sql);
-    $prepare->execute([
-        ':id' => $id,
-        ':name' => $name
-    ]);
-
-
-    $msg = 'succesvol veranderd';
-    header("location: ./admin.php?msg=$msg");
-    exit;
-}
-*/
 
 
 if ($_POST['type'] == 'score') {
