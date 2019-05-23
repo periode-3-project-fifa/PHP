@@ -482,8 +482,20 @@ input:valid {
 /* ==========================================================================
    Admin page
    ========================================================================== */
+.adminpage {
 
+}
+.adminpage .full_team_score{
 
+}
+.adminpage .full_team_score .teams_that_play{
+    display: inline-block;
+    width: 500px;
+    text-align: center;
+}
+.adminpage .score_input{
+
+}
 
 /* ==========================================================================
    Helper classes
