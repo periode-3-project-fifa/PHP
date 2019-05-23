@@ -30,11 +30,12 @@ $poules = $query->fetchAll(PDO::FETCH_ASSOC);
                     <h3>Poule A</h3>
                 </div>
                 <div class="playschedule">
-                    //foreach om alles te laten zien op de site.
+
                     <?php
+                    //foreach om alles te laten zien op de site.
                         foreach ($poules AS $game) {
                            echo "<h2>Round:  " . $game ['round'] . "</h2><BR>";
-                            echo $game['home'] . " - " . $game['away'] .  " ". $game['homescore'] . " - " . $game['awayscore'] . "<BR>";
+                            echo $game['home'] . " - " . $game['away'] .  "<br>" . "<strong><i>Eind score: ". $game['homescore'] . " - " . $game['awayscore'] . "</i></strong><BR>";
 
                         }
                     ?>

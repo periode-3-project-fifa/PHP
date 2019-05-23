@@ -82,7 +82,7 @@ if($_SESSION['admin'] != 1){
     <?php
 
     //Select de items die ik nodig heb, maar dat zijn id's. Met een Inner Join kan ik toch de namen showen.
-   $sql = "SELECT round, teams_a.name AS home, teams_b.name AS away, poules.id FROM `poules`
+   $sql = "SELECT round, teams_a.name AS home, teams_b.name AS away, poules.id, poules.homescore, poules.awayscore FROM `poules`
 INNER JOIN teams as teams_a 
 ON teams_a.id = poules.home
 INNER JOIN teams as teams_b
@@ -95,7 +95,7 @@ $poules = $query->fetchAll(PDO::FETCH_ASSOC);
     //foreach om alles te laten zien op de site.
     foreach ($poules AS $game) {
         echo "<h4>Round:  " . $game ['round'] . "</h4><BR>";
-        echo $game['home'] . " - " . $game['away'] . "<BR>";
+        echo $game['home'] . " - " . $game['away'] . "<BR>" ." Eind score:" . $game['homescore'] . " - " . $game['awayscore'] . "<BR>";
 
     ?> <form action="loginController.php?id=<?=$game['id']?>" method='POST'>
     <?php
