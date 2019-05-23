@@ -88,7 +88,7 @@ $id = $queryid->fetchAll(PDO::FETCH_ASSOC);
         echo "Round: " . ($round + 1) . "<BR>";
         foreach ($games AS $play) {
             echo $play["Home"] . " - " . $play["Away"] . "<BR>";
-            ?> <form action="loginController.php?id=<?=$id?>" method='POST'>';
+            ?> <form action="loginController.php?id=<?=$id?>" method='POST'>
             <?php
             echo   "<input type='hidden' name='type' value='score'>";
             echo   "<input type='text' name='homescore'  maxlength='2'>";
