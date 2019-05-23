@@ -80,33 +80,27 @@ if($_SESSION['admin'] != 1){
 
 
     <?php
-    $sqlid = "SELECT 'id' FROM `poules`";
-    $query = $db->query($sqlid);
-    $pouleid = $query->fetchAll(PDO::FETCH_ASSOC);
+   $sql = "SELECT round, teams_a.name AS home, teams_b.name AS away, poules.id FROM `poules`
+INNER JOIN teams as teams_a 
+ON teams_a.id = poules.home
+INNER JOIN teams as teams_b
+ON teams_b.id = poules.away";
+$query = $db->query($sql);
+$poules = $query->fetchAll(PDO::FETCH_ASSOC);
 
 
-    foreach ($schedule AS $round => $games) {
-        echo "Round: " . ($round + 1) . "<BR>";
-        foreach ($games AS $play) {
+    foreach ($poules AS $game) {
+        echo "<h4>Round:  " . $game ['round'] . "</h4><BR>";
+        echo $game['home'] . " - " . $game['away'] . "<BR>";
 
-            echo $play["Home"] . " - " . $play["Away"] . "<BR>";
-<<<<<<< HEAD
-            ?>
-            <form action="loginController.php?id=<?=$pouleid['0']?>" method='POST'>
-=======
-            ?> <form action="loginController.php?id=<?=$id?>" method='POST'>
->>>>>>> master
-            <?php
-            echo   "<input type='hidden' name='type' value='score'>";
-            echo   "<input type='text' name='homescore'  maxlength='2'>";
-            echo  "<input type='text' name='awayscore'  maxlength='2'>";
-            echo   "<input type='submit' value='Save'>";
-            echo "</form>";
-
-        }
-        echo "<BR>";
-
+    ?> <form action="loginController.php?id=<?=$game['id']?>" method='POST'>
+    <?php
+    echo   "<input type='hidden' name='type' value='score'>";
+    echo   "<input type='text' name='homescore'  maxlength='2' required>";
+    echo  "<input type='text' name='awayscore'  maxlength='2' required>";
+    echo   "<input type='submit' value='Save'>";
+    echo "</form>";
     }
+
     ?>
-?>
 <?= require 'footer.php';?>

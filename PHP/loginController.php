@@ -251,6 +251,7 @@ if ($_POST['type'] == 'teamSchedule')
         }
         $ronde++;
     }
+    header("Location: ./admin.php");
 
 }
 
@@ -273,21 +274,18 @@ if ($_POST['type'] == 'teamSchedule')
 }
 */
 
-echo $_GET['id'];
 
 if ($_POST['type'] == 'score') {
 
-    //$idpoule = $_GET['id'];
+    $idpoule = $_GET['id'];
     $homescore = $_POST['homescore'];
     $awayscore = $_POST['awayscore'];
-}
-exit;
 
-    $sql = "INSERT INTO poules (homescore, awayscore) VALUES (:homescore, :awayscore)WHERE id = :id";
+    $sql = "UPDATE poules SET homescore = :homescore, awayscore = :awayscore WHERE id = :id";;
 
     $prepare = $db->prepare($sql);
     $prepare->execute([
-        ':id' => $id,
+        ':id' => $idpoule,
         ':homescore' => $homescore,
         ':awayscore' => $awayscore
     ]);
@@ -296,4 +294,5 @@ exit;
     $msg = 'succesvol toegevoegd';
     header("location: ./admin.php?msg=$msg");
     exit;
+}
 

@@ -11,7 +11,7 @@ $pagetitle = 'Play Schedule';
 
 require 'header.php';
 
-$sql = "SELECT round, teams_a.name AS home, teams_b.name AS away FROM `poules`
+$sql = "SELECT round, teams_a.name AS home, teams_b.name AS away, poules.homescore, poules.awayscore FROM `poules`
 INNER JOIN teams as teams_a 
 ON teams_a.id = poules.home
 INNER JOIN teams as teams_b
@@ -34,7 +34,7 @@ $rounds = $query->fetchAll(PDO::FETCH_ASSOC);
                     <?php
                         foreach ($poules AS $game) {
                            echo "<h2>Round:  " . $game ['round'] . "</h2><BR>";
-                            echo $game['home'] . " - " . $game['away'] . "<BR>";
+                            echo $game['home'] . " - " . $game['away'] .  " ". $game['homescore'] . " - " . $game['awayscore'] . "<BR>";
 
                         }
                     ?>
