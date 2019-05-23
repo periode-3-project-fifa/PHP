@@ -11,6 +11,12 @@ $pagetitle = 'Play Schedule';
 
 require 'header.php';
 
+
+//selecteert de grootste ronde uit de database.
+$sql = "SELECT max(round) as maxRound FROM poules";
+$maxRounds = $db->query($sql)->fetch(PDO::FETCH_ASSOC);
+
+
 //Select de items die ik nodig heb, maar dat zijn id's. Met een Inner Join kan ik toch de namen showen.
 $sql = "SELECT round, teams_a.name AS home, teams_b.name AS away, poules.homescore, poules.awayscore FROM `poules`
 INNER JOIN teams as teams_a 
@@ -32,12 +38,20 @@ $poules = $query->fetchAll(PDO::FETCH_ASSOC);
                 <div class="playschedule">
 
                     <?php
-                    //foreach om alles te laten zien op de site.
+
+                    //telt hoeveel rondes er zijn en pakt er 1 van.
+                    for ($i = 1; $i <= $maxRounds['maxRound']; $i++) {
+                        echo "<h3>Round:  " . $i . "</h3><BR>";
+
+                        //foreach om alles te laten zien op de site.
                         foreach ($poules AS $game) {
-                           echo "<h2>Round:  " . $game ['round'] . "</h2><BR>";
-                            echo $game['home'] . " - " . $game['away'] .  "<br>" . "<strong><i>Eind score: ". $game['homescore'] . " - " . $game['awayscore'] . "</i></strong><BR>";
+                            if ($game['round'] == $i) {
+                                echo "<br>" . $game['home'] . " - " . $game['away'] .  "<br>" . "<strong><i>Eind score: ". $game['homescore'] . " - " . $game['awayscore'] . "</i></strong><BR>";
+                            }
 
                         }
+                    }
+
                     ?>
 
                 </div>
