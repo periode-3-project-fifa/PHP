@@ -273,6 +273,7 @@ if ($_POST['type'] == 'teamSchedule')
 }
 */
 
+echo $_GET['id'];
 
 if ($_POST['type'] == 'score') {
 

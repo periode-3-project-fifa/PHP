@@ -7,7 +7,7 @@
  */
 require 'config.php';
 
-$key = '19141945';
+$key = 'hardcodedkey1234';
 
 
 if($_GET['key'] == $key)

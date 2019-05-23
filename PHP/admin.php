@@ -7,7 +7,7 @@
  */
 
 $pagename = "adminpage";
-$pagetitle = "U bent Admin";
+$pagetitle = "Je bent Admin";
 require 'header.php';
 $sql = "SELECT * FROM teams";
 $query = $db->query($sql);
@@ -15,10 +15,6 @@ $teams = $query->fetchAll(PDO::FETCH_ASSOC);
 if($_SESSION['admin'] != 1){
     header("Location: index.php");
 }
-$sqlid = "SELECT * FROM `poules`";
-$queryid = $db->query($sqlid);
-$id = $queryid->fetchAll(PDO::FETCH_ASSOC);
-
 ?>
 </head>
 <body>
@@ -84,11 +80,18 @@ $id = $queryid->fetchAll(PDO::FETCH_ASSOC);
 
 
     <?php
+    $sqlid = "SELECT 'id' FROM `poules`";
+    $query = $db->query($sqlid);
+    $pouleid = $query->fetchAll(PDO::FETCH_ASSOC);
+
+
     foreach ($schedule AS $round => $games) {
         echo "Round: " . ($round + 1) . "<BR>";
         foreach ($games AS $play) {
+
             echo $play["Home"] . " - " . $play["Away"] . "<BR>";
-            ?> <form action="loginController.php?id=<?=$id?>" method='POST'>';
+            ?>
+            <form action="loginController.php?id=<?=$pouleid['0']?>" method='POST'>
             <?php
             echo   "<input type='hidden' name='type' value='score'>";
             echo   "<input type='text' name='homescore'  maxlength='2'>";
