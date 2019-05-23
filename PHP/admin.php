@@ -90,8 +90,12 @@ if($_SESSION['admin'] != 1){
         foreach ($games AS $play) {
 
             echo $play["Home"] . " - " . $play["Away"] . "<BR>";
+<<<<<<< HEAD
             ?>
             <form action="loginController.php?id=<?=$pouleid['0']?>" method='POST'>
+=======
+            ?> <form action="loginController.php?id=<?=$id?>" method='POST'>
+>>>>>>> master
             <?php
             echo   "<input type='hidden' name='type' value='score'>";
             echo   "<input type='text' name='homescore'  maxlength='2'>";
