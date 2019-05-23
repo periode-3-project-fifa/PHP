@@ -47,7 +47,7 @@ $id = $queryid->fetchAll(PDO::FETCH_ASSOC);
 
     function scheduler($members)
     {
-        if (count($members) != 10) {
+        if (count($members) < 10) {
             array_push($members, "10 teams are needed");
         }
         $away = array_splice($members, (count($members) / 2));
@@ -87,14 +87,14 @@ $id = $queryid->fetchAll(PDO::FETCH_ASSOC);
     foreach ($schedule AS $round => $games) {
         echo "Round: " . ($round + 1) . "<BR>";
         foreach ($games AS $play) {
-            echo $play["Home"] . " - " . $play["Away"] . "<BR>";
-            ?> <form action="loginController.php?id=<?=$id?>" method='POST'>
+            echo "<div class='full_team_score'><div class='teams_that_play' >" . $play["Home"] . "<span class='sign'> - </span>" . $play["Away"] . "</div>";
+            ?> <form class="score_input" action="loginController.php?id=<?=$id?>" method='POST'>
             <?php
             echo   "<input type='hidden' name='type' value='score'>";
             echo   "<input type='text' name='homescore'  maxlength='2'>";
             echo  "<input type='text' name='awayscore'  maxlength='2'>";
             echo   "<input type='submit' value='Save'>";
-            echo "</form>";
+            echo "</form></div>";
 
         }
         echo "<BR>";
