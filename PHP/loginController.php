@@ -122,23 +122,29 @@ if ( $_POST['type'] == 'register' ) {
 
     }
 
-    //Checkt of password met elkaar overeenkomen, zoja dan gaat hij door.
-    if ($_POST['password'] == $_POST['passwordconfirm']) {
+    if($_POST['password'] == ""){
+        $msg = "Wachtwoord mag niet leeg zijn!";
+        header("location: register.php?msg=$msg");
 
-        $sql = "INSERT INTO users (email, password) VALUES (:email, :password)";
-        $prepare = $db->prepare($sql);
-        $prepare->execute([
-            ':email' => $email,
-            ':password' => $passwordhashed
-        ]);
-
-        $msg = "Account is succesvol aangemaakt!";
-        header("location: login.php?msg=$msg");
-        exit;
     }
-    else{
-        $messagefail = "Probeer het opnieuw!";
-        header("location: register.php?msg=$messagefail");
+    else {
+        //Checkt of password met elkaar overeenkomen, zoja dan gaat hij door.
+        if ($_POST['password'] == $_POST['passwordconfirm']) {
+
+            $sql = "INSERT INTO users (email, password) VALUES (:email, :password)";
+            $prepare = $db->prepare($sql);
+            $prepare->execute([
+                ':email' => $email,
+                ':password' => $passwordhashed
+            ]);
+
+            $msg = "Account is succesvol aangemaakt!";
+            header("location: login.php?msg=$msg");
+            exit;
+        } else {
+            $messagefail = "Probeer het opnieuw!";
+            header("location: register.php?msg=$messagefail");
+        }
     }
 }
 
