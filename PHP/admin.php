@@ -108,8 +108,8 @@ $poules = $query->fetchAll(PDO::FETCH_ASSOC);
                  ?> <form action="loginController.php?id=<?=$game['id']?>" method='POST'>
                  <?php
                  echo   "<input type='hidden' name='type' value='score'>";
-                 echo   "<input type='text' name='homescore'  maxlength='2' required>";
-                 echo  "<input type='text' name='awayscore'  maxlength='2' required>";
+                 echo   "<input type='number' name='homescore'  maxlength='2' required>";
+                 echo  "<input type='number' name='awayscore'  maxlength='2' required>";
                  echo   "<input type='submit' value='Save'>";
                  echo "</form>";
             }
