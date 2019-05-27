@@ -185,6 +185,20 @@ input:valid {
     background: #b9ffb4;
     height: 400px;
 }
+.heading {
+    display: flex;
+    align-items: center;
+}
+.heading h3 {
+    margin-right: auto;
+}
+.listOfTeams {
+    width:100%;
+    height:100%;
+    border: none;
+    background: #B9FFB4;
+    overflow-y: auto;
+}
 
 /*schedule page*/
 .playschedule{

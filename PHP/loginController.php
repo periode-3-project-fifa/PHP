@@ -155,14 +155,16 @@ if ( $_POST['type'] == 'registerteamplayer' ) {
 
 
     $sql = "INSERT INTO teams (name, players_count) VALUES (:name, :players_count)";
+    
+    mysqli_insert_id($id);
+
     $prepare = $db->prepare($sql);
     $prepare->execute([
         ':name' => $teamname,
         ':players_count' => $players
     ]);
-
     $msg = "Team is succesvol aangemaakt!";
-    header("location: index.php?msg=$msg");
+    header("location: index.php?id=$id");
     exit;
 }
 //addMembers

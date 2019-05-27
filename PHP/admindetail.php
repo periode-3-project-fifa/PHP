@@ -26,31 +26,17 @@ $team = $prepare->fetch(PDO::FETCH_ASSOC);
         <input name="teamname" type="text" value="<?=$team['name']?>">
         </div>
         <h2>Player name</h2>
-        <div class="form-group">
-            <label for="player"><b class="register-player">Speler 1</b></label>
-            <input type="text" placeholder="Enter player name">
-        </div>
-        <div class="form-group">
-            <label for="player"><b class="register-player">Speler 2</b></label>
-            <input type="text" placeholder="Enter player name">
-        </div>
-        <div class="form-group">
-            <label for="player"><b class="register-player">Speler 3</b></label>
-            <input type="text" placeholder="Enter player name">
-        </div>
-        <div class="form-group">
-            <label for="player"><b class="register-player">Speler 4</b></label>
-            <input type="text" placeholder="Enter player name">
-        </div>
-        <div class="form-group">
-            <label for="player"><b class="register-player">Speler 5</b></label>
-            <input type="text" placeholder="Enter player name">
-        </div>
-        <div class="form-group">
-            <label for="player"><b class="register-player">Speler 6</b></label>
-            <input type="text" placeholder="Enter player name">
-        </div>
-
+        <?php
+        $playercount = $team['players_count'];
+        $y = 1;
+        for ($i = 0; $i <= $playercount; $i++) {
+            echo "<div class='form-group' >";
+            echo "<label for='player' ><b class='register-player' > Speler $y </b ></label >";
+            echo "<input type = 'text' placeholder='Enter player name' >";
+            echo "</div>";
+            $y++;
+        }
+        ?>
         <input class="editBtn" type="submit" value="edit">
     </div>
 </form>

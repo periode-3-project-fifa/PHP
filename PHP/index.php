@@ -63,16 +63,17 @@ if( isset($_GET['msg'])){
                 <h3>Teams</h3>
             </div>
             <div class="box teams">
-                <select size="<?=count($teams)?>" style="width:100%;height:100%; border: none;background: #B9FFB4; overflow-y: auto;" name="" id="selectionbox">
+                <select class="listOfTeams" onchange="MyListSelect();" size="<?=count($teams)?>" name="" id="selectionBox">
                     <?php
+                    $link = './addMembers.php';
                     foreach ($teams as $team) {
                         $name = htmlentities($team['name']);
 
-                        echo "<option> {$team['name']}</option>";
-                    }
-                    ?>
-                </select>
+                        echo "<option id='myButton' value='{$team['id']}'> {$team['name']}</option>";
+                    }?>
 
+                </select>
+/<!--ondblclick="document.location.href='addMembers.php';-->
             </div>
         </div>
         <div class="spelers">
@@ -143,4 +144,12 @@ if( isset($_GET['msg'])){
             </div>
         </div>
     </div>
+<script>
+    function MyListSelect () {
+        var selectionBox = document.getElementById('selectionBox');
+        var selectedValue = selectionBox.options[selectionBox.selectedindex].Value;
+        /*alert(selectedValue);*/
+        
+    }
+</script>
 <?php require 'footer.php'; ?>
