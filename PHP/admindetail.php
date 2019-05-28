@@ -29,7 +29,7 @@ $team = $prepare->fetch(PDO::FETCH_ASSOC);
         <?php
         $playercount = $team['players_count'];
         $y = 1;
-        for ($i = 0; $i <= $playercount; $i++) {
+        for ($i = 0; $i < $playercount; $i++) {
             echo "<div class='form-group' >";
             echo "<label for='player' ><b class='register-player' > Speler $y </b ></label >";
             echo "<input type = 'text' placeholder='Enter player name' >";

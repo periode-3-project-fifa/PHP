@@ -154,17 +154,21 @@ if ( $_POST['type'] == 'registerteamplayer' ) {
     $players = $_POST['players'];
 
 
-    $sql = "INSERT INTO teams (name, players_count) VALUES (:name, :players_count)";
-    
-    mysqli_insert_id($id);
+    $sql = "INSERT INTO teams (name, players_count) VALUES (:names, :players_count)";
+
 
     $prepare = $db->prepare($sql);
     $prepare->execute([
-        ':name' => $teamname,
+        ':names' => $teamname,
         ':players_count' => $players
     ]);
+
+
+    $last_id = $db->lastInsertId();
+
+
     $msg = "Team is succesvol aangemaakt!";
-    header("location: index.php?id=$id");
+    header("location: addMembers.php?id=$last_id");
     exit;
 }
 //addMembers
@@ -193,7 +197,6 @@ if ($_POST['type'] == 'delete'){
     $id = $_GET['id'];
 
     $sql = "DELETE FROM teams WHERE id = :id";
-
     $prepare = $db->prepare($sql);
     $prepare->execute([
         ':id' => $id
@@ -281,8 +284,51 @@ if ($_POST['type'] == 'score') {
     ]);
 
 
+
     $msg = 'succesvol toegevoegd';
     header("location: ./admin.php?msg=$msg");
     exit;
 }
 
+if ($_POST['type'] == 'add_players') {
+
+    $team_id = $_GET['id'];
+
+
+    $sql = "SELECT * FROM teams WHERE id = :id";
+
+    $team = $prepare = $db->prepare($sql);
+
+    $prepare-> execute([
+        ':id' => $id
+    ]);
+    $team = $prepare->fetch(PDO::FETCH_ASSOC);
+
+    $player_amount = $team['players_count'];
+
+    if ($player_amount == 6){
+        $player1 = $_POST['player1'];
+        $player2 = $_POST['player2'];
+        $player3 = $_POST['player3'];
+        $player4 = $_POST['player4'];
+        $player5 = $_POST['player5'];
+        $player6 = $_POST['player6'];
+
+        $sql = "INSERT INTO player_names
+(team_id, player_one, player_two, player_three, player_four, player_five, player_six)
+VALUE (:id, :p1, :p2,:p3,:p4,:p5,:p6)";
+        $prepare = $db->prepare($sql);
+        $prepare->execute([
+            'id' => $id,
+            'p1' => $player1,
+            'p2' => $player2,
+            'p3' => $player3,
+            'p4' => $player4,
+            'p5' => $player5,
+            'p6' => $player6
+        ]);
+    }
+    else {
+        if ($player_amount == 7);
+    }
+}

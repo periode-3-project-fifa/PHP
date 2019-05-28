@@ -73,7 +73,7 @@ if( isset($_GET['msg'])){
                     }?>
 
                 </select>
-/<!--ondblclick="document.location.href='addMembers.php';-->
+/<!--ondblclick="document.location.href='addMembers.php?playercount=$playercount';-->
             </div>
         </div>
         <div class="spelers">

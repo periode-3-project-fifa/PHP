@@ -21,7 +21,7 @@ if($_SESSION['admin'] != 1){
     foreach ($teams as $team){
         $teamname = $team['name'];
         $teamid = $team['id'];
-        echo "<li><a href='admindetail.php?id=$teamid'>$teamname</a></li>";
+        echo "<a class='team_list'' href='admindetail.php?id=$teamid'><li>$teamname</li></a>";
     }
     ?>
 </ol>
