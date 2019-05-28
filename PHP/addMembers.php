@@ -32,7 +32,7 @@ echo "<div class='container-3'>";
 for ($i = 1; $i <= $playercount; $i++){
     echo "<div class='container-4'>";
         echo "<label for='Player'><b>Speler $i</b></label>";
-        echo "<input type='text' name='player$i' placeholder='Voer de naam van speler $i in'>";
+        echo "<input required type='text' name='player$i' placeholder='Voer de naam van speler $i in'>";
         echo "</div>";
     }
 echo "</div>";
