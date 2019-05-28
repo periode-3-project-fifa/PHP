@@ -71,10 +71,6 @@ if( isset($_GET['msg'])){
                         $id = $team['id'];
                         echo "<option id='myButton' value='$id'>$name</option>";
                     }
-                    $sql2 = $db->prepare("SELECT * FROM player_names WHERE id = :id");
-
-
-                    echo "<input type='hidden' id>"
                         ?>
                 </select>
             </div>
@@ -84,12 +80,8 @@ if( isset($_GET['msg'])){
                 <h3>Spelers</h3>
             </div>
             <div class="box spelers">
-                <label for="spelers_lijst" type="hidden">hi</label>
-                <ul id="spelers_lijst">
-                    <?php
-
-                    ?>
-                </ul>
+                <ol id="spelers_lijst">
+                </ol>
             </div>
         </div>
     </div>
@@ -154,11 +146,18 @@ if( isset($_GET['msg'])){
     </div>
 <script>
     function MyListSelect () {
+
         var selectionBox = document.getElementById('selectionBox');
         var selectionOption = document.getElementById('myButton');
         var selectedValue = selectionBox.options[selectionBox.selectedIndex].value;
+
         selectionOption.addEventListener("dblclick", selectIt());
 
+        <?php
+        foreach ($teams as $team){
+
+        }
+        ?>
 
         function selectIt() {
 
@@ -174,7 +173,6 @@ if( isset($_GET['msg'])){
             var textnode = document.createTextNode(selectedValue);
             node.appendChild(textnode);
             playerList.appendChild(node);
-            // alert(selectedValue)
         }
     }
 </script>
