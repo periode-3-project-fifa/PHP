@@ -297,38 +297,111 @@ if ($_POST['type'] == 'add_players') {
 
     $sql = "SELECT * FROM teams WHERE id = :id";
 
-    $team = $prepare = $db->prepare($sql);
+    $prepare = $db->prepare($sql);
 
     $prepare-> execute([
-        ':id' => $id
+        ':id' => $team_id
     ]);
+
     $team = $prepare->fetch(PDO::FETCH_ASSOC);
 
     $player_amount = $team['players_count'];
 
-    if ($player_amount == 6){
-        $player1 = $_POST['player1'];
-        $player2 = $_POST['player2'];
-        $player3 = $_POST['player3'];
-        $player4 = $_POST['player4'];
-        $player5 = $_POST['player5'];
-        $player6 = $_POST['player6'];
+    $player1 = $_POST['player1'];
+    $player2 = $_POST['player2'];
+    $player3 = $_POST['player3'];
+    $player4 = $_POST['player4'];
+    $player5 = $_POST['player5'];
+    $player6 = $_POST['player6'];
 
-        $sql = "INSERT INTO player_names
+    $sql = "INSERT INTO player_names
 (team_id, player_one, player_two, player_three, player_four, player_five, player_six)
 VALUE (:id, :p1, :p2,:p3,:p4,:p5,:p6)";
-        $prepare = $db->prepare($sql);
-        $prepare->execute([
-            'id' => $id,
-            'p1' => $player1,
-            'p2' => $player2,
-            'p3' => $player3,
-            'p4' => $player4,
-            'p5' => $player5,
-            'p6' => $player6
-        ]);
-    }
-    else {
-        if ($player_amount == 7);
-    }
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        'id' => $team_id,
+        'p1' => $player1,
+        'p2' => $player2,
+        'p3' => $player3,
+        'p4' => $player4,
+        'p5' => $player5,
+        'p6' => $player6
+    ]);
+
+        if ($player_amount == 7) {
+            $player7 = $_POST['player7'];
+            $sql = "INSERT INTO player_names (player_seven) VALUE (:p7)";
+            $prepare = $db->prepare($sql);
+            $prepare->execute([
+                ':p7' => $player7
+            ]);
+            if($player_amount == 8){
+                $player8 = $_POST['player8'];
+                $sql = "INSERT INTO player_names (player_eight) VALUE (:p8)";
+                $prepare = $db->prepare($sql);
+                $prepare->execute([
+                    ':p8' => $player8
+                ]);
+                if($player_amount==9){
+                    $player9 = $_POST['player9'];
+                    $sql = "INSERT INTO player_names (player_nine) VALUE (:p9)";
+                    $prepare = $db->prepare($sql);
+                    $prepare->execute([
+                        ':p9' => $player9
+                    ]);
+                    if($player_amount==10){
+                        $player10 = $_POST['player10'];
+                        $sql = "INSERT INTO player_names (player_ten) VALUE (:p10)";
+                        $prepare = $db->prepare($sql);
+                        $prepare->execute([
+                            ':p10' => $player10
+                        ]);
+                        if($player_amount==11){
+                            $player11 = $_POST['player11'];
+                            $sql = "INSERT INTO player_names (player_eleven) VALUE (:p11)";
+                            $prepare = $db->prepare($sql);
+                            $prepare->execute([
+                                ':p11' => $player11
+                            ]);
+                            if($player_amount==12){
+                                $player12 = $_POST['player12'];
+                                $sql = "INSERT INTO player_names (player_twelve) VALUE (:p12)";
+                                $prepare = $db->prepare($sql);
+                                $prepare->execute([
+                                    ':p12' => $player12
+                                ]);
+                                if($player_amount==13){
+                                    $player13 = $_POST['player13'];
+                                    $sql = "INSERT INTO player_names (player_thirteen) VALUE (:p13)";
+                                    $prepare = $db->prepare($sql);
+                                    $prepare->execute([
+                                        ':p13' => $player13
+                                    ]);
+                                    if($player_amount==14){
+                                        $player14 = $_POST['player14'];
+                                        $sql = "INSERT INTO player_names (player_fourteen) VALUE (:p14)";
+                                        $prepare = $db->prepare($sql);
+                                        $prepare->execute([
+                                            ':p14' => $player14
+                                        ]);
+                                        if($player_amount==15){
+                                            $player15 = $_POST['player15'];
+                                            $sql = "INSERT INTO player_names (player_fifteen) VALUE (:p15)";
+                                            $prepare = $db->prepare($sql);
+                                            $prepare->execute([
+                                                ':p15' => $player15
+                                            ]);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    $msg = "succesvol aangemaakt";
+    header("location: index.php?msg=$msg");
+    exit;
 }
