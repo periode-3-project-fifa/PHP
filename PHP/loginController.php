@@ -389,7 +389,6 @@ VALUE (:id, :p1, :p2,:p3,:p4,:p5,:p6, :p7, :p8)";
                     'p7' => $player7,
                     'p8' => $player8
                 ]);}
-
             else if ($player_amount == 9) {
                 $sql = "INSERT INTO player_names
 (team_id, player_one, player_two, player_three, player_four, player_five, player_six, player_seven, player_eight, player_nine)
@@ -407,7 +406,6 @@ VALUE (:id, :p1, :p2,:p3,:p4,:p5,:p6, :p7, :p8, :p9)";
                     'p8' => $player8,
                     'p9' => $player9
                 ]);}
-
             else if ($player_amount == 10) {
                     $sql = "INSERT INTO player_names
 (team_id, player_one, player_two, player_three, player_four, player_five, player_six, player_seven, player_eight, player_nine, player_ten)
@@ -511,7 +509,8 @@ VALUE (:id, :p1, :p2,:p3,:p4,:p5,:p6, :p7, :p8, :p9, :p10, :p11, :p12, :p13, :p1
                     'p12' => $player12,
                     'p13' => $player13,
                     'p14' => $player14
-                ]);}else if ($player_amount == 15) {
+                ]);}
+            else if ($player_amount == 15) {
                 $sql = "INSERT INTO player_names
 (team_id, player_one, player_two, player_three, player_four, player_five, player_six, player_seven, player_eight, player_nine, player_ten,
 player_eleven, player_twelve, player_thirteen, player_fourteen, player_fifteen)
