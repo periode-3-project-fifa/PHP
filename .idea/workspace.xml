@@ -19,11 +19,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PHP/loginController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="692">
-              <caret line="540" column="9" lean-forward="true" selection-start-line="540" selection-start-column="9" selection-end-line="540" selection-end-column="9" />
+            <state relative-caret-position="471">
+              <caret line="542" lean-forward="true" selection-start-line="542" selection-end-line="542" />
               <folding>
                 <element signature="e#7462#8537#0#PHP" />
                 <element signature="e#8578#16980#0#PHP" />
@@ -61,11 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PHP/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1617">
-              <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+            <state relative-caret-position="423">
+              <caret line="155" column="32" selection-start-line="155" selection-start-column="32" selection-end-line="155" selection-end-column="32" />
               <folding>
                 <element signature="e#30#36#1" expanded="true" />
                 <element signature="e#38#44#1" expanded="true" />
@@ -124,11 +124,11 @@
         <option value="$PROJECT_DIR$/PHP/playSchedule.php" />
         <option value="$PROJECT_DIR$/PHP/teamplayer.php" />
         <option value="$PROJECT_DIR$/PHP/admindetail.php" />
-        <option value="$PROJECT_DIR$/PHP/index.php" />
         <option value="$PROJECT_DIR$/PHP/admin.php" />
         <option value="$PROJECT_DIR$/css/main.css" />
         <option value="$PROJECT_DIR$/PHP/addMembers.php" />
         <option value="$PROJECT_DIR$/PHP/loginController.php" />
+        <option value="$PROJECT_DIR$/PHP/index.php" />
       </list>
     </option>
   </component>
@@ -219,12 +219,12 @@
       <workItem from="1559027784767" duration="12232000" />
       <workItem from="1559046743296" duration="2540000" />
       <workItem from="1559050109458" duration="418000" />
-      <workItem from="1559067282818" duration="2609000" />
+      <workItem from="1559067282818" duration="4761000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90801000" />
+    <option name="totallyTimeSpent" value="92953000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -342,13 +342,6 @@
     <entry file="file://$USER_HOME$/Downloads/player_names.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/PHP/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PHP/register.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
@@ -363,21 +356,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PHP/index.php">
+    <entry file="file://$PROJECT_DIR$/PHP/config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1617">
-          <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-          <folding>
-            <element signature="e#30#36#1" expanded="true" />
-            <element signature="e#38#44#1" expanded="true" />
-          </folding>
+        <state relative-caret-position="306">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PHP/loginController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="692">
-          <caret line="540" column="9" lean-forward="true" selection-start-line="540" selection-start-column="9" selection-end-line="540" selection-end-column="9" />
+        <state relative-caret-position="471">
+          <caret line="542" lean-forward="true" selection-start-line="542" selection-end-line="542" />
           <folding>
             <element signature="e#7462#8537#0#PHP" />
             <element signature="e#8578#16980#0#PHP" />
@@ -392,6 +381,17 @@
             <element signature="e#15890#16937#0#PHP" />
             <element signature="e#0#310#1" />
             <element signature="e#16336#16934#1#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHP/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="155" column="32" selection-start-line="155" selection-start-column="32" selection-end-line="155" selection-end-column="32" />
+          <folding>
+            <element signature="e#30#36#1" expanded="true" />
+            <element signature="e#38#44#1" expanded="true" />
           </folding>
         </state>
       </provider>

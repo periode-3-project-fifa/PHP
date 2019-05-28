@@ -63,17 +63,17 @@ if( isset($_GET['msg'])){
                 <h3>Teams</h3>
             </div>
             <div class="box teams">
+                <label for="selectionBox">teams</label>
                 <select class="listOfTeams" onchange="MyListSelect();" size="<?=count($teams)?>" name="" id="selectionBox">
+<!--                    <option id="myButton" value="Test">Test</option>-->
                     <?php
-                    $link = './addMembers.php';
                     foreach ($teams as $team) {
                         $name = htmlentities($team['name']);
-
-                        echo "<option id='myButton' value='{$team['id']}'> {$team['name']}</option>";
-                    }?>
-
+                        $id = $team['id'];
+                        echo "<option id='myButton' value='$id'>$name</option>";
+                    }
+                        ?>
                 </select>
-/<!--ondblclick="document.location.href='addMembers.php?playercount=$playercount';-->
             </div>
         </div>
         <div class="spelers">
@@ -81,7 +81,9 @@ if( isset($_GET['msg'])){
                 <h3>Spelers</h3>
             </div>
             <div class="box spelers">
+                <?php
 
+                ?>
             </div>
         </div>
     </div>
@@ -147,9 +149,12 @@ if( isset($_GET['msg'])){
 <script>
     function MyListSelect () {
         var selectionBox = document.getElementById('selectionBox');
-        var selectedValue = selectionBox.options[selectionBox.selectedindex].Value;
-        /*alert(selectedValue);*/
-        
+        var selectionOption = document.getElementById('myButton');
+        var selectedValue = selectionBox.options[selectionBox.selectedIndex].value;
+        selectionOption.addEventListener("dblclick", selectIt());
+        function selectIt() {
+            alert(selectedValue)
+        }
     }
 </script>
 <?php require 'footer.php'; ?>
