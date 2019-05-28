@@ -63,7 +63,6 @@ if( isset($_GET['msg'])){
                 <h3>Teams</h3>
             </div>
             <div class="box teams">
-                <label for="selectionBox">teams</label>
                 <select class="listOfTeams" onchange="MyListSelect();" size="<?=count($teams)?>" name="" id="selectionBox">
 <!--                    <option id="myButton" value="Test">Test</option>-->
                     <?php
@@ -72,6 +71,10 @@ if( isset($_GET['msg'])){
                         $id = $team['id'];
                         echo "<option id='myButton' value='$id'>$name</option>";
                     }
+                    $sql2 = $db->prepare("SELECT * FROM player_names WHERE id = :id");
+
+
+                    echo "<input type='hidden' id>"
                         ?>
                 </select>
             </div>
@@ -81,9 +84,12 @@ if( isset($_GET['msg'])){
                 <h3>Spelers</h3>
             </div>
             <div class="box spelers">
-                <?php
+                <label for="spelers_lijst" type="hidden">hi</label>
+                <ul id="spelers_lijst">
+                    <?php
 
-                ?>
+                    ?>
+                </ul>
             </div>
         </div>
     </div>
@@ -152,8 +158,23 @@ if( isset($_GET['msg'])){
         var selectionOption = document.getElementById('myButton');
         var selectedValue = selectionBox.options[selectionBox.selectedIndex].value;
         selectionOption.addEventListener("dblclick", selectIt());
+
+
         function selectIt() {
-            alert(selectedValue)
+
+            var playerList = document.getElementById('spelers_lijst');
+            var lis = playerList.getElementsByTagName("li");
+
+            while(lis.length > 0)
+            {
+                playerList.removeChild(lis[0]);
+            }
+
+            var node = document.createElement("LI");
+            var textnode = document.createTextNode(selectedValue);
+            node.appendChild(textnode);
+            playerList.appendChild(node);
+            // alert(selectedValue)
         }
     }
 </script>

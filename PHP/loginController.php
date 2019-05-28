@@ -142,7 +142,7 @@ if ( $_POST['type'] == 'register' ) {
             header("location: login.php?msg=$msg");
             exit;
         } else {
-            $messagefail = "Probeer het opnieuw!";
+            $messagefail = "wachtwoorden komen niet overeen!";
             header("location: register.php?msg=$messagefail");
         }
     }
