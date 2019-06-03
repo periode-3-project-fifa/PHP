@@ -69,7 +69,14 @@ if( isset($_GET['msg'])){
                     foreach ($teams as $team) {
                         $name = htmlentities($team['name']);
                         $id = $team['id'];
-                        echo "<option id='myButton' value='$id'>$name</option>";
+                        echo "<option id='mySelect' value='$id'>$name</option>";
+
+                        $sql_2 = "SELECT * FROM player_names WHERE id = :id";
+
+                        $prepare_2 = $db->prepare($sql_2);
+                        $prepare_2->execute([
+                                'id' => $id
+                        ]);
                     }
                         ?>
                 </select>
@@ -107,6 +114,7 @@ if( isset($_GET['msg'])){
                     <h3>Poule B</h3>
 
                     <?php
+                    $player_list;
                     echo '<ul>';
                         for ($x = 0; $x <= 9; $x++) {
                             $team = $teams[$x];
@@ -148,16 +156,10 @@ if( isset($_GET['msg'])){
     function MyListSelect () {
 
         var selectionBox = document.getElementById('selectionBox');
-        var selectionOption = document.getElementById('myButton');
+        var selectionOption = document.getElementById('mySelect');
         var selectedValue = selectionBox.options[selectionBox.selectedIndex].value;
 
         selectionOption.addEventListener("dblclick", selectIt());
-
-        <?php
-        foreach ($teams as $team){
-
-        }
-        ?>
 
         function selectIt() {
 
@@ -171,6 +173,7 @@ if( isset($_GET['msg'])){
 
             var node = document.createElement("LI");
             var textnode = document.createTextNode(selectedValue);
+
             node.appendChild(textnode);
             playerList.appendChild(node);
         }
