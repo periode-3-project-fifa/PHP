@@ -8,6 +8,9 @@
 $pagename = "edit_page";
 $pagetitle = "Edit This";
 require 'header.php';
+if($_SESSION['admin'] != 1){
+    header("Location: index.php");
+}
 $id = $_GET['id'];
 $sql = "SELECT * FROM teams WHERE id = :id";
 $prepare = $db->prepare($sql);
