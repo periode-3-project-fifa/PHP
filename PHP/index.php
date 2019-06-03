@@ -71,12 +71,12 @@ if( isset($_GET['msg'])){
                         $id = $team['id'];
                         echo "<option id='mySelect' value='$id'>$name</option>";
 
-                        $sql_2 = "SELECT * FROM player_names WHERE id = :id";
-
-                        $prepare_2 = $db->prepare($sql_2);
-                        $prepare_2->execute([
-                                'id' => $id
-                        ]);
+//                        $sql_2 = "SELECT * FROM player_names WHERE id = :id";
+//
+//                        $prepare_2 = $db->prepare($sql_2);
+//                        $prepare_2->execute([
+//                                'id' => $id
+//                        ]);
                     }
                         ?>
                 </select>
