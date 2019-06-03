@@ -263,9 +263,10 @@ if ($_POST['type'] == 'score') {
     $homescore = $_POST['homescore'];
     $awayscore = $_POST['awayscore'];
 
-    $sql = "UPDATE poules SET homescore = :homescore, awayscore = :awayscore WHERE id = :id";;
+    $sql = "UPDATE poules SET homescore = :homescore, awayscore = :awayscore WHERE id = :id";
 
     $prepare = $db->prepare($sql);
+
     $prepare->execute([
         ':id' => $idpoule,
         ':homescore' => $homescore,
