@@ -63,16 +63,16 @@ if( isset($_GET['msg'])){
                 <h3>Teams</h3>
             </div>
             <div class="box teams">
-                <select size="<?=count($teams)?>" style="width:100%;height:100%; border: none;background: #B9FFB4; overflow-y: auto;" name="" id="selectionbox">
+                <select class="listOfTeams" onchange="MyListSelect();" size="<?=count($teams)?>" name="" id="selectionBox">
+<!--                    <option id="myButton" value="Test">Test</option>-->
                     <?php
                     foreach ($teams as $team) {
                         $name = htmlentities($team['name']);
-
-                        echo "<option> {$team['name']}</option>";
+                        $id = $team['id'];
+                        echo "<option id='myButton' value='$id'>$name</option>";
                     }
-                    ?>
+                        ?>
                 </select>
-
             </div>
         </div>
         <div class="spelers">
@@ -80,7 +80,8 @@ if( isset($_GET['msg'])){
                 <h3>Spelers</h3>
             </div>
             <div class="box spelers">
-
+                <ol id="spelers_lijst">
+                </ol>
             </div>
         </div>
     </div>
@@ -143,6 +144,36 @@ if( isset($_GET['msg'])){
             </div>
         </div>
     </div>
+<script>
+    function MyListSelect () {
 
+        var selectionBox = document.getElementById('selectionBox');
+        var selectionOption = document.getElementById('myButton');
+        var selectedValue = selectionBox.options[selectionBox.selectedIndex].value;
 
+        selectionOption.addEventListener("dblclick", selectIt());
+
+        <?php
+        foreach ($teams as $team){
+
+        }
+        ?>
+
+        function selectIt() {
+
+            var playerList = document.getElementById('spelers_lijst');
+            var lis = playerList.getElementsByTagName("li");
+
+            while(lis.length > 0)
+            {
+                playerList.removeChild(lis[0]);
+            }
+
+            var node = document.createElement("LI");
+            var textnode = document.createTextNode(selectedValue);
+            node.appendChild(textnode);
+            playerList.appendChild(node);
+        }
+    }
+</script>
 <?php require 'footer.php'; ?>
