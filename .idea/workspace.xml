@@ -19,11 +19,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PHP/loginController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
-              <caret line="557" column="74" lean-forward="true" selection-start-line="557" selection-start-column="74" selection-end-line="557" selection-end-column="74" />
+            <state relative-caret-position="556">
+              <caret line="570" column="37" lean-forward="true" selection-start-line="570" selection-start-column="37" selection-end-line="570" selection-end-column="37" />
               <folding>
                 <element signature="e#6956#17120#0#PHP" />
               </folding>
@@ -34,17 +34,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PHP/admin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="14" selection-start-line="14" selection-end-line="16" selection-end-column="1" />
+            <state relative-caret-position="34">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="9" selection-end-column="29" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PHP/gen_keys.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+            <state relative-caret-position="170">
+              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
@@ -228,12 +228,12 @@
       <workItem from="1559067282818" duration="9926000" />
       <workItem from="1559120221343" duration="1567000" />
       <workItem from="1559302148506" duration="711000" />
-      <workItem from="1559548180222" duration="4201000" />
+      <workItem from="1559548180222" duration="4933000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104599000" />
+    <option name="totallyTimeSpent" value="105331000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -381,27 +381,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/PHP/loginController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="556">
+          <caret line="570" column="37" lean-forward="true" selection-start-line="570" selection-start-column="37" selection-end-line="570" selection-end-column="37" />
+          <folding>
+            <element signature="e#6956#17120#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/PHP/admin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="14" selection-start-line="14" selection-end-line="16" selection-end-column="1" />
+        <state relative-caret-position="34">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="9" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PHP/gen_keys.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PHP/loginController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="557" column="74" lean-forward="true" selection-start-line="557" selection-start-column="74" selection-end-line="557" selection-end-column="74" />
-          <folding>
-            <element signature="e#6956#17120#0#PHP" />
-          </folding>
+        <state relative-caret-position="170">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
