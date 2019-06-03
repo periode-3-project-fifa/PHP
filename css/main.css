@@ -526,8 +526,11 @@ input:valid {
 }
 
 /* ==========================================================================
-   Helper classes
+   generate key form
    ========================================================================== */
+.genkeyform {
+    margin: 20px 20px;
+}
 
 /*
  * Hide visually and from screen readers

@@ -541,3 +541,34 @@ VALUE (:id, :p1, :p2,:p3,:p4,:p5,:p6, :p7, :p8, :p9, :p10, :p11, :p12, :p13, :p1
     exit;
 }
 
+if ($_POST['type'] == 'generate_key') {
+
+    $key = $_POST['key'];
+
+    $count=$db->prepare("select * from api_keys");
+
+    $count->bindParam("api_key",$key);
+
+    $count->execute();
+
+    $no=$count->rowCount();
+
+    if($no >0 ){
+        $message = "Key bestaat al!";
+        echo "<script type='text/javascript'>alert('$message');</script>";
+
+        header("location: gen_keys.php?msg=$message");
+        exit;
+    }
+
+    $sql = "INSERT INTO api_keys (api_key) value (:key)";
+
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        'key' => $key
+    ]);
+
+   $msg = "key succesvol aangemaakt";
+   header("location: admin.php?msg=$msg");
+   exit;
+}

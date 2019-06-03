@@ -16,6 +16,7 @@ if($_SESSION['admin'] != 1){
     header("Location: index.php");
 }
 ?>
+<h3 style="margin-left: 20px;"><a href="gen_keys.php">GENERATE API KEY</a></h3>
 <ol>
     <?php
     foreach ($teams as $team){
