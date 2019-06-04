@@ -34,6 +34,7 @@ if($_SESSION['admin'] != 1){
 <!--        <input type="text" name="type" id="awayscore">-->
 </form>
 <?php
+//slecteerd alles uit de database
     foreach ($teams as $team) {
         $teamNameList[] = $team['name'];
         $members = $teamNameList;
@@ -41,12 +42,14 @@ if($_SESSION['admin'] != 1){
     }
 
     function scheduler($members)
-    {
+    {   //er moeten 10 teams zijn of meer
         if (count($members) < 10) {
             array_push($members, "10 teams are needed");
         }
+        //hier wordt de eerste value van members verwijderd uit de array
         $away = array_splice($members, (count($members) / 2));
         $home = $members;
+        //hier worden alle home teams ingedeeld
         for ($i = 0; $i < count($home) + count($away) - 1; $i++) {
 
             for ($j = 0; $j < count($home); $j++) {
@@ -56,7 +59,7 @@ if($_SESSION['admin'] != 1){
 
 
             }
-
+        // hier wordt bij elk home team een away team toegewezen
             $splicedArray = array_splice($home, 1, 1);
             $shiftedArray = array_shift($splicedArray);
             if (count($home) + count($away) - 1 > 2) {
@@ -76,9 +79,11 @@ if($_SESSION['admin'] != 1){
 
 
 ?>
+<form action="loginController.php" method="post">
+    <input type="submit" name="type" id="points" value="points">
+</form>
 
-
-    <?php
+<?php
     //selecteert de grootste ronde uit de database.
     $sql = "SELECT max(round) as maxRound FROM poules";
     $maxRounds = $db->query($sql)->fetch(PDO::FETCH_ASSOC);
@@ -117,5 +122,52 @@ $poules = $query->fetchAll(PDO::FETCH_ASSOC);
 
         }
     }
-    ?>
+
+                 $sql = "SELECT teams.points as points FROM `teams`
+INNER JOIN poules
+ON homescore = awayscore";
+$query = $db->query($sql);
+$score = $query->fetchAll(PDO::FETCH_ASSOC);
+
+    if($_POST['type'] == 'points')
+                 foreach ($score as $mscore){
+                     $homescore = $mscore['homescore'];
+                     $awayscore = $mscore['awayscore'];
+                     var_dump($homescore); die;
+                     $id = $poules['id'];
+                     $points = $poules['points'];
+
+                     if ($homescore > $awayscore ){
+                        ///TODO:
+                         /// 1. haal de punten van het hometeam op (innerjoin)
+                         /// 2. zorg dat daar drie punten bij komen
+                         /// 3. sla het totaal aantal punten weer op
+                         ///
+                         $sql = "UPDATE teams SET points = :points + 3 WHERE id = :id";
+
+                         $prepare = $db->prepare($sql);
+
+                         $prepare->execute([
+                             ':points' => $points,
+                             ':id' => $id
+
+                         ]);
+                     }
+                     else if ($awayscore > $homescore){
+                         ///TODO:
+                         /// 1. haal de punten van het awayteam op (innerjoin)
+                         /// 2. zorg dat daar drie punten bij komen
+                         /// 3. sla het totaal aantal punten weer op
+
+                     }
+                     else {
+                         /// TODO
+                         /// 1. haal de punten op van het hometeam en het awayteam
+                         /// 2. zorg dat bij beide een punt bij komt
+                         /// 3. sla het totaal aantal punten weer op
+
+                     }
+
+                 }
+?>
 <?= require 'footer.php';?>
