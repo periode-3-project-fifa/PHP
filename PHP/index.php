@@ -63,6 +63,7 @@ if( isset($_GET['msg'])){
                 <h3>Teams</h3>
             </div>
             <div class="box teams">
+                <label for="selectionBox" style="display: none;">teams</label>
                 <select class="listOfTeams" onchange="MyListSelect();" size="<?=count($teams)?>" name="" id="selectionBox">
 <!--                    <option id="myButton" value="Test">Test</option>-->
                     <?php
@@ -70,13 +71,14 @@ if( isset($_GET['msg'])){
                         $name = htmlentities($team['name']);
                         $id = $team['id'];
                         echo "<option id='mySelect' value='$id'>$name</option>";
-
+//
 //                        $sql_2 = "SELECT * FROM player_names WHERE id = :id";
 //
 //                        $prepare_2 = $db->prepare($sql_2);
 //                        $prepare_2->execute([
 //                                'id' => $id
 //                        ]);
+//                        $player_names = $query->fetchAll(PDO::FETCH_ASSOC);
                     }
                         ?>
                 </select>
@@ -99,7 +101,7 @@ if( isset($_GET['msg'])){
             </div>
             <div class="boxx de_poules">
                 <div class="poule_A">
-                    <h3><a href="playSchedule.php"> Poule A</h3></a>
+                    <h3><a href="playSchedule.php"> Poule A</a></h3>
                     <?php
                     echo '<ul>';
                             for ($x = 0; $x <= 9; $x++) {
@@ -114,7 +116,6 @@ if( isset($_GET['msg'])){
                     <h3>Poule B</h3>
 
                     <?php
-                    $player_list;
                     echo '<ul>';
                         for ($x = 0; $x <= 9; $x++) {
                             $team = $teams[$x];
