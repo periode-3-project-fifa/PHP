@@ -27,7 +27,7 @@ require 'header.php';?>
     <div class="container">
         <div class="background-teamplayer">
             <h2>Team aanmaken</h2>
-            <form action="loginController.php" method="post">
+            <form action="logincontroller.php" method="post">
                 <input type="hidden" name="type" value="registerteamplayer">
                     <div class="container-2">
                         <label for="team"><b class="register-team">Team naam</b></label>

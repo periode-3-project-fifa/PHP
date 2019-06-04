@@ -35,7 +35,7 @@ if( isset($_GET['msg'])){
     <div class="container">
         <div class="background-register">
             <h2>Register FIFA</h2>
-            <form action="loginController.php" method="post">
+            <form action="logincontroller.php" method="post">
                 <input type="hidden" name="type" value="register">
                     <div class="container">
                         <label for="email"><b class="register-email">Email</b></label>

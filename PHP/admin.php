@@ -26,7 +26,7 @@ if($_SESSION['admin'] != 1){
     }
     ?>
 </ol>
-<form action="loginController.php" method="post">
+<form action="logincontroller.php" method="post">
     <input type="submit" name="type" id="teamSchedule" value="teamSchedule">
 <!--    <input type="hidden" name="scores" >-->
 <!--        <input type="submit" name="type" id="Save" value="Save">-->
@@ -106,7 +106,7 @@ $poules = $query->fetchAll(PDO::FETCH_ASSOC);
             if ($game['round'] == $i) {
                 echo "<br>" . $game['home'] . " - " . $game['away'] .  "<br>" . "<strong><i>Eind score: ". $game['homescore'] . " - " . $game['awayscore'] . "</i></strong><BR>";
 
-                 ?> <form action="loginController.php?id=<?=$game['id']?>" method='POST'>
+                 ?> <form action="logincontroller.php?id=<?=$game['id']?>" method='POST'>
                  <?php
                  echo   "<input type='hidden' name='type' value='score'>";
                  echo   "<input type='number' name='homescore'  maxlength='2' required>";

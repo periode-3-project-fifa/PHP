@@ -34,7 +34,7 @@ if( isset($_GET['msg'])){
     <div class="container">
         <div class="">
             <h2>Login FIFA</h2>
-            <form action="loginController.php"  method="post">
+            <form action="logincontroller.php"  method="post">
                 <input type="hidden" name="type" value="login">
                 <div class="imgcontainer">
                     <img src="../img/banner.jpg" alt="Avatar" class="avatar">

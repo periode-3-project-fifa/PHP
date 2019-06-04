@@ -71,14 +71,20 @@ if( isset($_GET['msg'])){
                         $name = htmlentities($team['name']);
                         $id = $team['id'];
                         echo "<option id='mySelect' value='$id'>$name</option>";
-//
-//                        $sql_2 = "SELECT * FROM player_names WHERE id = :id";
-//
-//                        $prepare_2 = $db->prepare($sql_2);
-//                        $prepare_2->execute([
-//                                'id' => $id
-//                        ]);
-//                        $player_names = $query->fetchAll(PDO::FETCH_ASSOC);
+
+                        $sql_2 = "SELECT * FROM player_names WHERE team_id = :id";
+
+                        $prepare_2 = $db->prepare($sql_2);
+                        $prepare_2->execute([
+                                'id' => $id
+                        ]);
+                        $player_names = $prepare_2->fetch(PDO::FETCH_ASSOC);
+
+                        $p1 = $player_names['player_1'];
+                        $p2 = $player_names['player_2'];
+                        echo "<script>";
+
+                        echo "</script>";
                     }
                         ?>
                 </select>
@@ -90,6 +96,7 @@ if( isset($_GET['msg'])){
             </div>
             <div class="box spelers">
                 <ol id="spelers_lijst">
+
                 </ol>
             </div>
         </div>
@@ -101,7 +108,7 @@ if( isset($_GET['msg'])){
             </div>
             <div class="boxx de_poules">
                 <div class="poule_A">
-                    <h3><a href="playSchedule.php"> Poule A</a></h3>
+                    <h3><a href="playschedule.php"> Poule A</a></h3>
                     <?php
                     echo '<ul>';
                             for ($x = 0; $x <= 9; $x++) {
@@ -158,23 +165,33 @@ if( isset($_GET['msg'])){
 
         var selectionBox = document.getElementById('selectionBox');
         var selectionOption = document.getElementById('mySelect');
-        var selectedValue = selectionBox.options[selectionBox.selectedIndex].value;
+        var selectedId = selectionBox.options[selectionBox.selectedIndex].value;
 
         selectionOption.addEventListener("dblclick", selectIt());
 
         function selectIt() {
+            <?php
+
+            $sql_2 = "SELECT * FROM player_names WHERE team_id = :id";
+
+            $prepare_2 = $db->prepare($sql_2);
+            $prepare_2->execute([
+                'id' => $id
+        ]);
+            $player_names = $prepare_2->fetch(PDO::FETCH_ASSOC);
+
+            $p1 = $player_names['player_1'];
+            $p2 = $player_names['player_2'];
+            ?>
 
             var playerList = document.getElementById('spelers_lijst');
             var lis = playerList.getElementsByTagName("li");
 
-            while(lis.length > 0)
-            {
+            while (lis.length > 0) {
                 playerList.removeChild(lis[0]);
             }
-
             var node = document.createElement("LI");
-            var textnode = document.createTextNode(selectedValue);
-
+            var textnode = document.createTextNode(selectedId);
             node.appendChild(textnode);
             playerList.appendChild(node);
         }
