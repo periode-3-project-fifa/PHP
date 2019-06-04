@@ -78,7 +78,9 @@ if($_SESSION['admin'] != 1){
 
 
 ?>
-
+<form action="loginController.php" method="post">
+    <input type="submit" name="type" id="points" value="points">
+</form>
 
 <?php
     //selecteert de grootste ronde uit de database.
@@ -122,15 +124,17 @@ $poules = $query->fetchAll(PDO::FETCH_ASSOC);
 
                  $sql = "SELECT teams.points as points FROM `teams`
 INNER JOIN poules
-ON homescore = awayscore
-";
-            
-                 foreach ($poules as $mscore){
+ON homescore = awayscore";
+$query = $db->query($sql);
+$score = $query->fetchAll(PDO::FETCH_ASSOC);
+
+    if($_POST['type'] == 'points')
+                 foreach ($score as $mscore){
                      $homescore = $mscore['homescore'];
                      $awayscore = $mscore['awayscore'];
-
-                     var_dump($homescore);
-                     var_dump($awayscore);
+                     var_dump($homescore); die;
+                     $id = $poules['id'];
+                     $points = $poules['points'];
 
                      if ($homescore > $awayscore ){
                         ///TODO:
@@ -138,7 +142,15 @@ ON homescore = awayscore
                          /// 2. zorg dat daar drie punten bij komen
                          /// 3. sla het totaal aantal punten weer op
                          ///
-                         $sql = "UPDATE teams SET `points` = `points` + 3 WHERE id = ':id'";
+                         $sql = "UPDATE teams SET points = :points + 3 WHERE id = :id";
+
+                         $prepare = $db->prepare($sql);
+
+                         $prepare->execute([
+                             ':points' => $points,
+                             ':id' => $id
+
+                         ]);
                      }
                      else if ($awayscore > $homescore){
                          ///TODO:
