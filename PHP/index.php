@@ -10,9 +10,14 @@ $pagetitle = 'Home';
 $pagename = 'index';
 require 'header.php';
 
-$sql = "SELECT * FROM teams";
+$sql = "SELECT * FROM teams ORDER BY points DESC";
 $query =$db->query($sql);
 $teams = $query->fetchAll(PDO::FETCH_ASSOC);
+
+$sql_points = "SELECT * FROM `teams` ORDER BY points DESC";
+$query =$db->query($sql_points);
+$teampoints = $query->fetchAll(PDO::FETCH_ASSOC);
+
 
 if( isset($_GET['msg'])){
     echo $_GET['msg'];

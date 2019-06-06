@@ -905,6 +905,8 @@ if ($_POST['type'] == 'generate_key') {
                 $prepare->execute([
                     ':homeid' => $homeid
                 ]);
+                $msg = "Punten succesvol toegevoegd";
+                header("location: admin.php?msg=$msg");
             }
             else if ($awayscore > $homescore){
                 ///TODO:
@@ -918,9 +920,11 @@ if ($_POST['type'] == 'generate_key') {
                 $prepare->execute([
                     ':awayid' => $awayid
                 ]);
+                $msg = "Punten succesvol toegevoegd";
+                header("location: admin.php?msg=$msg");
 
             }
-            else if($awayscore===$homescore){
+            /*else if($awayscore===$homescore){
                 /// TODO
                 /// 1. haal de punten op van het hometeam en het awayteam
                 /// 2. zorg dat bij beide een punt bij komt
@@ -939,5 +943,6 @@ if ($_POST['type'] == 'generate_key') {
                 ]);
 
             }
+            */
 
         }
