@@ -865,14 +865,13 @@ if ($_POST['type'] == 'generate_key') {
    header("location: admin.php?msg=$msg?key=$key");
    exit;
 }
-    $sql = "SELECT * FROM poules
-    ";
-    $query = $db->query($sql);
-    $score = $query->fetchAll(PDO::FETCH_ASSOC);
 
 
 
     if($_POST['type'] == 'points')
+        $sql = "SELECT * FROM poules";
+$query = $db->query($sql);
+$score = $query->fetchAll(PDO::FETCH_ASSOC);
         foreach ($score as $mscore){
             $homescore = $mscore['homescore'];
             $awayscore = $mscore['awayscore'];
