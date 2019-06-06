@@ -17,6 +17,9 @@ if($_SESSION['admin'] != 1){
     header("Location: index.php");
 }
 
+$key = $_GET['key'];
+
+
 ?>
 <h3 style="margin-left: 20px;">
     <form action="logincontroller.php" method="post">
@@ -87,7 +90,7 @@ if($_SESSION['admin'] != 1){
 
 
 ?>
-<form action="loginController.php" method="post">
+<form action="logincontroller.php" method="post">
     <input type="submit" name="type" id="points" value="points">
 </form>
 
