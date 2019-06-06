@@ -12,7 +12,7 @@ $key = 'hardcodedkey1234';
 
 if($_GET['key'] == $key)
 {
-    $sql = "SELECT poules.id AS id, teams_a.name AS home, teams_b.name AS away, poules.homescore as homescore, poules.awayscore as awayscore FROM `poules`
+    $sql = "SELECT poules.id AS id, teams_a.name AS home, teams_b.name AS away, poules.homescore AS homescore, poules.awayscore AS awayscore FROM `poules`
 INNER JOIN teams as teams_a 
 ON teams_a.id = poules.home
 INNER JOIN teams as teams_b

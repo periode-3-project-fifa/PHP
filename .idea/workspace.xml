@@ -10,23 +10,54 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/PHP/admin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="43">
+              <caret line="126" column="12" selection-start-line="126" selection-start-column="12" selection-end-line="126" selection-end-column="12" />
+              <folding>
+                <element signature="e#6#97#0#PHP" expanded="true" />
+              </folding>
+=======
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PHP/config.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
               <caret line="23" selection-start-line="23" selection-end-line="23" />
+>>>>>>> master
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/PHP/logincontroller.php">
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <entry file="file://$PROJECT_DIR$/PHP/logincontroller.php">
+=======
+        <entry file="file://$PROJECT_DIR$/PHP/loginController.php">
+>>>>>>> master
+>>>>>>> master
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="406">
               <caret line="863" column="48" selection-start-line="863" selection-start-column="48" selection-end-line="863" selection-end-column="48" />
               <folding>
                 <element signature="e#16957#26795#0#PHP" />
               </folding>
+=======
+        <entry file="file://$PROJECT_DIR$/PHP/loginController.php">
+<<<<<<< HEAD
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="372">
+              <caret line="268" selection-start-line="268" selection-end-line="268" />
+=======
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5044">
+              <caret line="536" column="5" lean-forward="true" selection-start-line="536" selection-start-column="5" selection-end-line="536" selection-end-column="5" />
+>>>>>>> master
             </state>
           </provider>
         </entry>
@@ -80,8 +111,19 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PHP/admindetail.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="255">
               <caret line="15" selection-start-line="15" selection-end-line="15" selection-end-column="18" />
+=======
+<<<<<<< HEAD
+            <state relative-caret-position="204">
+              <caret line="30" column="24" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+=======
+            <state relative-caret-position="476">
+              <caret line="33" column="78" selection-start-line="33" selection-start-column="78" selection-end-line="33" selection-end-column="78" />
+>>>>>>> master
+>>>>>>> master
+>>>>>>> master
             </state>
           </provider>
         </entry>
@@ -131,11 +173,31 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/PHP/api.php" />
+=======
+        <option value="$PROJECT_DIR$/PHP/login.php" />
+>>>>>>> master
+=======
+>>>>>>> master
         <option value="$PROJECT_DIR$/PHP/adminconfig.php" />
         <option value="$PROJECT_DIR$/PHP/adminController.php" />
         <option value="$PROJECT_DIR$/PHP/innerjoin.php" />
         <option value="$PROJECT_DIR$/PHP/playSchedule.php" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/PHP/addMembers.php" />
+=======
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/PHP/index.php" />
+        <option value="$PROJECT_DIR$/PHP/api.php" />
+        <option value="$PROJECT_DIR$/PHP/loginController.php" />
+=======
+        <option value="$PROJECT_DIR$/PHP/teamplayer.php" />
+        <option value="$PROJECT_DIR$/PHP/admindetail.php" />
+>>>>>>> master
+        <option value="$PROJECT_DIR$/PHP/admin.php" />
+>>>>>>> master
         <option value="$PROJECT_DIR$/css/main.css" />
         <option value="$PROJECT_DIR$/PHP/login.php" />
         <option value="$PROJECT_DIR$/PHP/register.php" />
@@ -234,6 +296,11 @@
       <workItem from="1558001811650" duration="1719000" />
       <workItem from="1558074927785" duration="12981000" />
       <workItem from="1558334718292" duration="2979000" />
+<<<<<<< HEAD
+      <workItem from="1558939865773" duration="6518000" />
+      <workItem from="1559037770264" duration="278000" />
+      <workItem from="1559545422434" duration="3815000" />
+=======
       <workItem from="1558855893602" duration="1193000" />
       <workItem from="1558939883047" duration="8363000" />
       <workItem from="1559027784767" duration="12232000" />
@@ -244,20 +311,44 @@
       <workItem from="1559302148506" duration="711000" />
       <workItem from="1559548180222" duration="6755000" />
       <workItem from="1559565387339" duration="3447000" />
+<<<<<<< HEAD
       <workItem from="1559630193368" duration="7339000" />
       <workItem from="1559655754897" duration="981000" />
       <workItem from="1559803080091" duration="12663000" />
+=======
+      <workItem from="1559630193368" duration="7675000" />
+>>>>>>> master
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="138267000" />
+=======
+<<<<<<< HEAD
+    <option name="totallyTimeSpent" value="118275000" />
+=======
+    <option name="totallyTimeSpent" value="118399000" />
+>>>>>>> master
+>>>>>>> master
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
+<<<<<<< HEAD
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.204236" />
+=======
+<<<<<<< HEAD
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19818456" />
+=======
+<<<<<<< HEAD
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.31275168" />
+=======
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19213313" />
+>>>>>>> master
+>>>>>>> master
+>>>>>>> master
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -284,6 +375,8 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
+=======
     <entry file="file://$PROJECT_DIR$/PHP/adminconfig.php" />
     <entry file="file://$PROJECT_DIR$/includes/config.php">
       <provider selected="true" editor-type-id="text-editor" />
@@ -295,7 +388,12 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$USER_HOME$/Downloads/player_names.php">
+=======
+>>>>>>> master
+    <entry file="file://$PROJECT_DIR$/PHP/footer.php">
+>>>>>>> master
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/css/main.css">
@@ -318,14 +416,53 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/PHP/login.php">
+=======
+    <entry file="file://$PROJECT_DIR$/PHP/playSchedule.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-121">
+          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+          <folding>
+            <element signature="e#6#97#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/PHP/config.php">
+=======
+    <entry file="file://$PROJECT_DIR$/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="511" column="1" lean-forward="true" selection-start-line="511" selection-start-column="1" selection-end-line="511" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHP/adminController.php">
+>>>>>>> master
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="148">
           <caret line="36" column="32" selection-start-line="36" selection-start-column="32" selection-end-line="36" selection-end-column="32" />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/PHP/logout.php">
+=======
+    <entry file="file://$PROJECT_DIR$/PHP/admin.php">
+>>>>>>> master
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1088">
+          <caret line="90" column="29" lean-forward="true" selection-start-line="90" selection-start-column="29" selection-end-line="90" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/PHP/innerjoin.php">
+=======
+    <entry file="file://$USER_HOME$/Downloads/player_names.php">
+>>>>>>> master
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/PHP/register.php">
@@ -335,7 +472,12 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/PHP/admincontroller.php">
+=======
+    <entry file="file://$PROJECT_DIR$/PHP/config.php">
+>>>>>>> master
+>>>>>>> master
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="22" selection-start-line="22" selection-end-line="22" />
