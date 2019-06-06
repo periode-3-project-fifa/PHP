@@ -12,11 +12,19 @@ require 'header.php';
 $sql = "SELECT * FROM teams";
 $query = $db->query($sql);
 $teams = $query->fetchAll(PDO::FETCH_ASSOC);
+
 if($_SESSION['admin'] != 1){
     header("Location: index.php");
 }
+
 ?>
-<h3 style="margin-left: 20px;"><a href="gen_keys.php">GENERATE API KEY</a></h3>
+<h3 style="margin-left: 20px;">
+    <form action="logincontroller.php" method="post">
+        <input type="hidden" name="type" value="generate_key">
+        <input type="submit" value="generate key" name="key">
+    </form>
+</h3>
+
 <ol>
     <?php
     foreach ($teams as $team){
@@ -94,9 +102,6 @@ $query = $db->query($sql);
 $poules = $query->fetchAll(PDO::FETCH_ASSOC);
 
 
-
-
-
     //telt hoeveel rondes er zijn en pakt er 1 van.
     for ($i = 1; $i <= $maxRounds['maxRound']; $i++) {
         echo "<h3>Round:  " . $i . "</h3><BR>";
@@ -104,6 +109,18 @@ $poules = $query->fetchAll(PDO::FETCH_ASSOC);
         //foreach om alles te laten zien op de site.
         foreach ($poules AS $game) {
             if ($game['round'] == $i) {
+
+                $idT1 = $game['id'];
+
+                $sql = "SELECT * FROM poules where id = :id";
+                $prepare1 = $db->prepare($sql);
+                $prepare1->execute([
+                        'id' => $idT1
+                ]);
+
+                $team_1 = $prepare1->fetchAll(PDO::FETCH_ASSOC);
+                
+
                 echo "<br>" . $game['home'] . " - " . $game['away'] .  "<br>" . "<strong><i>Eind score: ". $game['homescore'] . " - " . $game['awayscore'] . "</i></strong><BR>";
 
                  ?> <form action="logincontroller.php?id=<?=$game['id']?>" method='POST'>
@@ -111,6 +128,8 @@ $poules = $query->fetchAll(PDO::FETCH_ASSOC);
                  echo   "<input type='hidden' name='type' value='score'>";
                  echo   "<input type='number' name='homescore'  maxlength='2' required>";
                  echo  "<input type='number' name='awayscore'  maxlength='2' required>";
+                 echo "<label for='player_1_score'>Team {$game['home']} speler $p1</label>";
+                 echo "<input type='number' name='player_1_score'>";
                  echo   "<input type='submit' value='Save'>";
                  echo "</form>";
             }

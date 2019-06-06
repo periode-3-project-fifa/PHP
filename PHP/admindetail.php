@@ -14,6 +14,7 @@ if($_SESSION['admin'] != 1){
 }
 
 $id = $_GET['id'];
+
 $sql = "SELECT * FROM teams WHERE id = :id";
 $prepare = $db->prepare($sql);
 $prepare-> execute([
@@ -27,7 +28,7 @@ $team = $prepare->fetch(PDO::FETCH_ASSOC);
     <input type="hidden" name="type" value="edit">
     <div class="container-2">
         <div class="form-group">
-        <label for="team"><b class="register-team">Team naam</b></label>
+        <label for="teamname"><b class="register-team">Team naam</b></label>
         <input name="teamname" type="text" value="<?=$team['name']?>">
         </div>
         <h2>Player name</h2>

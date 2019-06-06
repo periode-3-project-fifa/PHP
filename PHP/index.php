@@ -65,26 +65,26 @@ if( isset($_GET['msg'])){
             <div class="box teams">
                 <label for="selectionBox" style="display: none;">teams</label>
                 <select class="listOfTeams" onchange="MyListSelect();" size="<?=count($teams)?>" name="" id="selectionBox">
-<!--                    <option id="myButton" value="Test">Test</option>-->
                     <?php
                     foreach ($teams as $team) {
                         $name = htmlentities($team['name']);
                         $id = $team['id'];
-                        echo "<option id='mySelect' value='$id'>$name</option>";
 
                         $sql_2 = "SELECT * FROM player_names WHERE team_id = :id";
 
                         $prepare_2 = $db->prepare($sql_2);
                         $prepare_2->execute([
-                                'id' => $id
+                            'id' => $id
                         ]);
                         $player_names = $prepare_2->fetch(PDO::FETCH_ASSOC);
 
-                        $p1 = $player_names['player_1'];
-                        $p2 = $player_names['player_2'];
-                        echo "<script>";
+                        $player_count = $team['player_count'];
 
-                        echo "</script>";
+                        $players = array($player_names['player_1'],$player_names['player_2'],$player_names['player_3'],$player_names['player_4'],$player_names['player_5'],$player_names['player_6'],);
+                        $encoded = json_encode($players);
+
+                        echo "<option id='mySelect' name='mySelect' value='$encoded'>$name</option>";
+
                     }
                         ?>
                 </select>
@@ -160,40 +160,37 @@ if( isset($_GET['msg'])){
             </div>
         </div>
     </div>
-<script>
+<script type="text/javascript">
     function MyListSelect () {
 
-        var selectionBox = document.getElementById('selectionBox');
-        var selectionOption = document.getElementById('mySelect');
-        var selectedId = selectionBox.options[selectionBox.selectedIndex].value;
+        let selectionBox = document.getElementById('selectionBox');
+        let selectionOption = document.getElementById('mySelect');
+        let players = selectionBox.options[selectionBox.selectedIndex].value;
+
+        let playerNames = JSON.parse(players);
+
+        console.log(playerNames);
 
         selectionOption.addEventListener("dblclick", selectIt());
 
         function selectIt() {
-            <?php
-
-            $sql_2 = "SELECT * FROM player_names WHERE team_id = :id";
-
-            $prepare_2 = $db->prepare($sql_2);
-            $prepare_2->execute([
-                'id' => $id
-        ]);
-            $player_names = $prepare_2->fetch(PDO::FETCH_ASSOC);
-
-            $p1 = $player_names['player_1'];
-            $p2 = $player_names['player_2'];
-            ?>
-
-            var playerList = document.getElementById('spelers_lijst');
-            var lis = playerList.getElementsByTagName("li");
+            let playerList = document.getElementById('spelers_lijst');
+            let lis = playerList.getElementsByTagName("li");
 
             while (lis.length > 0) {
                 playerList.removeChild(lis[0]);
             }
-            var node = document.createElement("LI");
-            var textnode = document.createTextNode(selectedId);
-            node.appendChild(textnode);
-            playerList.appendChild(node);
+
+
+            for (var I = 0; I < playerNames.length; I++){
+                let node = document.createElement("LI");
+
+                var textnode = document.createTextNode(playerNames[I]);
+
+                node.appendChild(textnode);
+                playerList.appendChild(node);
+            }
+
         }
     }
 </script>

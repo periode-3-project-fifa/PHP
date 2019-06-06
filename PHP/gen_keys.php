@@ -15,8 +15,4 @@ if($_SESSION['admin'] != 1){
 ?>
 
 <form action="logincontroller.php" method="post" class="genkeyform">
-    <input type="hidden" name="type" value="generate_key">
-    <label for="key">Key: </label>
-    <input name='key' type="text" placeholder="Vul de key in" required minlength="6">
-    <input type="submit" >
 </form>
