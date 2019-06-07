@@ -515,6 +515,10 @@ if ($_POST['type'] == 'delete'){
 //save schedule
 if ($_POST['type'] == 'teamSchedule')
 {
+    //table leegmaken\\
+    $sql = "TRUNCATE TABLE `poules`";
+    $statement = $db->prepare($sql);
+    $statement->execute();
 
     $sql = "SELECT * FROM teams";
     $query = $db->query($sql);
