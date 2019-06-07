@@ -178,14 +178,14 @@ if ($_POST['type'] == 'edit'){
     $id = $_GET['id'];
     $name = $_POST['teamname'];
 
-//    $sql = "SELECT * from teams where id = :id";
-//    $prepare = $db->prepare($sql);
-//    $prepare->execute([
-//        'id' => $id
-//    ]);
-//
-//    $team = $query->fetch(PDO::FETCH_ASSOC);
-    $playercount = $team['players_count'];
+    $sql = "SELECT * from teams where id = :id";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        'id' => $id
+    ]);
+
+    $team = $prepare->fetch(PDO::FETCH_ASSOC);
+    $player_count = $team['players_count'];
 
     $sql = "UPDATE teams SET name = :name WHERE id = :id";
 
@@ -194,27 +194,27 @@ if ($_POST['type'] == 'edit'){
         ':id' => $id,
         ':name' => $name
     ]);
-    if ($playercount == 6){
+    if ($player_count == 6){
         $p1 = $_POST['player1'];
         $p2 = $_POST['player2'];
         $p3 = $_POST['player3'];
         $p4 = $_POST['player4'];
         $p5 = $_POST['player5'];
         $p6 = $_POST['player6'];
-        $sql = "update player_names set (player_1, player_2, player_3, player_4, player_5, player_6) value (p1,p2,p3,p4,p5,p6) where
- team_id = :id";
+        $sql = "update player_names set (player_1, player_2, player_3, player_4, player_5, player_6) value(:p1,:p2,:p3,:p4,:p5,:p6)
+where team_id = :id";
         $prepare = $db->prepare($sql);
         $prepare->execute([
-            'id' => $id,
-            'p1' => $p1,
-            'p2' => $p2,
-            'p3' => $p3,
-            'p4' => $p4,
-            'p5' => $p5,
-            'p6' => $p6
+                'id' => $id,
+                'p1' => $p1,
+                'p2' => $p2,
+                'p3' => $p3,
+                'p4' => $p4,
+                'p5' => $p5,
+                'p6' => $p6
             ]);
     }
-    else if ($playercount == 7){
+    else if ($player_count == 7){
         $p1 = $_POST['player1'];
         $p2 = $_POST['player2'];
         $p3 = $_POST['player3'];
@@ -222,21 +222,23 @@ if ($_POST['type'] == 'edit'){
         $p5 = $_POST['player5'];
         $p6 = $_POST['player6'];
         $p7 = $_POST['player7'];
-        $sql = "update player_names set (player_1, player_2, player_3, player_4, player_5, player_6, player_7) value (p1,p2,p3,p4,p5,p6,p7)
+
+        $sql = "update player_names set (player_1 = :p1, player_2 = :p2, player_3 = :p3, player_4 = :p4, player_5 = :p5, player_6 = :p6, player_7 = :p7)
  where team_id = :id";
+
         $prepare = $db->prepare($sql);
         $prepare->execute([
-            'id' => $id,
-            'p1' => $p1,
-            'p2' => $p2,
-            'p3' => $p3,
-            'p4' => $p4,
-            'p5' => $p5,
-            'p6' => $p6,
-            'p7' => $p7
+            ':id' => $id,
+            ':p1' => $p1,
+            ':p2' => $p2,
+            ':p3' => $p3,
+            ':p4' => $p4,
+            ':p5' => $p5,
+            ':p6' => $p6,
+            ':p7' => $p7
         ]);
     }
-    else if ($playercount == 8){
+    else if ($player_count == 8){
         $p1 = $_POST['player1'];
         $p2 = $_POST['player2'];
         $p3 = $_POST['player3'];
@@ -246,7 +248,7 @@ if ($_POST['type'] == 'edit'){
         $p7 = $_POST['player7'];
         $p8 = $_POST['player8'];
         $sql = "update player_names set (player_1, player_2, player_3, player_4, player_5, player_6, player_7, player_8) value 
-(p1,p2,p3,p4,p5,p6,p7,p8) where team_id = :id";
+(:p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8) where team_id = :id";
         $prepare = $db->prepare($sql);
         $prepare->execute([
             'id' => $id,
@@ -260,7 +262,7 @@ if ($_POST['type'] == 'edit'){
             'p8' => $p8
         ]);
     }
-    else if ($playercount == 9){
+    else if ($player_count == 9){
         $p1 = $_POST['player1'];
         $p2 = $_POST['player2'];
         $p3 = $_POST['player3'];
@@ -271,7 +273,7 @@ if ($_POST['type'] == 'edit'){
         $p8 = $_POST['player8'];
         $p9 = $_POST['player9'];
         $sql = "update player_names set (player_1, player_2, player_3, player_4, player_5, player_6, player_7, player_8, player_9) value
- (p1,p2,p3,p4,p5,p6,p7,p8,p9) where team_id = :id";
+ (:p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9) where team_id = :id";
         $prepare = $db->prepare($sql);
         $prepare->execute([
             'id' => $id,
@@ -286,7 +288,7 @@ if ($_POST['type'] == 'edit'){
             'p9' => $p9
         ]);
     }
-    else if ($playercount == 10){
+    else if ($player_count == 10){
         $p1 = $_POST['player1'];
         $p2 = $_POST['player2'];
         $p3 = $_POST['player3'];
@@ -298,7 +300,7 @@ if ($_POST['type'] == 'edit'){
         $p9 = $_POST['player9'];
         $p10 = $_POST['player10'];
         $sql = "update player_names set (player_1, player_2, player_3, player_4, player_5, player_6, player_7, player_8, player_9, player_10)
- value (p1,p2,p3,p4,p5,p6,p7,p8,p9,p10) where team_id = :id";
+ value (:p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10) where team_id = :id";
         $prepare = $db->prepare($sql);
         $prepare->execute([
             'id' => $id,
@@ -314,7 +316,7 @@ if ($_POST['type'] == 'edit'){
             'p10' => $p10
         ]);
     }
-    else if ($playercount == 11){
+    else if ($player_count == 11){
         $p1 = $_POST['player1'];
         $p2 = $_POST['player2'];
         $p3 = $_POST['player3'];
@@ -327,7 +329,7 @@ if ($_POST['type'] == 'edit'){
         $p10 = $_POST['player10'];
         $p11 = $_POST['player11'];
         $sql = "update player_names set (player_1, player_2, player_3, player_4, player_5, player_6, player_7, player_8, player_9, player_10
-, player_11) value (p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11) where team_id = :id";
+, player_11) value (:p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11) where team_id = :id";
         $prepare = $db->prepare($sql);
         $prepare->execute([
             'id' => $id,
@@ -344,7 +346,7 @@ if ($_POST['type'] == 'edit'){
             'p11' => $p11
             ]);
     }
-    else if ($playercount == 12){
+    else if ($player_count == 12){
         $p1 = $_POST['player1'];
         $p2 = $_POST['player2'];
         $p3 = $_POST['player3'];
@@ -358,7 +360,7 @@ if ($_POST['type'] == 'edit'){
         $p11 = $_POST['player11'];
         $p12 = $_POST['player12'];
         $sql = "update player_names set (player_1, player_2, player_3, player_4, player_5, player_6, player_7, player_8, player_9, player_10
-, player_11, player_12) value (p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12) where team_id = :id";
+, player_11, player_12) value (:p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12) where team_id = :id";
         $prepare = $db->prepare($sql);
         $prepare->execute([
             'id' => $id,
@@ -376,7 +378,7 @@ if ($_POST['type'] == 'edit'){
             'p12' => $p12
             ]);
     }
-    else if ($playercount == 13){
+    else if ($player_count == 13){
     $p1 = $_POST['player1'];
     $p2 = $_POST['player2'];
     $p3 = $_POST['player3'];
@@ -391,7 +393,7 @@ if ($_POST['type'] == 'edit'){
     $p12 = $_POST['player12'];
     $p13 = $_POST['player13'];
     $sql = "update player_names set (player_1, player_2, player_3, player_4, player_5, player_6, player_7, player_8, player_9, player_10
-, player_11, player_12, player_13) value (p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13) where team_id = :id";
+, player_11, player_12, player_13) value (:p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12,:p13) where team_id = :id";
     $prepare = $db->prepare($sql);
     $prepare->execute([
         'id' => $id,
@@ -409,7 +411,7 @@ if ($_POST['type'] == 'edit'){
         'p12' => $p12,
         'p13' => $p13]);
     }
-    else if ($playercount == 14){
+    else if ($player_count == 14){
         $p1 = $_POST['player1'];
         $p2 = $_POST['player2'];
         $p3 = $_POST['player3'];
@@ -425,7 +427,7 @@ if ($_POST['type'] == 'edit'){
         $p13 = $_POST['player13'];
         $p14 = $_POST['player14'];
         $sql = "update player_names set (player_1, player_2, player_3, player_4, player_5, player_6, player_7, player_8, player_9, player_10
-, player_11, player_12, player_13, player_14,) value (p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14) where team_id = :id";
+, player_11, player_12, player_13, player_14,) value (:p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12,:p13,:p14) where team_id = :id";
         $prepare = $db->prepare($sql);
         $prepare->execute([
             'id' => $id,
@@ -445,7 +447,7 @@ if ($_POST['type'] == 'edit'){
             'p14' => $p14
             ]);
     }
-    else if ($playercount == 15){
+    else if ($player_count == 15){
         $p1 = $_POST['player1'];
         $p2 = $_POST['player2'];
         $p3 = $_POST['player3'];
@@ -462,7 +464,7 @@ if ($_POST['type'] == 'edit'){
         $p14 = $_POST['player14'];
         $p15 = $_POST['player15'];
         $sql = "update player_names set (player_1, player_2, player_3, player_4, player_5, player_6, player_7, player_8, player_9, player_10
-, player_11, player_12, player_13, player_14, player_15) value (p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15) where team_id = :id";
+, player_11, player_12, player_13, player_14, player_15) value (:p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12,:p13,:p14,:p15) where team_id = :id";
         $prepare = $db->prepare($sql);
         $prepare->execute([
             'id' => $id,
@@ -847,23 +849,8 @@ VALUE (:id, :p1, :p2,:p3,:p4,:p5,:p6, :p7, :p8, :p9, :p10, :p11, :p12, :p13, :p1
 
 if ($_POST['type'] == 'generate_key') {
 
-    $key = $_POST['key'];
+    $key = uniqid();
 
-    $count=$db->prepare("select * from api_keys");
-
-    $count->bindParam("api_key",$key);
-
-    $count->execute();
-
-    $no=$count->rowCount();
-
-    if($no >0 ){
-        $message = "Key bestaat al!";
-        echo "<script type='text/javascript'>alert('$message');</script>";
-
-        header("location: gen_keys.php?msg=$message");
-        exit;
-    }
 
     $sql = "INSERT INTO api_keys (api_key) value (:key)";
 
@@ -872,17 +859,26 @@ if ($_POST['type'] == 'generate_key') {
         'key' => $key
     ]);
 
-   $msg = "key succesvol aangemaakt";
-   header("location: admin.php?msg=$msg");
+    echo "<script type='text/javascript'>alert(".$key.");</script";
+
+   $msg = "key: $key succesvol aangemaakt";
+   header("location: admin.php?msg=$msg?key=$key");
    exit;
 }
 
 
     if($_POST['type'] == 'points') {
 
+    if($_POST['type'] == 'points')
         $sql = "SELECT * FROM poules";
-        $query = $db->query($sql);
-        $score = $query->fetchAll(PDO::FETCH_ASSOC);
+$query = $db->query($sql);
+$score = $query->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($score as $mscore){
+            $homescore = $mscore['homescore'];
+            $awayscore = $mscore['awayscore'];
+            $id = $mscore['id'];
+            $homeid = $mscore['home'];
+            $awayid = $mscore['away'];
 
 //            $homescore = $mscore['homescore'];
             $homescore = $_POST['homescore'];
