@@ -578,18 +578,10 @@ if ($_POST['type'] == 'teamSchedule')
 if ($_POST['type'] == 'score') {
 
     $idpoule = $_GET['id'];
-    $homescore = $_POST['homescore'];
-    $awayscore = $_POST['awayscore'];
+    $homescore = $_POST['homescoretext'];
+    $awayscore = $_POST['awayscoretext'];
 
-    $sql = "UPDATE poules SET homescore = :homescore, awayscore = :awayscore WHERE id = :id";
 
-    $prepare = $db->prepare($sql);
-
-    $prepare->execute([
-        ':id' => $idpoule,
-        ':homescore' => $homescore,
-        ':awayscore' => $awayscore
-    ]);
 
 
 
@@ -878,11 +870,20 @@ if ($_POST['type'] == 'generate_key') {
             $homeid = $mscore['home'];
             $awayid = $mscore['away'];
 
-            $homescore = $mscore['homescore'];
             $homescore = $_POST['homescore'];
             $awayscore = $_POST['awayscore'];
             $homeid = $_POST['homeid'];
             $awayid = $_POST['awayid'];
+
+            $sql = "UPDATE poules SET homescore = :homescore, awayscore = :awayscore WHERE id = :id";
+
+            $prepare = $db->prepare($sql);
+
+            $prepare->execute([
+                ':id' => $id,
+                ':homescore' => $homescore,
+                ':awayscore' => $awayscore
+            ]);
 
 
             if ($homescore > $awayscore) {
