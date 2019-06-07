@@ -865,11 +865,14 @@ if ($_POST['type'] == 'generate_key') {
    exit;
 }
 
-    if($_POST['type'] == 'points')
-        $sql = "SELECT * FROM poules";
-$query = $db->query($sql);
-$score = $query->fetchAll(PDO::FETCH_ASSOC);
-        foreach ($score as $mscore){
+
+    if($_POST['type'] == 'points') {
+
+        if ($_POST['type'] == 'points')
+            $sql = "SELECT * FROM poules";
+        $query = $db->query($sql);
+        $score = $query->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($score as $mscore) {
             $homescore = $mscore['homescore'];
             $awayscore = $mscore['awayscore'];
             $id = $mscore['id'];
@@ -899,8 +902,7 @@ $score = $query->fetchAll(PDO::FETCH_ASSOC);
                 ]);
                 $msg = "Punten succesvol toegevoegd";
                 header("location: admin.php?msg=$msg");
-            }
-            else if ($awayscore > $homescore) {
+            } else if ($awayscore > $homescore) {
                 ///TODO:
                 /// 1. haal de punten van het awayteam op (innerjoin)
                 /// 2. zorg dat daar drie punten bij komen
