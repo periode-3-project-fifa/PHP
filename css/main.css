@@ -496,19 +496,19 @@ input:valid {
 /* ==========================================================================
    Admin page
    ========================================================================== */
-.adminpage {
-
-}
-.adminpage .full_team_score{
-
+.adminpage .team_list_1{
+    display: inline-list-item;
 }
 .adminpage .full_team_score .teams_that_play{
     display: inline-block;
     width: 500px;
     text-align: center;
 }
-.adminpage .score_input{
-
+.adminpage .pointsBtn:visited{
+    background: #000;
+}
+.adminpage .pointsBtn .gone{
+    display: none;
 }
 
 /* ==========================================================================

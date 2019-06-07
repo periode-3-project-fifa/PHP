@@ -851,7 +851,6 @@ if ($_POST['type'] == 'generate_key') {
 
     $key = uniqid();
 
-
     $sql = "INSERT INTO api_keys (api_key) value (:key)";
 
     $prepare = $db->prepare($sql);
@@ -866,9 +865,6 @@ if ($_POST['type'] == 'generate_key') {
    exit;
 }
 
-
-    if($_POST['type'] == 'points') {
-
     if($_POST['type'] == 'points')
         $sql = "SELECT * FROM poules";
 $query = $db->query($sql);
@@ -880,18 +876,12 @@ $score = $query->fetchAll(PDO::FETCH_ASSOC);
             $homeid = $mscore['home'];
             $awayid = $mscore['away'];
 
-//            $homescore = $mscore['homescore'];
+            $homescore = $mscore['homescore'];
             $homescore = $_POST['homescore'];
             $awayscore = $_POST['awayscore'];
             $homeid = $_POST['homeid'];
             $awayid = $_POST['awayid'];
-            var_dump($homeid);
-            die;
 
-//            $awayscore = $mscore['awayscore'];
-
-//            $homeid = $mscore['home'];
-//            $awayid = $mscore['away'];
 
 
             if ($homescore > $awayscore) {
@@ -927,7 +917,7 @@ $score = $query->fetchAll(PDO::FETCH_ASSOC);
 
 
             }
-            /*else if($awayscore===$homescore){
+            else if($awayscore===$homescore){
                 /// TODO
                 /// 1. haal de punten op van het hometeam en het awayteam
                 /// 2. zorg dat bij beide een punt bij komt
@@ -947,11 +937,7 @@ $score = $query->fetchAll(PDO::FETCH_ASSOC);
 
 
             }
-            */
 
-
-            echo "true";
-            die;
         header("location: admin.php");
         exit;
     }

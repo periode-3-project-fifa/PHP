@@ -17,7 +17,6 @@ if($_SESSION['admin'] != 1){
     header("Location: index.php");
 }
 
-$key = $_GET['key'];
 
 
 ?>
@@ -33,7 +32,7 @@ $key = $_GET['key'];
     foreach ($teams as $team){
         $teamname = $team['name'];
         $teamid = $team['id'];
-        echo "<a class='team_list'' href='admindetail.php?id=$teamid'><li>$teamname</li></a>";
+        echo "<li class='team_list_1'><a class='team_list'' href='admindetail.php?id=$teamid'>$teamname</a></li>";
     }
     ?>
 </ol>
@@ -90,9 +89,6 @@ $key = $_GET['key'];
 
 
 ?>
-<form action="logincontroller.php" method="post">
-    <input type="submit" name="type" id="points" value="points">
-</form>
 
 <?php
     //selecteert de grootste ronde uit de database.
@@ -101,13 +97,14 @@ $key = $_GET['key'];
 
 
     //Select de items die ik nodig heb, maar dat zijn id's. Met een Inner Join kan ik toch de namen showen.
-   $sql = "SELECT round, teams_a.name AS home, teams_b.name AS away, poules.id, poules.homescore, poules.awayscore FROM `poules`
+   $sql = "SELECT round, teams_a.name AS home, teams_a.id AS teamAid, teams_b.id AS teamBid, teams_b.name AS away, poules.id, poules.homescore, poules.awayscore FROM `poules`
 INNER JOIN teams as teams_a 
 ON teams_a.id = poules.home
 INNER JOIN teams as teams_b
 ON teams_b.id = poules.away";
 $query = $db->query($sql);
 $poules = $query->fetchAll(PDO::FETCH_ASSOC);
+
 
 
     //telt hoeveel rondes er zijn en pakt er 1 van.
@@ -118,42 +115,37 @@ $poules = $query->fetchAll(PDO::FETCH_ASSOC);
         foreach ($poules AS $game) {
             if ($game['round'] == $i) {
 
-                $idT1 = $game['id'];
 
-                $sql = "SELECT * FROM poules where id = :id";
-                $prepare1 = $db->prepare($sql);
-                $prepare1->execute([
-                        'id' => $idT1
-                ]);
+                $idHome = $game['teamAid'];
 
-                $team_1 = $prepare1->fetchAll(PDO::FETCH_ASSOC);
+                $idAway = $game['teamBid'];
 
                 echo "<br>" . $game['home'] . " - " . $game['away'] .  "<br>" . "<strong><i>Eind score: ". $game['homescore'] . " - " . $game['awayscore'] . "</i></strong><BR>";
-                var_dump($game['home']);
-                die;
-echo "<form action='loginController.php' method='post'>";
-echo "<input type='number' name='homescore' style='display: none;' value='{$game['homescore']}'>";
-echo "<input type='number' name='awayscore' style='display: none;' value='{$game['awayscore']}'>";
-echo "<input type='number' name='homeid' style='display: none;' value='{$game['home']}'>";
-echo "<input type='number' name='awayid' style='display: none;' value='{$game['away']}'>";
-echo "<input type='number' name='awayscore' style='display: none;' value='{$game['awayscore']}'>";
 
-echo "<input type='submit' name='type' id='points' value='points'>";
-echo "</form>";
+
+                echo "<form action='loginController.php' method='post' class='pointsForm'>";
+                echo "<input type='number' name='homescore' style='display: none;' value='{$game['homescore']}'>";
+                echo "<input type='number' name='awayscore' style='display: none;' value='{$game['awayscore']}'>";
+                echo "<input type='number' name='homeid' style='display: none;' value='{$game['home']}'>";
+                echo "<input type='number' name='awayid' style='display: none;' value='{$game['away']}'>";
+                echo "<input type='number' name='awayscore' style='display: none;' value='{$game['awayscore']}'>";
+                echo "<input type='text' name='homeid' style='display: none;' value='$idHome'>";
+                echo "<input type='text' name='awayid' style='display: none;' value='$idAway'>";
+
+                echo "<input type='submit' onclick='' name='type' id='points' value='points' class='pointsBtn'>";
+
+                echo "</form>";
                  ?> <form action="logincontroller.php?id=<?=$game['id']?>" method='POST'>
                  <?php
                  echo   "<input type='hidden' name='type' value='score'>";
                  echo   "<input type='number' name='homescore'  maxlength='2' required>";
                  echo  "<input type='number' name='awayscore'  maxlength='2' required>";
-                 echo "<label for='player_1_score'>Team {$game['home']} speler $p1</label>";
-                 echo "<input type='number' name='player_1_score'>";
                  echo   "<input type='submit' value='Save'>";
                  echo "</form>";
             }
 
         }
     }
-
 
 ?>
 <?= require 'footer.php';?>
