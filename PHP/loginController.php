@@ -516,7 +516,8 @@ if ($_POST['type'] == 'delete'){
 if ($_POST['type'] == 'teamSchedule')
 {
     $sql = "TRUNCATE TABLE poules";
-    $truncate = $
+    $truncate = $db->prepare($sql);
+    $truncate->execute();
     $sql = "SELECT * FROM teams";
     $query = $db->query($sql);
     $teams = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -866,11 +867,11 @@ if ($_POST['type'] == 'generate_key') {
    exit;
 }
 
-    if($_POST['type'] == 'points')
+    if($_POST['type'] == 'points') {
         $sql = "SELECT * FROM poules";
-$query = $db->query($sql);
-$score = $query->fetchAll(PDO::FETCH_ASSOC);
-        foreach ($score as $mscore){
+        $query = $db->query($sql);
+        $score = $query->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($score as $mscore) {
             $homescore = $mscore['homescore'];
             $awayscore = $mscore['awayscore'];
             $id = $mscore['id'];
@@ -882,7 +883,6 @@ $score = $query->fetchAll(PDO::FETCH_ASSOC);
             $awayscore = $_POST['awayscore'];
             $homeid = $_POST['homeid'];
             $awayid = $_POST['awayid'];
-
 
 
             if ($homescore > $awayscore) {
@@ -900,8 +900,7 @@ $score = $query->fetchAll(PDO::FETCH_ASSOC);
                 ]);
                 $msg = "Punten succesvol toegevoegd";
                 header("location: admin.php?msg=$msg");
-            }
-            else if ($awayscore > $homescore) {
+            } else if ($awayscore > $homescore) {
                 ///TODO:
                 /// 1. haal de punten van het awayteam op (innerjoin)
                 /// 2. zorg dat daar drie punten bij komen
@@ -917,8 +916,7 @@ $score = $query->fetchAll(PDO::FETCH_ASSOC);
                 header("location: admin.php?msg=$msg");
 
 
-            }
-            else if($awayscore===$homescore){
+            } else if ($awayscore === $homescore) {
                 /// TODO
                 /// 1. haal de punten op van het hometeam en het awayteam
                 /// 2. zorg dat bij beide een punt bij komt
@@ -939,6 +937,7 @@ $score = $query->fetchAll(PDO::FETCH_ASSOC);
 
             }
 
-        header("location: admin.php");
-        exit;
+            header("location: admin.php");
+            exit;
+        }
     }
