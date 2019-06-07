@@ -513,14 +513,17 @@ if ($_POST['type'] == 'delete'){
 }
 
 //save schedule
-if ($_POST['type'] == 'teamSchedule')
-{
+if ($_POST['type'] == 'teamSchedule') {
+    //table leegmaken\\
+    $sql = "TRUNCATE TABLE `poules`";
+    $statement = $db->prepare($sql);
+    $statement->execute();
 
     $sql = "SELECT * FROM teams";
     $query = $db->query($sql);
     $teams = $query->fetchAll(PDO::FETCH_ASSOC);
 
-     function scheduler($members)
+    function scheduler($members)
     {
         if (count($members) != 10) {
             array_push($members, "10 teams are needed");
@@ -549,9 +552,9 @@ if ($_POST['type'] == 'teamSchedule')
     }
     $ronde = 1;
 
-    foreach($schedule as $round) {
+    foreach ($schedule as $round) {
 
-        foreach($round as $game) {
+        foreach ($round as $game) {
 
 
             $home = $game['Home'];
@@ -573,6 +576,7 @@ if ($_POST['type'] == 'teamSchedule')
 
 
 
+
 if ($_POST['type'] == 'score') {
 
     $idpoule = $_GET['id'];
@@ -589,11 +593,78 @@ if ($_POST['type'] == 'score') {
         ':awayscore' => $awayscore
     ]);
 
+    $sql = "SELECT * FROM poules";
+    $query = $db->query($sql);
+    $score = $query->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($score as $mscore) {
+        $homescore = $mscore['homescore'];
+        $awayscore = $mscore['awayscore'];
+        $id = $mscore['id'];
+        $homeid = $mscore['home'];
+        $awayid = $mscore['away'];
+
+        $homescore = $mscore['homescore'];
+        $homescore = $_POST['homescore'];
+        $awayscore = $_POST['awayscore'];
+        $homeid = $_POST['homeid'];
+        $awayid = $_POST['awayid'];
 
 
-    $msg = 'succesvol toegevoegd';
-    header("location: ./admin.php?msg=$msg");
-    exit;
+        if ($homescore > $awayscore) {
+            ///TODO:
+            /// 1. haal de punten van het hometeam op (innerjoin)
+            /// 2. zorg dat daar drie punten bij komen
+            /// 3. sla het totaal aantal punten weer op
+            ///
+            $sql = "UPDATE teams SET points = points + 3 WHERE id = :homeid";
+
+            $prepare = $db->prepare($sql);
+
+            $prepare->execute([
+                ':homeid' => $homeid
+            ]);
+            $msg = "Punten succesvol toegevoegd";
+            header("location: admin.php?msg=$msg");
+        } else if ($awayscore > $homescore) {
+            ///TODO:
+            /// 1. haal de punten van het awayteam op (innerjoin)
+            /// 2. zorg dat daar drie punten bij komen
+            /// 3. sla het totaal aantal punten weer op
+            $sql = "UPDATE teams SET points = points + 3 WHERE id = :awayid";
+
+            $prepare = $db->prepare($sql);
+
+            $prepare->execute([
+                ':awayid' => $awayid
+            ]);
+            $msg = "Punten succesvol toegevoegd";
+            header("location: admin.php?msg=$msg");
+
+
+        } else if ($awayscore === $homescore) {
+            /// TODO
+            /// 1. haal de punten op van het hometeam en het awayteam
+            /// 2. zorg dat bij beide een punt bij komt
+            /// 3. sla het totaal aantal punten weer op
+            $sql = "UPDATE teams SET points = points + 1 WHERE id = :awayid";
+
+            $prepare = $db->prepare($sql);
+
+            $prepare->execute([
+                ':awayid' => $awayid
+            ]);
+            $sql = "update teams set points = points + 1 where id = :homeid";
+            $prepare = $db->prepare($sql);
+            $prepare->execute([
+                ':homeid' => $homeid
+            ]);
+
+
+        }
+        $msg = "opgeslagen";
+        header("location: admin.php?msg=$msg");
+        exit;
+    }
 }
 
 if ($_POST['type'] == 'add_players') {
@@ -865,81 +936,3 @@ if ($_POST['type'] == 'generate_key') {
    exit;
 }
 
-
-    if($_POST['type'] == 'points') {
-
-        if ($_POST['type'] == 'points')
-            $sql = "SELECT * FROM poules";
-        $query = $db->query($sql);
-        $score = $query->fetchAll(PDO::FETCH_ASSOC);
-        foreach ($score as $mscore) {
-            $homescore = $mscore['homescore'];
-            $awayscore = $mscore['awayscore'];
-            $id = $mscore['id'];
-            $homeid = $mscore['home'];
-            $awayid = $mscore['away'];
-
-            $homescore = $mscore['homescore'];
-            $homescore = $_POST['homescore'];
-            $awayscore = $_POST['awayscore'];
-            $homeid = $_POST['homeid'];
-            $awayid = $_POST['awayid'];
-
-
-
-            if ($homescore > $awayscore) {
-                ///TODO:
-                /// 1. haal de punten van het hometeam op (innerjoin)
-                /// 2. zorg dat daar drie punten bij komen
-                /// 3. sla het totaal aantal punten weer op
-                ///
-                $sql = "UPDATE teams SET points = points + 3 WHERE id = :homeid";
-
-                $prepare = $db->prepare($sql);
-
-                $prepare->execute([
-                    ':homeid' => $homeid
-                ]);
-                $msg = "Punten succesvol toegevoegd";
-                header("location: admin.php?msg=$msg");
-            } else if ($awayscore > $homescore) {
-                ///TODO:
-                /// 1. haal de punten van het awayteam op (innerjoin)
-                /// 2. zorg dat daar drie punten bij komen
-                /// 3. sla het totaal aantal punten weer op
-                $sql = "UPDATE teams SET points = points + 3 WHERE id = :awayid";
-
-                $prepare = $db->prepare($sql);
-
-                $prepare->execute([
-                    ':awayid' => $awayid
-                ]);
-                $msg = "Punten succesvol toegevoegd";
-                header("location: admin.php?msg=$msg");
-
-
-            }
-            else if($awayscore===$homescore){
-                /// TODO
-                /// 1. haal de punten op van het hometeam en het awayteam
-                /// 2. zorg dat bij beide een punt bij komt
-                /// 3. sla het totaal aantal punten weer op
-                $sql = "UPDATE teams SET points = points + 1 WHERE id = :awayid";
-
-                $prepare = $db->prepare($sql);
-
-                $prepare->execute([
-                    ':awayid' => $awayid
-                ]);
-                $sql = "update teams set points = points + 1 where id = :homeid";
-                $prepare = $db->prepare($sql);
-                $prepare->execute([
-                    ':homeid' => $homeid
-                ]);
-
-
-            }
-
-        header("location: admin.php");
-        exit;
-    }

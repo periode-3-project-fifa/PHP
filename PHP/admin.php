@@ -88,9 +88,6 @@ if($_SESSION['admin'] != 1){
     }
 
 
-?>
-
-<?php
     //selecteert de grootste ronde uit de database.
     $sql = "SELECT max(round) as maxRound FROM poules";
     $maxRounds = $db->query($sql)->fetch(PDO::FETCH_ASSOC);
@@ -131,9 +128,6 @@ $poules = $query->fetchAll(PDO::FETCH_ASSOC);
                 echo "<input type='number' name='awayscore' style='display: none;' value='{$game['awayscore']}'>";
                 echo "<input type='text' name='homeid' style='display: none;' value='$idHome'>";
                 echo "<input type='text' name='awayid' style='display: none;' value='$idAway'>";
-
-                echo "<input type='submit' onclick='' name='type' id='points' value='points' class='pointsBtn'>";
-
                 echo "</form>";
                  ?> <form action="logincontroller.php?id=<?=$game['id']?>" method='POST'>
                  <?php
