@@ -26,7 +26,10 @@ if($_SESSION['admin'] != 1){
         <input type="submit" value="generate key" name="key">
     </form>
 </h3>
-
+<form action="logincontroller.php" method="post">
+    <input type="hidden" name="type" value="removexteams">
+    <input type="submit" value="Verwijder ongeldige teams">
+</form>
 <ol>
     <?php
     foreach ($teams as $team){

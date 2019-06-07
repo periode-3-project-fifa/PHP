@@ -870,7 +870,7 @@ if ($_POST['type'] == 'generate_key') {
    exit;
 }
 
-    if($_POST['type'] == 'points') {
+if($_POST['type'] == 'points') {
         $sql = "SELECT * FROM poules";
         $query = $db->query($sql);
         $score = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -953,3 +953,31 @@ if ($_POST['type'] == 'generate_key') {
             exit;
         }
     }
+
+if($_POST['type'] == 'removexteams'){
+
+    $sql = "SELECT * FROM teams ";
+    $query = $db->query($sql);
+    $teams = $query->fetchAll();
+
+foreach ($teams as $team) {
+//    var_dump($team['id']);
+    $id = $team['id'];
+    $sql = "SELECT * FROM player_names where team_id = :id";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        'id' => $id
+    ]);
+    $teamNameList = $prepare->fetchAll(PDO::FETCH_ASSOC);
+    if ($teamNameList == null){
+        $sql = "DELETE FROM teams WHERE id = :id";
+        $prepare = $db->prepare($sql);
+        $prepare->execute([
+            'id' => $team['id']
+        ]);
+    }
+}
+    $msg = "ongeldige teams verwijderd";
+    header("location: admin.php?msg=$msg");
+    exit;
+}
