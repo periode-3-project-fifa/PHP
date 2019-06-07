@@ -867,6 +867,7 @@ if ($_POST['type'] == 'generate_key') {
 }
 
 
+    if($_POST['type'] == 'points') {
 
     if($_POST['type'] == 'points')
         $sql = "SELECT * FROM poules";
@@ -879,13 +880,26 @@ $score = $query->fetchAll(PDO::FETCH_ASSOC);
             $homeid = $mscore['home'];
             $awayid = $mscore['away'];
 
+//            $homescore = $mscore['homescore'];
+            $homescore = $_POST['homescore'];
+            $awayscore = $_POST['awayscore'];
+            $homeid = $_POST['homeid'];
+            $awayid = $_POST['awayid'];
+            var_dump($homeid);
+            die;
+
+//            $awayscore = $mscore['awayscore'];
+
+//            $homeid = $mscore['home'];
+//            $awayid = $mscore['away'];
 
 
-            if ($homescore > $awayscore ){
+            if ($homescore > $awayscore) {
                 ///TODO:
                 /// 1. haal de punten van het hometeam op (innerjoin)
                 /// 2. zorg dat daar drie punten bij komen
                 /// 3. sla het totaal aantal punten weer op
+                ///
                 $sql = "UPDATE teams SET points = points + 3 WHERE id = :homeid";
 
                 $prepare = $db->prepare($sql);
@@ -896,7 +910,7 @@ $score = $query->fetchAll(PDO::FETCH_ASSOC);
                 $msg = "Punten succesvol toegevoegd";
                 header("location: admin.php?msg=$msg");
             }
-            else if ($awayscore > $homescore){
+            else if ($awayscore > $homescore) {
                 ///TODO:
                 /// 1. haal de punten van het awayteam op (innerjoin)
                 /// 2. zorg dat daar drie punten bij komen
@@ -910,6 +924,7 @@ $score = $query->fetchAll(PDO::FETCH_ASSOC);
                 ]);
                 $msg = "Punten succesvol toegevoegd";
                 header("location: admin.php?msg=$msg");
+
 
             }
             /*else if($awayscore===$homescore){
@@ -930,7 +945,13 @@ $score = $query->fetchAll(PDO::FETCH_ASSOC);
                     ':homeid' => $homeid
                 ]);
 
+
             }
             */
 
-        }
+
+            echo "true";
+            die;
+        header("location: admin.php");
+        exit;
+    }

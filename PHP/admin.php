@@ -129,7 +129,17 @@ $poules = $query->fetchAll(PDO::FETCH_ASSOC);
                 $team_1 = $prepare1->fetchAll(PDO::FETCH_ASSOC);
 
                 echo "<br>" . $game['home'] . " - " . $game['away'] .  "<br>" . "<strong><i>Eind score: ". $game['homescore'] . " - " . $game['awayscore'] . "</i></strong><BR>";
+                var_dump($game['home']);
+                die;
+echo "<form action='loginController.php' method='post'>";
+echo "<input type='number' name='homescore' style='display: none;' value='{$game['homescore']}'>";
+echo "<input type='number' name='awayscore' style='display: none;' value='{$game['awayscore']}'>";
+echo "<input type='number' name='homeid' style='display: none;' value='{$game['home']}'>";
+echo "<input type='number' name='awayid' style='display: none;' value='{$game['away']}'>";
+echo "<input type='number' name='awayscore' style='display: none;' value='{$game['awayscore']}'>";
 
+echo "<input type='submit' name='type' id='points' value='points'>";
+echo "</form>";
                  ?> <form action="logincontroller.php?id=<?=$game['id']?>" method='POST'>
                  <?php
                  echo   "<input type='hidden' name='type' value='score'>";
