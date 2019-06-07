@@ -120,7 +120,9 @@ $poules = $query->fetchAll(PDO::FETCH_ASSOC);
                 echo "<br>" . $game['home'] . " - " . $game['away'] .  "<br>" . "<strong><i>Eind score: ". $game['homescore'] . " - " . $game['awayscore'] . "</i></strong><BR>";
 
 
-                echo "<form action='loginController.php' method='post' class='pointsForm'>";
+                echo "<form action='logincontroller.php' method='post' class='pointsForm'>";
+                echo "<input type='hidden' name='type' value='score'>";
+                echo "<input type='hidden' name='type' value='points'>";
                 echo "<input type='number' name='homescore' style='display: none;' value='{$game['homescore']}'>";
                 echo "<input type='number' name='awayscore' style='display: none;' value='{$game['awayscore']}'>";
                 echo "<input type='number' name='homeid' style='display: none;' value='{$game['home']}'>";
@@ -128,16 +130,11 @@ $poules = $query->fetchAll(PDO::FETCH_ASSOC);
                 echo "<input type='number' name='awayscore' style='display: none;' value='{$game['awayscore']}'>";
                 echo "<input type='text' name='homeid' style='display: none;' value='$idHome'>";
                 echo "<input type='text' name='awayid' style='display: none;' value='$idAway'>";
+                echo "<input type='number' name='homescore'  maxlength='2' required>";
+                echo "<input type='number' name='awayscore'  maxlength='2' required>";
+                echo "<input type='submit' value='Save'>";
                 echo "</form>";
-                 ?> <form action="logincontroller.php?id=<?=$game['id']?>" method='POST'>
-                 <?php
-                 echo   "<input type='hidden' name='type' value='score'>";
-                 echo   "<input type='number' name='homescore'  maxlength='2' required>";
-                 echo  "<input type='number' name='awayscore'  maxlength='2' required>";
-                 echo   "<input type='submit' value='Save'>";
-                 echo "</form>";
             }
-
         }
     }
 
