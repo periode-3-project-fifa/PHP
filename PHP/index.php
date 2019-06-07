@@ -85,7 +85,7 @@ if( isset($_GET['msg'])){
 
                         $player_count = $team['player_count'];
 
-                        $players = array($player_names['player_1'],$player_names['player_2'],$player_names['player_3'],$player_names['player_4'],$player_names['player_5'],$player_names['player_6'],);
+                        $players = array($player_names['player_1'], $player_names['player_2'], $player_names['player_3'], $player_names['player_4'], $player_names['player_5'], $player_names['player_6'],);
                         $encoded = json_encode($players);
 
                         echo "<option id='mySelect' name='mySelect' value='$encoded'>$name</option>";
