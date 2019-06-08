@@ -53,7 +53,6 @@ $team = $prepare->fetch(PDO::FETCH_ASSOC);
 </form>
     <form action="logincontroller.php?id=<?=$id?>" method="post">
         <input type="hidden" name="type" value="delete">
-
         <input type="submit" class="removeBtn" value="delete">
     </form>
 

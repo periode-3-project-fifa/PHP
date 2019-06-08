@@ -187,6 +187,8 @@ if ($_POST['type'] == 'edit'){
     $team = $prepare->fetch(PDO::FETCH_ASSOC);
     $player_count = $team['players_count'];
 
+
+
     $sql = "UPDATE teams SET name = :name WHERE id = :id";
 
     $prepare = $db->prepare($sql);
@@ -194,25 +196,31 @@ if ($_POST['type'] == 'edit'){
         ':id' => $id,
         ':name' => $name
     ]);
+
+
     if ($player_count == 6){
+
         $p1 = $_POST['player1'];
         $p2 = $_POST['player2'];
         $p3 = $_POST['player3'];
         $p4 = $_POST['player4'];
         $p5 = $_POST['player5'];
         $p6 = $_POST['player6'];
-        $sql = "update player_names set (player_1, player_2, player_3, player_4, player_5, player_6) value(:p1,:p2,:p3,:p4,:p5,:p6)
+
+        $sql = "UPDATE `player_names` SET player_1 = :p1, player_2 = :p2, player_3 = :p3, player_4 = :p4, player_5 = :p5, player_6 = :p6
 where team_id = :id";
+
         $prepare = $db->prepare($sql);
+
         $prepare->execute([
-                'id' => $id,
-                'p1' => $p1,
-                'p2' => $p2,
-                'p3' => $p3,
-                'p4' => $p4,
-                'p5' => $p5,
-                'p6' => $p6
-            ]);
+            ':p1' => $p1,
+            ':p2' => $p2,
+            ':p3' => $p3,
+            ':p4' => $p4,
+            ':p5' => $p5,
+            ':p6' => $p6,
+            ':id' => $id
+        ]);
     }
     else if ($player_count == 7){
         $p1 = $_POST['player1'];
@@ -223,7 +231,7 @@ where team_id = :id";
         $p6 = $_POST['player6'];
         $p7 = $_POST['player7'];
 
-        $sql = "update player_names set (player_1 = :p1, player_2 = :p2, player_3 = :p3, player_4 = :p4, player_5 = :p5, player_6 = :p6, player_7 = :p7)
+        $sql = "update player_names set player_1 = :p1, player_2 = :p2, player_3 = :p3, player_4 = :p4, player_5 = :p5, player_6 = :p6, player_7 = :p7
  where team_id = :id";
 
         $prepare = $db->prepare($sql);
@@ -247,8 +255,8 @@ where team_id = :id";
         $p6 = $_POST['player6'];
         $p7 = $_POST['player7'];
         $p8 = $_POST['player8'];
-        $sql = "update player_names set (player_1, player_2, player_3, player_4, player_5, player_6, player_7, player_8) value 
-(:p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8) where team_id = :id";
+        $sql = "update player_names set player_1 = :p1, player_2 = :p2, player_3 = :p3, player_4 = :p4, player_5 = :p5,
+ player_6 = :p6, player_7 = :p7, player_8 = :p8 where team_id = :id";
         $prepare = $db->prepare($sql);
         $prepare->execute([
             'id' => $id,
@@ -272,8 +280,8 @@ where team_id = :id";
         $p7 = $_POST['player7'];
         $p8 = $_POST['player8'];
         $p9 = $_POST['player9'];
-        $sql = "update player_names set (player_1, player_2, player_3, player_4, player_5, player_6, player_7, player_8, player_9) value
- (:p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9) where team_id = :id";
+        $sql = "update player_names set player_1 = :p1, player_2 = :p2, player_3 = :p3, player_4 = :p4, player_5 = :p5,
+ player_6 = :p6, player_7 = :p7, player_8 = :p8, player_9 = :p9 where team_id = :id";
         $prepare = $db->prepare($sql);
         $prepare->execute([
             'id' => $id,
@@ -299,8 +307,8 @@ where team_id = :id";
         $p8 = $_POST['player8'];
         $p9 = $_POST['player9'];
         $p10 = $_POST['player10'];
-        $sql = "update player_names set (player_1, player_2, player_3, player_4, player_5, player_6, player_7, player_8, player_9, player_10)
- value (:p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10) where team_id = :id";
+        $sql = "update player_names set player_1 = :p1, player_2 = :p2, player_3 = :p3, player_4 = :p4, player_5 = :p5,
+ player_6 = :p6, player_7 = :p7, player_8 = :p8, player_9 = :p9, player_10 = :p10 where team_id = :id";
         $prepare = $db->prepare($sql);
         $prepare->execute([
             'id' => $id,
@@ -328,8 +336,8 @@ where team_id = :id";
         $p9 = $_POST['player9'];
         $p10 = $_POST['player10'];
         $p11 = $_POST['player11'];
-        $sql = "update player_names set (player_1, player_2, player_3, player_4, player_5, player_6, player_7, player_8, player_9, player_10
-, player_11) value (:p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11) where team_id = :id";
+        $sql = "update player_names set player_1 = :p1, player_2 = :p2, player_3 = :p3, player_4 = :p4, player_5 = :p5,
+ player_6 = :p6, player_7 = :p7, player_8 = :p8, player_9 = :p9, player_10 = :p10, player_11 = :p11 where team_id = :id";
         $prepare = $db->prepare($sql);
         $prepare->execute([
             'id' => $id,
@@ -359,8 +367,8 @@ where team_id = :id";
         $p10 = $_POST['player10'];
         $p11 = $_POST['player11'];
         $p12 = $_POST['player12'];
-        $sql = "update player_names set (player_1, player_2, player_3, player_4, player_5, player_6, player_7, player_8, player_9, player_10
-, player_11, player_12) value (:p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12) where team_id = :id";
+        $sql = "update player_names set player_1 = :p1, player_2 = :p2, player_3 = :p3, player_4 = :p4, player_5 = :p5,
+ player_6 = :p6, player_7 = :p7, player_8 = :p8, player_9 = :p9, player_10 = :p10, player_11 = :p11, player_12 = :p12) where team_id = :id";
         $prepare = $db->prepare($sql);
         $prepare->execute([
             'id' => $id,
@@ -392,8 +400,9 @@ where team_id = :id";
     $p11 = $_POST['player11'];
     $p12 = $_POST['player12'];
     $p13 = $_POST['player13'];
-    $sql = "update player_names set (player_1, player_2, player_3, player_4, player_5, player_6, player_7, player_8, player_9, player_10
-, player_11, player_12, player_13) value (:p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12,:p13) where team_id = :id";
+    $sql = "update player_names set player_1 = :p1, player_2 = :p2, player_3 = :p3, player_4 = :p4, player_5 = :p5,
+ player_6 = :p6, player_7 = :p7, player_8 = :p8, player_9 = :p9, player_10 = :p10, player_11 = :p11, player_12 = :p12,
+ player_13 = :p13 where team_id = :id";
     $prepare = $db->prepare($sql);
     $prepare->execute([
         'id' => $id,
@@ -426,8 +435,9 @@ where team_id = :id";
         $p12 = $_POST['player12'];
         $p13 = $_POST['player13'];
         $p14 = $_POST['player14'];
-        $sql = "update player_names set (player_1, player_2, player_3, player_4, player_5, player_6, player_7, player_8, player_9, player_10
-, player_11, player_12, player_13, player_14,) value (:p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12,:p13,:p14) where team_id = :id";
+        $sql = "update player_names set player_1 = :p1, player_2 = :p2, player_3 = :p3, player_4 = :p4, player_5 = :p5,
+ player_6 = :p6, player_7 = :p7, player_8 = :p8, player_9 = :p9, player_10 = :p10, player_11 = :p11, player_12 = :p12,
+ player_13 = :p13, player_14 = :p14 where team_id = :id";
         $prepare = $db->prepare($sql);
         $prepare->execute([
             'id' => $id,
@@ -463,8 +473,9 @@ where team_id = :id";
         $p13 = $_POST['player13'];
         $p14 = $_POST['player14'];
         $p15 = $_POST['player15'];
-        $sql = "update player_names set (player_1, player_2, player_3, player_4, player_5, player_6, player_7, player_8, player_9, player_10
-, player_11, player_12, player_13, player_14, player_15) value (:p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12,:p13,:p14,:p15) where team_id = :id";
+        $sql = "update player_names set player_1 = :p1, player_2 = :p2, player_3 = :p3, player_4 = :p4, player_5 = :p5,
+ player_6 = :p6, player_7 = :p7, player_8 = :p8, player_9 = :p9, player_10 = :p10, player_11 = :p11, player_12 = :p12,
+ player_13 = :p13, player_14 = :p14, player_15 = :p15 where team_id = :id";
         $prepare = $db->prepare($sql);
         $prepare->execute([
             'id' => $id,
@@ -513,17 +524,16 @@ if ($_POST['type'] == 'delete'){
 }
 
 //save schedule
-if ($_POST['type'] == 'teamSchedule') {
-    //table leegmaken\\
-    $sql = "TRUNCATE TABLE `poules`";
-    $statement = $db->prepare($sql);
-    $statement->execute();
-
+if ($_POST['type'] == 'teamSchedule')
+{
+    $sql = "TRUNCATE TABLE poules";
+    $truncate = $db->prepare($sql);
+    $truncate->execute();
     $sql = "SELECT * FROM teams";
     $query = $db->query($sql);
     $teams = $query->fetchAll(PDO::FETCH_ASSOC);
 
-    function scheduler($members)
+     function scheduler($members)
     {
         //er moeten 10 teams zijn of meer
         if (count($members) != 10) {
@@ -556,9 +566,9 @@ if ($_POST['type'] == 'teamSchedule') {
     }
     $ronde = 1;
 
-    foreach ($schedule as $round) {
+    foreach($schedule as $round) {
 
-        foreach ($round as $game) {
+        foreach($round as $game) {
 
 
             $home = $game['Home'];
@@ -580,95 +590,19 @@ if ($_POST['type'] == 'teamSchedule') {
 
 
 
-
 if ($_POST['type'] == 'score') {
 
     $idpoule = $_GET['id'];
-    $homescore = $_POST['homescore'];
-    $awayscore = $_POST['awayscore'];
-
-    $sql = "UPDATE poules SET homescore = :homescore, awayscore = :awayscore WHERE id = :id";
-
-    $prepare = $db->prepare($sql);
-
-    $prepare->execute([
-        ':id' => $idpoule,
-        ':homescore' => $homescore,
-        ':awayscore' => $awayscore
-    ]);
-
-    $sql = "SELECT * FROM poules";
-    $query = $db->query($sql);
-    $score = $query->fetchAll(PDO::FETCH_ASSOC);
-    foreach ($score as $mscore) {
-        $homescore = $mscore['homescore'];
-        $awayscore = $mscore['awayscore'];
-        $id = $mscore['id'];
-        $homeid = $mscore['home'];
-        $awayid = $mscore['away'];
-
-        $homescore = $mscore['homescore'];
-        $homescore = $_POST['homescore'];
-        $awayscore = $_POST['awayscore'];
-        $homeid = $_POST['homeid'];
-        $awayid = $_POST['awayid'];
+    $homescore = $_POST['homescoretext'];
+    $awayscore = $_POST['awayscoretext'];
 
 
-        if ($homescore > $awayscore) {
-            ///TODO:
-            /// 1. haal de punten van het hometeam op (innerjoin)
-            /// 2. zorg dat daar drie punten bij komen
-            /// 3. sla het totaal aantal punten weer op
-            ///
-            $sql = "UPDATE teams SET points = points + 3 WHERE id = :homeid";
-
-            $prepare = $db->prepare($sql);
-
-            $prepare->execute([
-                ':homeid' => $homeid
-            ]);
-            $msg = "Punten succesvol toegevoegd";
-            header("location: admin.php?msg=$msg");
-        } else if ($awayscore > $homescore) {
-            ///TODO:
-            /// 1. haal de punten van het awayteam op (innerjoin)
-            /// 2. zorg dat daar drie punten bij komen
-            /// 3. sla het totaal aantal punten weer op
-            $sql = "UPDATE teams SET points = points + 3 WHERE id = :awayid";
-
-            $prepare = $db->prepare($sql);
-
-            $prepare->execute([
-                ':awayid' => $awayid
-            ]);
-            $msg = "Punten succesvol toegevoegd";
-            header("location: admin.php?msg=$msg");
 
 
-        } else if ($awayscore === $homescore) {
-            /// TODO
-            /// 1. haal de punten op van het hometeam en het awayteam
-            /// 2. zorg dat bij beide een punt bij komt
-            /// 3. sla het totaal aantal punten weer op
-            $sql = "UPDATE teams SET points = points + 1 WHERE id = :awayid";
 
-            $prepare = $db->prepare($sql);
-
-            $prepare->execute([
-                ':awayid' => $awayid
-            ]);
-            $sql = "update teams set points = points + 1 where id = :homeid";
-            $prepare = $db->prepare($sql);
-            $prepare->execute([
-                ':homeid' => $homeid
-            ]);
-
-
-        }
-        $msg = "opgeslagen";
-        header("location: admin.php?msg=$msg");
-        exit;
-    }
+    $msg = 'succesvol toegevoegd';
+    header("location: ./admin.php?msg=$msg");
+    exit;
 }
 
 if ($_POST['type'] == 'add_players') {
@@ -940,3 +874,114 @@ if ($_POST['type'] == 'generate_key') {
    exit;
 }
 
+if($_POST['type'] == 'points') {
+        $sql = "SELECT * FROM poules";
+        $query = $db->query($sql);
+        $score = $query->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($score as $mscore) {
+            $homescore = $mscore['homescore'];
+            $awayscore = $mscore['awayscore'];
+            $id = $mscore['id'];
+            $homeid = $mscore['home'];
+            $awayid = $mscore['away'];
+
+            $homescore = $_POST['homescore'];
+            $awayscore = $_POST['awayscore'];
+            $homeid = $_POST['homeid'];
+            $awayid = $_POST['awayid'];
+
+            $sql = "UPDATE poules SET homescore = :homescore, awayscore = :awayscore WHERE id = :id";
+
+            $prepare = $db->prepare($sql);
+
+            $prepare->execute([
+                ':id' => $id,
+                ':homescore' => $homescore,
+                ':awayscore' => $awayscore
+            ]);
+
+
+            if ($homescore > $awayscore) {
+                ///TODO:
+                /// 1. haal de punten van het hometeam op (innerjoin)
+                /// 2. zorg dat daar drie punten bij komen
+                /// 3. sla het totaal aantal punten weer op
+                ///
+                $sql = "UPDATE teams SET points = points + 3 WHERE id = :homeid";
+
+                $prepare = $db->prepare($sql);
+
+                $prepare->execute([
+                    ':homeid' => $homeid
+                ]);
+                $msg = "Punten succesvol toegevoegd";
+                header("location: admin.php?msg=$msg");
+            } else if ($awayscore > $homescore) {
+                ///TODO:
+                /// 1. haal de punten van het awayteam op (innerjoin)
+                /// 2. zorg dat daar drie punten bij komen
+                /// 3. sla het totaal aantal punten weer op
+                $sql = "UPDATE teams SET points = points + 3 WHERE id = :awayid";
+
+                $prepare = $db->prepare($sql);
+
+                $prepare->execute([
+                    ':awayid' => $awayid
+                ]);
+                $msg = "Punten succesvol toegevoegd";
+                header("location: admin.php?msg=$msg");
+
+
+            } else if ($awayscore === $homescore) {
+                /// TODO
+                /// 1. haal de punten op van het hometeam en het awayteam
+                /// 2. zorg dat bij beide een punt bij komt
+                /// 3. sla het totaal aantal punten weer op
+                $sql = "UPDATE teams SET points = points + 1 WHERE id = :awayid";
+
+                $prepare = $db->prepare($sql);
+
+                $prepare->execute([
+                    ':awayid' => $awayid
+                ]);
+                $sql = "update teams set points = points + 1 where id = :homeid";
+                $prepare = $db->prepare($sql);
+                $prepare->execute([
+                    ':homeid' => $homeid
+                ]);
+
+
+            }
+
+            header("location: admin.php");
+            exit;
+        }
+    }
+
+if($_POST['type'] == 'removexteams'){
+
+    $sql = "SELECT * FROM teams ";
+    $query = $db->query($sql);
+    $teams = $query->fetchAll();
+
+foreach ($teams as $team) {
+//    var_dump($team['id']);
+    $id = $team['id'];
+    $sql = "SELECT * FROM player_names where team_id = :id";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        'id' => $id
+    ]);
+    $teamNameList = $prepare->fetchAll(PDO::FETCH_ASSOC);
+    if ($teamNameList == null){
+        $sql = "DELETE FROM teams WHERE id = :id";
+        $prepare = $db->prepare($sql);
+        $prepare->execute([
+            'id' => $team['id']
+        ]);
+    }
+}
+    $msg = "ongeldige teams verwijderd";
+    header("location: admin.php?msg=$msg");
+    exit;
+}
