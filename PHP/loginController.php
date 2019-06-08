@@ -525,16 +525,20 @@ if ($_POST['type'] == 'teamSchedule') {
 
     function scheduler($members)
     {
+        //er moeten 10 teams zijn of meer
         if (count($members) != 10) {
             array_push($members, "10 teams are needed");
         }
+        //hier wordt de eerste value van members en alle met een even id in de away geplaatst en de overige in de home
         $away = array_splice($members, (count($members) / 2));
         $home = $members;
+        //hier worden alle home teams tegen de away teams ingedeeld
         for ($i = 0; $i < count($home) + count($away) - 1; $i++) {
             for ($j = 0; $j < count($home); $j++) {
                 $round[$i][$j]["Home"] = $home[$j];
                 $round[$i][$j]["Away"] = $away[$j];
             }
+            // hier wordt bij elk home team een away team toegewezen
             $splicedArray = array_splice($home, 1, 1);
             $shiftedArray = array_shift($splicedArray);
             if (count($home) + count($away) - 1 > 2) {
