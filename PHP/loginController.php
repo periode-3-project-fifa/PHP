@@ -588,10 +588,6 @@ if ($_POST['type'] == 'teamSchedule')
 
 if ($_POST['type'] == 'score') {
 
-    $idpoule = $_GET['id'];
-    $homescore = $_POST['homescoretext'];
-    $awayscore = $_POST['awayscoretext'];
-
 
 
 
@@ -875,9 +871,6 @@ if($_POST['type'] == 'points') {
         $query = $db->query($sql);
         $score = $query->fetchAll(PDO::FETCH_ASSOC);
         foreach ($score as $mscore) {
-            $homescore = $mscore['homescore'];
-            $awayscore = $mscore['awayscore'];
-            $id = $mscore['id'];
             $homeid = $mscore['home'];
             $awayid = $mscore['away'];
 
@@ -886,12 +879,16 @@ if($_POST['type'] == 'points') {
             $homeid = $_POST['homeid'];
             $awayid = $_POST['awayid'];
 
+            $idpoule = $_POST['gameid'];
+
+
+
             $sql = "UPDATE poules SET homescore = :homescore, awayscore = :awayscore WHERE id = :id";
 
             $prepare = $db->prepare($sql);
 
             $prepare->execute([
-                ':id' => $id,
+                ':id' => $idpoule,
                 ':homescore' => $homescore,
                 ':awayscore' => $awayscore
             ]);

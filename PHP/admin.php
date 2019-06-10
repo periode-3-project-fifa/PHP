@@ -124,10 +124,10 @@ $poules = $query->fetchAll(PDO::FETCH_ASSOC);
 
 
                 echo "<form action='logincontroller.php' method='post' class='pointsForm'>";
-                echo "<input type='hidden' name='type' value='score'>";
                 echo "<input type='hidden' name='type' value='points'>";
                 echo "<input type='number' name='homeid' style='display: none;' value='{$game['home']}'>";
                 echo "<input type='number' name='awayid' style='display: none;' value='{$game['away']}'>";
+                echo "<input type='text' name='gameid' style='display: none;' value='{$game['id']}'>";
                 echo "<input type='text' name='homeid' style='display: none;' value='$idHome'>";
                 echo "<input type='text' name='awayid' style='display: none;' value='$idAway'>";
                 echo "<input type='number' name='homescore'  maxlength='2' required>";
