@@ -59,10 +59,10 @@ if($_SESSION['admin'] != 1){
         if (count($members) < 10) {
             array_push($members, "10 teams are needed");
         }
-        //hier wordt de eerste value van members verwijderd uit de array
+        //hier wordt de eerste value van members en alle met een even id in de away geplaatst en de overige in de home
         $away = array_splice($members, (count($members) / 2));
         $home = $members;
-        //hier worden alle home teams ingedeeld
+        //hier worden alle home teams tegen de away teams ingedeeld
         for ($i = 0; $i < count($home) + count($away) - 1; $i++) {
 
             for ($j = 0; $j < count($home); $j++) {
