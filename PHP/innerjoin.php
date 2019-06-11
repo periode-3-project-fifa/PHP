@@ -5,6 +5,8 @@
  * Date: 20-5-2019
  * Time: 09:04
  */
+
+ //gewoon een test
 require 'config.php';
 $sql = "
 SELECT teams.name,poules.round

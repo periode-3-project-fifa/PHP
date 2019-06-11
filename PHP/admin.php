@@ -12,7 +12,7 @@ require 'header.php';
 $sql = "SELECT * FROM teams";
 $query = $db->query($sql);
 $teams = $query->fetchAll(PDO::FETCH_ASSOC);
-
+// als je geen admin bent ga je naar index
 if($_SESSION['admin'] != 1){
     header("Location: index.php");
 }

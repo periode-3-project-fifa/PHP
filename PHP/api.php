@@ -6,10 +6,10 @@
  * Time: 09:51
  */
 require 'config.php';
-
+// dit is de api sleutel
 $key = 'hardcodedkey1234';
 
-
+// als je de code weet krijg je alles de zien de team punten en etc
 if($_GET['key'] == $key)
 {
     $sql = "SELECT poules.id AS id, teams_a.name AS home, teams_b.name AS away, poules.homescore AS homescore, poules.awayscore AS awayscore FROM `poules`

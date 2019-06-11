@@ -23,12 +23,14 @@ if ( $_POST['type'] === 'login' ) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-
+    // als je geen email invult krijg je een error msg met enter een email
     if($email == '')
         $errMsg = 'Enter email';
+    //als je geen wachtwoord invult krijg je een melding vul een wachtwoord in
     if($password == '')
         $errMsg = 'Enter password';
 
+    // als er geen error bericht is voer die deze code uit
     if($errMsg == '') {
         try {
             $stmt = $db->prepare('SELECT id, email, password, admin FROM users WHERE email = :email');
@@ -36,30 +38,33 @@ if ( $_POST['type'] === 'login' ) {
                 ':email' => $email
             ));
             $data = $stmt->fetch(PDO::FETCH_ASSOC);
-
+            // dit voer die uit als de email niet bestaad
             if($email == false){
                 $errMsg = "User $email not found.";
             }
-
+            // als je email goed is voer die deze code uit
             else {
+                // hier check die het wachtwoord
                 if(password_verify($password, $data['password'])) {
 
-
+                    // daarna haal die je email op uit de database
                     $_SESSION['email'] = $data['email'];
-
+                    // daarna haal die je id op
                     $_SESSION['id'] = $data['id'];
-
+                    //daarna check die of je admin ben
                     $_SESSION['admin'] = $data['admin'];
-
+                    // als je admin bent ga die naar de admin.php
                     if ($data['admin'] == 1){
                         header("Location: admin.php?");
                         exit;
                     }
+                    // als je geen admin bent ga je naar de index.php
                     else{
                         header("Location: index.php");
                         exit;
                     }
                 }
+                // als de account niet bestaad krijg je een melding 
                 else {
                     $errMsg = 'Account bestaat niet.';
                     header("Location: login.php?msg=$errMsg");
@@ -105,7 +110,7 @@ if ( $_POST['type'] == 'register' ) {
     $count->execute();
 
     $no=$count->rowCount();
-
+    //als de email bestaad krijg je deze bericht
     if($no >0 ){
         $message = "Email bestaat al!";
         echo "<script type='text/javascript'>alert('$message');</script>";
@@ -121,7 +126,7 @@ if ( $_POST['type'] == 'register' ) {
         echo "<script type='text/javascript'>alert('$message');</script>";
 
     }
-
+    // hier check die of de wachtwoord niet leeg is
     if($_POST['password'] == ""){
         $msg = "Wachtwoord mag niet leeg zijn!";
         header("location: register.php?msg=$msg");
@@ -164,7 +169,7 @@ if ( $_POST['type'] == 'registerteamplayer' ) {
         ':players_count' => $players
     ]);
 
-
+    // die geef je aan player id 
     $last_id = $db->lastInsertId();
 
 
@@ -589,7 +594,7 @@ if ($_POST['type'] == 'teamSchedule')
 }
 
 
-
+// hier toevoeg die de score op de admin pagina ken je alleen in als je admin ben
 if ($_POST['type'] == 'score') {
 
 
@@ -851,7 +856,7 @@ VALUE (:id, :p1, :p2,:p3,:p4,:p5,:p6, :p7, :p8, :p9, :p10, :p11, :p12, :p13, :p1
     header("location: index.php?msg=$msg");
     exit;
 }
-
+// hier generate die een api key
 if ($_POST['type'] == 'generate_key') {
 
     $key = uniqid();
@@ -869,7 +874,7 @@ if ($_POST['type'] == 'generate_key') {
    header("location: admin.php?msg=$msg?key=$key");
    exit;
 }
-
+// punten syesteem in database 
 if($_POST['type'] == 'points') {
         $sql = "SELECT * FROM poules";
         $query = $db->query($sql);
@@ -897,7 +902,7 @@ if($_POST['type'] == 'points') {
                 ':awayscore' => $awayscore
             ]);
 
-
+                
             if ($homescore > $awayscore) {
                 ///TODO:
                 /// 1. haal de punten van het hometeam op (innerjoin)
@@ -954,7 +959,7 @@ if($_POST['type'] == 'points') {
             exit;
         }
     }
-
+// hier verwijderd ongelding teams
 if($_POST['type'] == 'removexteams'){
 
     $sql = "SELECT * FROM teams ";

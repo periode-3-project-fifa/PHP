@@ -11,6 +11,7 @@ if ( $_SERVER['REQUEST_METHOD'] != 'POST'){
     header('location: admin.php');
     exit;
 }
+// hier zet hij de teams in poules
 $sql = "INSERT INTO poules (teampoules) VALUES (:teampoules) ORDER BY RAND";
 $prepare = $db->prepare($sql);
 $prepare->execute([

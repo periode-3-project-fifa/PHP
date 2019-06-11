@@ -6,5 +6,5 @@
  * Time: 10:51 AM
  */
 require 'header.php';
-
+// was een test
 $id = $_GET['id'];

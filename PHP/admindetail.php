@@ -9,10 +9,11 @@ $pagename = "edit_page";
 $pagetitle = "Edit This";
 require 'header.php';
 
+// hier check die of je admin ben zo niet ga je naar index.php
 if($_SESSION['admin'] != 1){
     header("Location: index.php");
 }
-
+// hier haal die je id uit via de database als je admin bent
 $id = $_GET['id'];
 
 $sql = "SELECT * FROM teams WHERE id = :id";

@@ -7,7 +7,7 @@
  */
 
 require 'config.php';
-
+// hier log je uit en destroy je session en ga je weer terug naar de index.php
 session_start();
 session_destroy();
 header('location: index.php');

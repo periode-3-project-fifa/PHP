@@ -5,7 +5,7 @@
  * Date: 15-4-2019
  * Time: 11:03
  */
-
+// connect naar de database
 $dbHost = 'localhost';
 $dbName = 'fifa';
 $dbUser = 'root';
@@ -16,7 +16,7 @@ $db = new PDO(
     $dbUser,
     $dbPass
 );
-
+// hier vang die de error op 
 $db->setAttribute(
     PDO::ATTR_ERRMODE,
     PDO::ERRMODE_EXCEPTION
@@ -24,5 +24,6 @@ $db->setAttribute(
 
 if(session_id() == '' || !isset($_SESSION)) {
     // session isn't started
+    // session is niet gestard
     session_start();
 }

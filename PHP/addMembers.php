@@ -19,6 +19,7 @@ $prepare = $db->prepare($sql);
 $prepare-> execute([
     ':id' => $id
 ]);
+// hier toevoeg je de speleres
 $team = $prepare->fetch(PDO::FETCH_ASSOC);
 
 
@@ -28,7 +29,7 @@ $team = $prepare->fetch(PDO::FETCH_ASSOC);
 
     echo "<input type='hidden' name='type' value='add_players'>";
 echo "<div class='container-3'>";
-
+// hier loop die door de aantal spelers die moeten worden toegevoegd moet worden
 for ($i = 1; $i <= $playercount; $i++){
     echo "<div class='container-4' style='max-width: 100px'>";
         echo "<label for='Player'><b>Speler $i</b></label>";
